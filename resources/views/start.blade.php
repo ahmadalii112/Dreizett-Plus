@@ -207,7 +207,7 @@
                     </dd>
                 </div>
 
-                <div>
+                <!--<div>
                     <dt class="text-base font-semibold leading-7 text-gray-900">
                         Wohngemeinschaft Ennepetal Breslauer Platz
                     </dt>
@@ -220,7 +220,7 @@
                                     aria-hidden="true">→</span></a>
                         </p>
                     </dd>
-                </div>
+                </div>-->
 
             </dl>
 
