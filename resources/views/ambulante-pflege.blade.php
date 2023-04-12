@@ -59,7 +59,7 @@
             <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Jetzt Erstgespräch vereinbaren.</p>
             <p class="mt-6 text-base leading-7 text-white">Sehr gern beraten wir Sie in einem kostenlosen und unverbindlichen Erstgespräch über die Möglichkeiten einer Zusammenarbeit. Dabei gehen wir individuell auf Ihre Bedürfnisse ein und zeigen Ihnen, welche Pflegekassenleistungen Ihnen zustehen.</p>
             <div class="mt-8">
-                <a href="https://calendly.com/dreizett-plus" class="mt-6 rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Jetzt Erstgespräch vereinbaren →</a>
+                <a href="https://calendly.com/dreizett-plus/erstgespraech" class="mt-6 rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Jetzt Erstgespräch vereinbaren →</a>
             </div>
           </div>
         </div>

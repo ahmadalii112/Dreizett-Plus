@@ -105,7 +105,7 @@
                                 class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Karriere</a>
                         </div>
                         <div class="py-6">
-                            <a href="https://calendly.com/dreizett-plus"
+                            <a href="https://calendly.com/dreizett-plus/erstgespraech"
                                 class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 bg-brand-2 text-gray-900 hover:bg-brand-2/80">Zum
                                 Erstgespräch</a>
                         </div>

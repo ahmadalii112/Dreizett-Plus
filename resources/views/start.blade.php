@@ -13,7 +13,7 @@
                 Ihr Browser akzeptiert keine Videos. Bitte mit einem anderen Browser probieren.
             </video>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a href="https://calendly.com/dreizett-plus"
+                <a href="https://calendly.com/dreizett-plus/erstgespraech"
                     class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Jetzt
                     Erstgespräch vereinbaren →</a>
                 <!--<a href="#" class="text-sm font-semibold leading-6 text-white">Mehr  <span aria-hidden="true">→</span></a>-->
@@ -243,7 +243,7 @@
             </h2>
             <h3 class="text-2xl tracking-tight text-gray-900">Selbstverständlich kostenlos und unverbindlich.</h3>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a href="https://calendly.com/dreizett-plus"
+                <a href="https://calendly.com/dreizett-plus/erstgespraech"
                     class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Jetzt
                     Termin wählen <span aria-hidden="true">→</span></a>
             </div>

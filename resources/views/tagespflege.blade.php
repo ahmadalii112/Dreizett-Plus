@@ -78,7 +78,7 @@
                     Erstgespräch und erhalten Sie einen Gutschein für einen Schnuppertag in unserer Tagespflege. Probieren
                     Sie es einfach einmal aus - Sie werden begeistert sein!</p>
                 <div class="mt-8">
-                    <a href="https://calendly.com/dreizett-plus"
+                    <a href="https://calendly.com/dreizett-plus/erstgespraech"
                         class="mt-6 rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Jetzt
                         Erstgespräch vereinbaren →</a>
                 </div>
