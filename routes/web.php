@@ -48,3 +48,7 @@ Route::get('/karriere', function () {
 Route::get('/event', function () {
     return view('event');
 });
+
+Route::get('/bewerbung', function () {
+    return redirect('/karriere');
+});
