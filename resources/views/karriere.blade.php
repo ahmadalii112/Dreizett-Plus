@@ -34,7 +34,7 @@
                             <div
                                 class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                 <div class="relative">
-                                    <img src="{{asset('images/karriere_1.jpg')}}"
+                                    <img src="{{asset('images/karriere_1.webp')}}"
                                         alt=""
                                         class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                                     <div
@@ -44,7 +44,7 @@
                             </div>
                             <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                                 <div class="relative">
-                                    <img src="{{asset('images/karriere_2.jpg')}}"
+                                    <img src="{{asset('images/karriere_2.webp')}}"
                                         alt=""
                                         class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                                     <div
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="relative">
-                                    <img src="{{asset('images/karriere_3.jpg')}}"
+                                    <img src="{{asset('images/karriere_3.webp')}}"
                                         alt=""
                                         class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                                     <div
@@ -62,7 +62,7 @@
                             </div>
                             <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                                 <div class="relative">
-                                    <img src="{{asset('images/karriere_4.jpg')}}"
+                                    <img src="{{asset('images/karriere_4.webp')}}"
                                         alt=""
                                         class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                                     <div
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="relative">
-                                    <img src="{{asset('images/karriere_5.jpg')}}"
+                                    <img src="{{asset('images/karriere_5.webp')}}"
                                         alt=""
                                         class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                                     <div
@@ -93,7 +93,7 @@
 
                 <div class="lg:flex lg:flex-auto lg:justify-center gap-y-20 gap-x-8 mt-8">
                     <div>
-                        <img src="{{ asset('images/top_arbeitgeber.png') }}" alt="dreizett Plus Top Arbeitgeber"
+                        <img src="{{ asset('images/top_arbeitgeber.webp') }}" alt="dreizett Plus Top Arbeitgeber"
                                 title="Wir sind als Top-Arbeitgeber ausgezeichnet" />
                     </div>
                     <div>
@@ -130,7 +130,7 @@
 
         <!-- Image section -->
         <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-            <img src="{{asset('images/karriere_6.jpg')}}"
+            <img src="{{asset('images/karriere_6.webp')}}"
                 alt="" class="aspect-[5/2] w-full object-cover xl:rounded-3xl">
         </div>
 
@@ -245,7 +245,7 @@
 
 
 
-        <div class="bg-brand py-24 sm:py-32 mt-32">
+        <!--<div class="bg-brand py-24 sm:py-32 mt-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
               <div class="mx-auto max-w-2xl lg:mx-0">
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Das sagen unsere Mitarbeiter</h2>
@@ -277,7 +277,7 @@
                   </li>
               </ul>
             </div>
-          </div>
+          </div>-->
 
 
           <!-- Values section -->

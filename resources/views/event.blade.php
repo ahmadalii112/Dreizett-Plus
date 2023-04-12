@@ -26,7 +26,7 @@
 
                 <li class="flex flex-col gap-10 pt-12 sm:flex-row">
                     <img class="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
-                        src="{{asset('images/event/frau_alze.jpg')}}"
+                        src="{{asset('images/event/frau_alze.webp')}}"
                         alt="">
                     <div class="max-w-xl flex-auto">
                         <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Daniela Alze</h3>
@@ -40,7 +40,7 @@
 
                 <li class="flex flex-col gap-10 pt-12 sm:flex-row">
                     <img class="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
-                        src="{{asset('images/team/gabriele_landolfo.png')}}"
+                        src="{{asset('images/team/gabriele_landolfo.webp')}}"
                         alt="">
                     <div class="max-w-xl flex-auto">
                         <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Gabriele Landolfo</h3>
@@ -66,7 +66,7 @@
                     </div>
                 </li>
 
-                <li class="flex flex-col gap-10 pt-12 sm:flex-row">
+                <!--<li class="flex flex-col gap-10 pt-12 sm:flex-row">
                     <img class="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="{{asset('images/event/tzevelekaki.png')}}" alt="">
                     <div class="max-w-xl flex-auto">
                         <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Georgia Tzevelekaki</h3>
@@ -77,10 +77,10 @@
                         </p>
                         <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt Platz reservieren</a>
                     </div>
-                </li>
+                </li>-->
 
                 <li class="flex flex-col gap-10 pt-12 sm:flex-row">
-                    <img class="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="{{asset('images/team/marco_landolfo.png')}}" alt="">
+                    <img class="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="{{asset('images/team/marco_landolfo.webp')}}" alt="">
                     <div class="max-w-xl flex-auto">
                         <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Marco Landolfo</h3>
                         <p class="text-base leading-7 text-gray-600 mb-4">Geschäftsführer Pflegetüte GmbH</p>

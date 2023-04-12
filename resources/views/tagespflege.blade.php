@@ -67,8 +67,8 @@
     </div>
 
     <div class="relative bg-brand">
-        <div class="relative h-80 overflow-hidden bg-indigo-600 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
-            <img class="h-full w-full object-cover" src="{{ asset('images/team_2.jpg') }}" alt="">
+        <div class="relative h-80 overflow-hidden bg-brand md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
+            <img class="h-full w-full object-cover" src="{{ asset('images/team_2.webp') }}" alt="">
         </div>
         <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:py-40 lg:px-8">
             <div class="pr-6 pl-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">

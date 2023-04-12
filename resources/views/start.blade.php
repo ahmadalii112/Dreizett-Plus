@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="relative isolate overflow-hidden pt-14 bg-brand">
-    <img src="{{ asset('images/team_hero.jpg') }}" alt=""
+    <img src="{{ asset('images/team_hero.webp') }}" alt=""
         class="absolute inset-0 -z-10 h-full w-full object-cover opacity-30">
     <div class="mx-auto max-w-2xl py-8 sm:py-8 lg:py-8">
         <div class="text-center">
@@ -74,7 +74,7 @@
             <div class="sm:px-6 lg:px-0">
                 <div class="relative isolate overflow-hidden sm:rounded-3xl lg:max-w-none">
                     <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                        <img src="{{ asset('images/team_1.jpg') }}" alt="Team dreizett Plus">
+                        <img src="{{ asset('images/team_1.webp') }}" alt="Team dreizett Plus">
                     </div>
                 </div>
             </div>

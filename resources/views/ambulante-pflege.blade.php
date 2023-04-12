@@ -52,7 +52,7 @@
 
     <div class="relative bg-brand">
         <div class="relative h-80 overflow-hidden bg-indigo-600 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
-          <img class="h-full w-full object-cover" src="{{asset('images/team_2.jpg')}}" alt="">
+          <img class="h-full w-full object-cover" src="{{asset('images/team_2.webp')}}" alt="">
         </div>
         <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:py-40 lg:px-8">
           <div class="pr-6 pl-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
@@ -141,7 +141,7 @@
           <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl">Unsere Standorte</h2>
           <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 text-center text-white">
             <li class="rounded-2xl bg-brand py-10 px-8">
-              <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{asset('images/buero_gevelsberg.jpg')}}" alt="">
+              <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{asset('images/buero_gevelsberg.webp')}}" alt="">
               <h3 class="mt-6 text-base font-bold leading-7 tracking-tight">Standort Gevelsberg</h3>
               <p class="text-sm leading-6">Berchemallee 99, 58285 Gevelsberg</p>
               <p class="font-semibold mt-6">Einzugsgebiet</p>
@@ -153,7 +153,7 @@
               </ul>
             </li>
             <li class="rounded-2xl bg-brand py-10 px-8">
-                <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{asset('images/buero_hagen.jpg')}}" alt="">
+                <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{asset('images/buero_hagen.webp')}}" alt="">
                 <h3 class="mt-6 text-base font-bold leading-7 tracking-tight">Standort Hagen</h3>
                 <p class="text-sm leading-6">Dammstraße 18, 58135 Hagen</p>
                 <p class="font-semibold mt-6">Einzugsgebiet</p>
@@ -164,7 +164,7 @@
               </li>
 
               <li class="rounded-2xl bg-brand py-10 px-8">
-                <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{asset('images/buero_ennepetal.jpg')}}" alt="">
+                <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{asset('images/buero_ennepetal.webp')}}" alt="">
                 <h3 class="mt-6 text-base font-bold leading-7 tracking-tight">Standort Ennepetal</h3>
                 <p class="text-sm leading-6">Voerder Straße 31, 58256 Ennepetal</p>
                 <p class="font-semibold mt-6">Einzugsgebiet</p>

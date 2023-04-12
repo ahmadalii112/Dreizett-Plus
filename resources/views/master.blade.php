@@ -15,7 +15,7 @@
             <div class="flex lg:flex-1">
                 <a href="/" class="-m-1.5 p-1.5">
                     <span class="sr-only">dreizett Plus Ambulanter Pflegedienst</span>
-                    <img class="h-15 w-auto" src="{{ asset('images/logo.png') }}" alt="">
+                    <img class="h-15 w-auto" src="{{ asset('images/logo.webp') }}" alt="">
                 </a>
             </div>
             <div class="flex lg:hidden">
@@ -60,7 +60,7 @@
                 <div class="flex items-center justify-between">
                     <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">dreizett Plus Ambulanter Pflegedienst</span>
-                        <img class="h-15 w-auto" src="{{ asset('images/logo.png') }}" alt="">
+                        <img class="h-15 w-auto" src="{{ asset('images/logo.webp') }}" alt="">
                     </a>
                     <button type="button" class="mobile-nav-toggler -m-2.5 rounded-md p-2.5 text-gray-700">
                         <span class="sr-only">Menü schließen</span>
@@ -86,9 +86,8 @@
                             <a href="https://dreizett-wohngemeinschaft.de/"
                                 class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Wohngemeinschaften</a>
 
-                            <a href="/ueber-uns"
-                                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Über
-                                Uns</a>
+                            <a href="/team"
+                                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Das Team</a>
 
                             <a href="/karriere"
                                 class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Karriere</a>
@@ -111,7 +110,7 @@
         <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
             <div class="xl:grid xl:grid-cols-3 xl:gap-8">
                 <div class="space-y-8">
-                    <img class="h-7" src="{{ asset('images/logo.png') }}" alt="dreizett Plus">
+                    <img class="h-7" src="{{ asset('images/logo.webp') }}" alt="dreizett Plus">
                     <p class="text-sm leading-6 text-gray-300">Wir revolutionieren die Pflege und machen sie für alle
                         Beteiligten ein großes Stück besser.</p>
                     <div class="flex space-x-6">
@@ -213,7 +212,7 @@
                             </ul>
                         </div>
                         <div class="mt-10 md:mt-0">
-                            <img src="{{ asset('images/top_arbeitgeber.png') }}" alt="dreizett Plus Top Arbeitgeber"
+                            <img src="{{ asset('images/top_arbeitgeber.webp') }}" alt="dreizett Plus Top Arbeitgeber"
                                 title="Wir sind als Top-Arbeitgeber ausgezeichnet" />
                         </div>
                     </div>
