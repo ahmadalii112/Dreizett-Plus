@@ -60,7 +60,7 @@
                         <p class="text-base leading-7 text-gray-600 mb-4">Wundmanagerin AWM, Wundassistentin DDG</p>
                         <b class="leading-7 text-brand text-lg">&ldquo;Diabetes und seine Folgeerkrankungen.&rdquo;</b>
                         <p class="mt-6 mb-6 text-base leading-7 text-gray-600">
-                            Frau Siekmeier leitet die Fußambulanz der Diabetes- und Stoffwechselpraxis in Wetter. Als Wundmanagerin und Wundassistentin informiert Frau Siekmeier umfassend und fundiert u.a. über das diabetische Fußsyndrom, Polyneuropathie, periphere arterielle Verschlusskrankheit (PAVK) und weitere Themen.
+                            Frau Siekmeier von der Fußambulanz der Diabetes- und Stoffwechselpraxis in Wetter informiert als Wundmanagerin und Wundassistentin umfassend und fundiert u.a. über das diabetische Fußsyndrom, Polyneuropathie, periphere arterielle Verschlusskrankheit (PAVK) und weitere Themen.
                         </p>
                         <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt Platz reservieren</a>
                     </div>
