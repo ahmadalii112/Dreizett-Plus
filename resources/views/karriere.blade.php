@@ -93,12 +93,12 @@
 
                 <div class="lg:flex lg:flex-auto lg:justify-center gap-y-20 gap-x-8 mt-8">
                     <div>
-                        <img src="{{ asset('images/top_arbeitgeber.webp') }}" alt="dreizett Plus Top Arbeitgeber"
+                        <img src="{{ asset('images/top_arbeitgeber_fairfamily.webp') }}" alt="dreizett Plus Top Arbeitgeber"
                                 title="Wir sind als Top-Arbeitgeber ausgezeichnet" />
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Wir sind TOP Arbeitgeber. Und so profitierst Du davon.</h2>
-                        <p class="text-lg leading-8 text-gray-600 mt-6">Es ist unser Anspruch, einen Ort für Dich zu erschaffen, an dem Du gerne Zeit verbringst. Um dieses Ziel zu erreichen haben wir für Dich ein einzigartiges Mitarbeiterbenefit-System sowie eine gesunde Unternehmenskultur geschaffen. Deshalb werden wir demnächst offiziell zum nachhaltig gesunden Arbeitgeber ausgezeichnet.</p>
+                        <p class="text-lg leading-8 text-gray-600 mt-6">Es ist unser Anspruch, einen Ort für Dich zu erschaffen, an dem Du gerne Zeit verbringst. Um dieses Ziel zu erreichen haben wir für Dich ein einzigartiges Mitarbeiterbenefit-System sowie eine gesunde Unternehmenskultur geschaffen. Deshalb wurden wir offiziell zum nachhaltig gesunden Arbeitgeber ausgezeichnet.</p>
                     </div>
                 </div>
 
@@ -123,9 +123,7 @@
             </div>
         </div>
 
-        <a name="form"></a>
-        <script src="https://static.heyflow.app/widget/latest/webview.js"></script>
-        <heyflow-wrapper flow-id="karriere-dreizett" dynamic-height style-config='{"width": "100%"}'></heyflow-wrapper>
+        
 
 
         <!-- Image section -->
@@ -142,7 +140,7 @@
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Übe Deinen Job endlich so aus, wie Du es schon immer wolltest.</h2>
                 <p class="text-lg leading-8 text-gray-600 mt-6">Wir bieten unseren Patienten ein großes Leistungsspektrum im ambulanten Bereich. Daher entsteht für unsere Mitarbeiter keine monotone Arbeit und sie haben immer Abwechslung. Mit Deinem individualisierten Dienstplan kannst Du Deinen Tagesablauf zusätzlich so strukturieren, wie es Dir am besten passt.</p>
                 <p class="text-lg leading-8 text-gray-600 mt-6 mb-6">In Deiner täglichen Arbeit fährst Du zu den jeweiligen Patienten nach Hause und kümmerst Dich um die Versorgung. Dabei kannst Du Dir so viel Zeit lassen, wie die intensive und individuelle Betreuung des Patienten dauert. Zeitdruck und Stress gibt es bei uns nicht. Die Dokumentation findet bei uns vollständig digital statt, sodass die Prozesse einfach und reibungslos ablaufen.</p>
-                <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt innerhalb 60 Sekunden bewerben</a>
+                <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt bewerben und wieder glücklich werden</a>
             </div>
         </div>
 
@@ -154,7 +152,6 @@
                 <p class="text-lg leading-8 text-gray-600 mt-6">Menschlichkeit ist bei uns nicht nur ein Wort, sondern ein Versprechen. Bei uns stehen der Mensch und sein Wohlbefinden im Mittelpunkt. Und das nicht nur bei unseren Patienten, sondern in erster Linie auch bei unseren Mitarbeitern.</p>
                 <p class="text-lg leading-8 text-gray-600 mt-6">Wir setzen auf flache Hierarchien und ein familiäres Arbeitsumfeld. Bei uns pflegen wir ein freundschaftliches Verhältnis miteinander und sorgen dafür, dass sich jeder bei uns wohlfühlt. Außerdem achten wir auf einen respektvollen Umgang miteinander und legen großen Wert auf eine ehrliche Kommunikation.</p>
                 <p class="text-lg leading-8 text-gray-600 mt-6 mb-6">Unseren Teamzusammenhalt stärken wir auch regelmäßig außerhalb der Arbeitszeiten. Als familienfreundlicher Arbeitgeber sind auch Kinder und Partner bei unseren Teamevents eingeladen.</p>
-                <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt innerhalb 60 Sekunden bewerben</a>
             </div>
         </div>
 
@@ -167,7 +164,35 @@
                 <p class="text-lg leading-8 text-gray-600 mt-6">Bei uns erwartet Dich ein breites Spektrum an Fortbildungs- und Aufstiegsmöglichkeiten. Damit kannst Du Dich in Deinem Beruf weiterentwickeln und auch persönlich wachsen. Dabei setzen wir auf ein internes Schulungssystem, das individuell auf Dich abgestimmt ist.</p>
                 <p class="text-lg leading-8 text-gray-600 mt-6">In einer intensiven 14-tägigen Einarbeitungsphase lernst Du zu Beginn alles, was Du für Deinen Alltag brauchst. So kannst Du schnell Sicherheit in Deiner Arbeit gewinnen und Dich optimal auf die Betreuung und Pflege unserer Patienten vorbereiten.</p>
                 <p class="text-lg leading-8 text-gray-600 mt-6 mb-6">Insgesamt legen wir großen Wert auf eine individuelle Betreuung unserer Mitarbeiter. Wir unterstützen Dich auf Deinem Karriereweg und geben Dir alle Werkzeuge an die Hand, die Du benötigst, um Dich in Deinem Beruf weiterzuentwickeln.</p>
-                <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt innerhalb 60 Sekunden bewerben</a>
+                <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Kontaktiere uns und wir sprechen über Deine Ziele</a>
+            </div>
+        </div>
+
+        <div class="mx-auto mt-8 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:mt-12">
+            <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+                <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                    <div class="relative aspect-[2/1] sm:aspect-[2/1] lg:w-64 lg:shrink-0">
+                        <img src="https://img.wp.de/img/ennepetal-gevelsberg-schwelm/crop237415765/4057656153-w1200-cv16_9-q85/9ecb9a5a-980a-11ed-acb9-0a2f83637b45.jpg"
+                            alt="" class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover">
+                        <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-x-4 text-xs">
+                            <time datetime="2020-03-16" class="text-gray-500">19.01.2023</time>
+                            <a href="https://www.wp.de/staedte/ennepetal-gevelsberg-schwelm/neue-betreuung-pflegedienst-expandiert-in-gevelsberg-id237415769.html"
+                                class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-gray-600 hover:bg-gray-100">Westfalenpost</a>
+                        </div>
+                        <div class="group relative max-w-xl">
+                            <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                <a href="https://www.wp.de/staedte/ennepetal-gevelsberg-schwelm/neue-betreuung-pflegedienst-expandiert-in-gevelsberg-id237415769.html">
+                                    <span class="absolute inset-0"></span>
+                                    Neue Betreuung: Pflegedienst expandiert in Gevelsberg
+                                </a>
+                            </h3>
+                            <p class="mt-5 text-sm leading-6 text-gray-600">Gabriele Landolfo, Geschäftsführer des ambulanten Pflegedienstes "dreizett Plus" in Gevelsberg, hat neue Pläne für die Erweiterung des Betreuungsangebotes. Der Pflegedienst plant in der Gevelsberger Innenstadt einen Neubau, der speziell auf die Bedürfnisse älterer Menschen zugeschnitten ist. Dort sollen eine Senioren-WG und altersgerechtes Wohnen angeboten werden. Mit diesem erweiterten Betreuungsangebot wollen wir als Pflegedienst einen wichtigen Beitrag zur Unterstützung älterer Menschen in Gevelsberg leisten.</p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
 
@@ -205,7 +230,7 @@
                     <dt class="font-semibold text-gray-900">dreizett Plus-Rabatte bei über 500 Online-Shops in ganz Deutschland</dt>
                 </div>
                 <div>
-                    <dt class="font-semibold text-gray-900">Jährliches Gesundheitsbudget von 900 € für Massage, Brille, Heilpraktiker, Physiotherapie u. v. m.</dt>
+                    <dt class="font-semibold text-gray-900">Jährliches Gesundheitsbudget von 600 € für Massage, Brille, Heilpraktiker, Physiotherapie u. v. m.</dt>
                 </div>
                 <div>
                     <dt class="font-semibold text-gray-900">Digitaler Gesundheitscoach</dt>
@@ -239,7 +264,7 @@
                 </div>
             </dl>
 
-            <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt innerhalb 60 Sekunden bewerben</a>
+            <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Erfahre mit einer Bewerbung mehr über unser Benefit-System</a>
         </div>
 
 
@@ -281,7 +306,7 @@
 
 
           <!-- Values section -->
-        <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-32 lg:px-8">
+        <div class="mx-auto mt-32 mb-7 max-w-7xl px-6 sm:mt-32 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">So läuft unser Bewerbungsprozess ab</h2>
             </div>
@@ -303,8 +328,12 @@
                     <dd class="mt-1 text-gray-600">Wenn Du uns im Vorstellungsgespräch überzeugt hast, bekommst Du zeitnah eine Zusage mit Arbeitsvertrag. Danach beginnt Deine intensive Einarbeitungsphase.</dd>
                 </div>
             </dl>
-            <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Jetzt innerhalb 60 Sekunden bewerben</a>
+            <a href="#form" class="rounded-md bg-brand-2 hover:bg-brand-2/80 border-white px-3.5 py-3.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand mt-6">Hier klicken und den ersten Schritt einleiten</a>
         </div>
+
+        <a name="form"></a>
+        <script src="https://static.heyflow.app/widget/latest/webview.js"></script>
+        <heyflow-wrapper flow-id="karriere-dreizett" dynamic-height style-config='{"width": "100%"}'></heyflow-wrapper>
 
         <div class="bg-white py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -337,6 +366,8 @@
               </div>
             </div>
           </div>
+
+          <iframe width="100%" height="500px" frameborder="0" allowfullscreen src="//umap.openstreetmap.de/de/map/unbenannte-karte_39790?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false"></iframe>
 
     </main>
 @endsection
