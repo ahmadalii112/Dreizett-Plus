@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -8,51 +10,30 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-Route::get('/', function () {
-    return view('start');
+Route::view('/', 'start');
+Route::view('ambulante-pflege', 'ambulante-pflege');
+Route::view('tagespflege', 'tagespflege');
+Route::view('team', 'team');
+Route::view('presse', 'presse');
+Route::view('impressum', 'impressum');
+Route::view('datenschutz', 'datenschutz');
+Route::view('karriere', 'karriere');
+Route::view('event', 'event');
+Route::view('bewerbung', 'karriere');
+Route::view('danke', 'danke');
+
+Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('users', UserController::class);
 });
 
-Route::get('/ambulante-pflege', function () {
-    return view('ambulante-pflege');
-});
-
-Route::get('/tagespflege', function () {
-    return view('tagespflege');
-});
-
-Route::get('/team', function () {
-    return view('team');
-});
-
-Route::get('/presse', function () {
-    return view('presse');
-});
-
-Route::get('/impressum', function () {
-    return view('impressum');
-});
-
-Route::get('/datenschutz', function () {
-    return view('datenschutz');
-});
-
-Route::get('/karriere', function () {
-    return view('karriere');
-});
-
-Route::get('/event', function () {
-    return view('event');
-});
-
-Route::get('/bewerbung', function () {
-    return redirect('/karriere');
-});
-
-Route::get('/danke', function () {
-    return view('danke');
-});
+require __DIR__.'/auth.php';
