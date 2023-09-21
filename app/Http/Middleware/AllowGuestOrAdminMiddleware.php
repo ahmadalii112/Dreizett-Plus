@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use App\Enums\RoleTypeEnum;
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class AllowGuestOrAdminMiddleware
 {
@@ -22,5 +21,4 @@ class AllowGuestOrAdminMiddleware
 
         return redirect('/'); // Redirect to the dashboard or any other route as needed.
     }
-
 }
