@@ -38,7 +38,7 @@
                                 @enderror
                             </div>
                             <div class="sm:col-span-3">
-                                <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                                <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
                                 <div class="mt-2">
                                     <input type="text" name="first_name" id="first_name"  value="{{ old('first_name', isset($user) ? $user?->first_name : '') }}" autocomplete="given-name" class="block w-full @error('first_name') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="last_name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                                <label for="last_name" class="block text-sm font-medium leading-6 text-gray-900">Last Name</label>
                                 <div class="mt-2">
                                     <input type="text" name="last_name" id="last_name"  value="{{ old('last_name', isset($user) ? $user?->last_name : '') }}" autocomplete="family-name" class="block w-full @error('last_name') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
                                 <div class="mt-2">
                                     <input id="email" name="email" type="email" autocomplete="email"  value="{{ old('email', isset($user) ? $user?->email : '') }}" class="block w-full @error('email') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
@@ -75,6 +75,18 @@
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
+                            @if(!isset($user))
+                            <div class="sm:col-span-3">
+                                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                                <div class="mt-2">
+                                    <input type="password" name="password" id="password"  value="{{ old('password') }}" autocomplete="password" class="block w-full @error("password") ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder="Enter Password">
+                                </div>
+                                @error('password')
+                                <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="mt-6 flex items-center justify-end gap-x-6">

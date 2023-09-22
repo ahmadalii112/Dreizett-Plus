@@ -27,26 +27,26 @@
             @method('DELETE')
             @csrf
             <div class="mt-4 mb-6">
-                <!-- Modal title -->
-                <p class="mb-2 text-lg font-semibold text-gray-700">
-                    Delete User
-                </p>
+                <!-- Delete title -->
+                <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-red-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                    </svg>
+                </div>
                 <!-- Modal description -->
-                <p class="text-sm text-gray-700">
-                    Are you sure you want to delete this user "{{ $user->full_name }}"
-                </p>
+                <div class="mt-3 text-center sm:mt-5 ">
+                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Delete User</h3>
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-700">Are you sure you want to delete this user <span class="font-semibold">"{{ $user->full_name }}"</span></p>
+                    </div>
+                </div>
             </div>
-            <footer
-                class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50">
-                <button type="button" @click="isModalOpen = false"
-                        class="w-full px-5 py-3 text-sm font-medium leading-5 transition-colors duration-150 border border-gray-300 rounded-lg sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
-                    Cancel
-                </button>
-                <button
-                    class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                    Delete
-                </button>
-            </footer>
+            <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:col-start-2">Delete</button>
+                <button type="button" @click="isModalOpen = false" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">Cancel</button>
+            </div>
+
+
         </form>
     </div>
 </div>

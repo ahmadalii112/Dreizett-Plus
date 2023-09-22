@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
+use Illuminate\Validation\Rules\Password;
 
 class UserRequest extends FormRequest
 {
@@ -30,6 +31,9 @@ class UserRequest extends FormRequest
             'first_name' => ['string', 'max:255'],
             'last_name' => ['sometimes', 'max:255'],
             'mobile_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:255'],
+            'password' => [
+                Rule::when($this->filled('password'), ['required', Password::min(8), 'max:255']),
+            ],
             'email' => ['email', 'max:255', Rule::unique('users')->ignore($this->user)],
         ];
     }
