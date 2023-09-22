@@ -1,0 +1,67 @@
+version: '3.8'
+
+networks:
+    dreizettplus_web:
+        driver: bridge
+
+volumes:
+    vendor:
+    node_modules:
+
+services:
+    nginx:
+        image: dreizettplus_web-nginx:latest
+        build:
+            context: .docker
+            dockerfile: ./nginx/Dockerfile
+        networks:
+            - dreizettplus_web
+        restart: always
+        depends_on:
+            - app
+        container_name: dreizettplus_web-nginx
+        volumes:
+            - ./:/var/www/html:ro,cached
+        ports:
+            - ${APP_PORT:-80}:80
+            - ${APP_SSL_PORT:-443}:443
+
+    app:
+        image: dreizettplus_web-app:latest
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        networks:
+            - dreizettplus_web
+        restart: always
+        container_name: dreizettplus_web-app
+        volumes:
+            - ./:/var/www/html:cached
+            - /var/www/html/vendor
+            - /var/www/html/node_modules
+        depends_on:
+            - mariadb
+
+    mariadb:
+        image: mariadb
+        container_name: dreizettplus_web-mariadb
+        volumes:
+            - .docker/db:/var/lib/mysql
+        environment:
+            MARIADB_USER: ${DB_USERNAME}
+            MARIADB_PASSWORD: ${DB_PASSWORD}
+            MARIADB_DATABASE: ${DB_DATABASE}
+            MARIADB_ROOT_PASSWORD: 'XZcqI10WDfXvB1A'
+        networks:
+            - dreizettplus_web
+
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: dreizettplus_web-phpmyadmin
+        restart: always
+        ports:
+            - 8080:80
+        networks:
+            - dreizettplus_web
+        environment:
+            PMA_HOST: dreizettplus_web-mariadb
