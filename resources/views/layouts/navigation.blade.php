@@ -19,6 +19,9 @@
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                             {{ __('Users') }}
                         </x-nav-link>
+                    <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.index')">
+                        {{ __('Residential Community') }}
+                    </x-nav-link>
                     @endhasanyrole
                 </div>
             </div>

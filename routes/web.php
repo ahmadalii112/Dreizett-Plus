@@ -2,6 +2,7 @@
 
 use App\Enums\RoleTypeEnum;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResidentialCommunityController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
     // Administration and Management Role can access it
     Route::middleware(['role:'.RoleTypeEnum::ADMINISTRATION->value.'|'.RoleTypeEnum::MANAGEMENT->value])->group(function () {
         Route::resource('users', UserController::class);
+        Route::resource('residential-communities', ResidentialCommunityController::class);
     });
 });
 

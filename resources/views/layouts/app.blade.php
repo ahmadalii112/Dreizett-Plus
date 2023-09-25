@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <title>@if (isset($heading)) {{ $heading }} @else {{ config('app.name', 'Laravel') }} @endif</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -37,4 +37,11 @@
             </main>
         </div>
     </body>
+    <script>
+        (function(){
+            $('.from-prevent-multiple-submits').on('submit', function(){
+                $('.from-prevent-multiple-submits').attr('disabled','true');
+            })
+        })();
+    </script>
 </html>

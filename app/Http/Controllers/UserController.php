@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userService->paginate(perPage: 10, with: ['roles']);
+        $users = $this->userService->paginate(with: ['roles'], perPage: 10);
 
         return view('users.index', compact('users'));
     }
