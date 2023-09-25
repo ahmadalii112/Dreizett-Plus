@@ -82,8 +82,19 @@
                                                                     </svg>
                                                                     Delete
                                                                 </a>
-                                                                <!-- Delete User Modal -->
-                                                                @include('residential-communities.partials.delete-modal', ['name' => $residentialCommunity->name, 'id' => $residentialCommunity->id])
+                                                                <!-- Delete  Modal -->
+                                                                <x-delete-modal
+                                                                    :is-open="'isModalOpen'"
+                                                                    :close-action="'isModalOpen = false'"
+                                                                    :modal-id="'modal'"
+                                                                    :form-action="route('residential-communities.destroy', $residentialCommunity->id)"
+                                                                    :form-method="'POST'"
+                                                                    :form-method-type="'DELETE'"
+                                                                    :modal-title="'Delete Residential Community'"
+                                                                    :modal-text="$residentialCommunity->name"
+                                                                    :submit-text="'Delete'"
+                                                                    :cancel-text="'Cancel'"
+                                                                />
                                                             </div>
                                                         </div>
                                                     </x-action-dropdown>

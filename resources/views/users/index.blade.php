@@ -79,7 +79,18 @@
                                                                     Delete
                                                                 </a>
                                                                 <!-- Delete User Modal -->
-                                                                @include('users.partials.delete-modal', ['userName' => $user->name, 'userId' => $user->id])
+                                                                <x-delete-modal
+                                                                    :is-open="'isModalOpen'"
+                                                                    :close-action="'isModalOpen = false'"
+                                                                    :modal-id="'modal'"
+                                                                    :form-action="route('users.destroy', $user->id)"
+                                                                    :form-method="'POST'"
+                                                                    :form-method-type="'DELETE'"
+                                                                    :modal-title="'Delete User'"
+                                                                    :modal-text="$user->full_name"
+                                                                    :submit-text="'Delete'"
+                                                                    :cancel-text="'Cancel'"
+                                                                />
                                                             </div>
                                                             @role(\App\Enums\RoleTypeEnum::ADMINISTRATION->value)
                                                                 <div x-data="{ isModalOpen: false }" x-cloak>
@@ -91,6 +102,8 @@
 
                                                                         Reset Password
                                                                     </a>
+
+
                                                                     <!-- Email Reset Modal -->
                                                                     @include('users.partials.reset-password-modal', ['userEmail' => $user->email, 'userId' => $user->id])
                                                                 </div>
