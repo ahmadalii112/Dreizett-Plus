@@ -3,17 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Service\RoleService;
+use App\Http\Service\UserService;
 use App\Models\User;
-use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    protected UserService $userService;
+
+    protected RoleService $roleService;
+
+    public function __construct(
+        UserService $userService,
+        RoleService $roleService
+    ) {
+        $this->userService = $userService;
+        $this->roleService = $roleService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::with('roles')->paginate(10);
+        $users = $this->userService->paginate(perPage: 10, with: ['roles']);
 
         return view('users.index', compact('users'));
     }
@@ -23,7 +36,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name', 'name');
+        $roles = $this->roleService->pluckRoles(keyColumn: 'name');
 
         return view('users.create-edit-form', compact('roles'));
     }
@@ -33,8 +46,10 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $user = User::create($request->validated());
-        $user->assignRole($request->get('role'));
+        $user = $this->userService->createUserWithRole(
+            userData: $request->validated(),
+            roleName: $request->get('role'),
+        );
 
         return redirect()->route('users.index');
     }
@@ -52,7 +67,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::pluck('name', 'name');
+        $roles = $this->roleService->pluckRoles(keyColumn: 'name');
 
         return view('users.create-edit-form', compact('roles', 'user'));
     }
@@ -62,11 +77,11 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-        $user->update($request->validated());
-        if ($request->has('role')) {
-            $user->roles()->detach();
-            $user->assignRole($request->get('role'));
-        }
+        $updatedUser = $this->userService->updateUserWithRole(
+            user: $user,
+            userData: $request->validated(),
+            roleName: $request->input('role')
+        );
 
         return redirect()->route('users.index');
     }
@@ -76,7 +91,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
+        $this->userService->delete($user->id);
 
         return redirect()->route('users.index');
     }
