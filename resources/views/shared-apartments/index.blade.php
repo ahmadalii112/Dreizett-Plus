@@ -20,7 +20,7 @@
 
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                                <a href="{{ route('shared-apartments.create') }}"
+                                <a href="{{ $residentialCommunity->isNotEmpty() ? route('shared-apartments.create') : '#' }}"
                                    class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     {{ __('Add Shared Apartments') }}
                                 </a>
@@ -33,13 +33,12 @@
                                         <thead>
                                         <tr>
                                             <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Name') }}
+                                            </th>
+                                            <th scope="col"
                                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
                                                 {{ __('Community') }}
                                             </th>
-                                            <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Rooms') }}
-                                            </th>
-
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Actions
                                             </th>
@@ -49,8 +48,8 @@
                                         <tbody class="divide-y divide-gray-200">
                                         @forelse($sharedApartments as  $keySuper => $sharedApartment)
                                             <tr>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $sharedApartment?->name ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $sharedApartment?->residentialCommunity?->name }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $sharedApartment?->rooms_count ?? 'N/A'}}</td>
 
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <x-action-dropdown label="Options">
@@ -80,7 +79,7 @@
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
                                                                     :modal-title="'Delete Shared Apartments'"
-                                                                    :modal-text="$sharedApartment?->residentialCommunity?->name .'with available rooms ' .$sharedApartment->rooms_count"
+                                                                    :modal-text="$sharedApartment?->name"
                                                                     :submit-text="'Delete'"
                                                                     :cancel-text="'Cancel'"
                                                                 />

@@ -61,7 +61,7 @@
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $residentialCommunity?->name }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->care_allowance ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->household_allowance ?? 'N/A' }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->deduction_amount ?? 'N/A' }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ number_format($residentialCommunity?->deduction_amount) ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->user->full_name ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <x-action-dropdown label="Options">

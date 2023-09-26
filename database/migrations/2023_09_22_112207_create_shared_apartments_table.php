@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('shared_apartments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('community_id')->nullable()->constrained('residential_communities')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('rooms_count')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

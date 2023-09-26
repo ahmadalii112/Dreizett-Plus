@@ -23,8 +23,9 @@ class SharedApartmentController extends Controller
     public function index(): View
     {
         $sharedApartments = $this->sharedApartmentService->paginate(with: ['residentialCommunity']);
+        $residentialCommunity = $this->residentialCommunityService->all();
 
-        return view('shared-apartments.index', compact('sharedApartments'));
+        return view('shared-apartments.index', compact('sharedApartments', 'residentialCommunity'));
     }
 
     public function create(): View

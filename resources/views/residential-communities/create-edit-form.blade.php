@@ -63,7 +63,7 @@
                                 <div class="sm:col-span-3">
                                     <label for="deduction_amount" class="block text-sm font-medium leading-6 text-gray-900"> {{ __('Deduction Amount') }}</label>
                                     <div class="mt-2">
-                                        <input type="number" name="deduction_amount" id="deduction_amount" min="1" max="5"  value="{{ old('deduction_amount', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount : '') }}" autocomplete="family-name" class="block w-full @error('deduction_amount') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="1">
+                                        <input type="number" name="deduction_amount" id="deduction_amount"  value="{{ old('deduction_amount', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount : '') }}" autocomplete="family-name" class="block w-full @error('deduction_amount') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="1">
                                     </div>
                                     @error('deduction_amount')
                                     <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>

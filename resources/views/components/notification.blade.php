@@ -12,7 +12,7 @@
             <!-- Notification panel -->
             <div x-show.transition.duration.300ms="notification.isOpen" @click.away="notification.isOpen = false"
                  class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg
-            ring-1 ring-black ring-opacity-5"
+            ring-1 ring-black ring-opacity-5 p-2"
                  x-bind:class="{
          'bg-green-50': notification.type === 'success',
          'bg-red-50': notification.type === 'danger',

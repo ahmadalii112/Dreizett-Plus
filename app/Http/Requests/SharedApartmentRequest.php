@@ -15,7 +15,7 @@ class SharedApartmentRequest extends FormRequest
     {
         return [
             'community_id' => ['required', 'exists:residential_communities,id'],
-            'rooms_count' => ['required', 'integer', 'min:1'],
+            'name' => ['required', 'max:255'],
         ];
     }
 }

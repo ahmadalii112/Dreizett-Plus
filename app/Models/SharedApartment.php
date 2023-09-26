@@ -10,7 +10,7 @@ class SharedApartment extends Model
 {
     protected $fillable = [
         'community_id',
-        'rooms_count',
+        'name',
     ];
 
     public function residentialCommunity(): BelongsTo
