@@ -57,13 +57,13 @@ class SharedApartmentController extends Controller
     {
         $this->sharedApartmentService->update(where: ['id' => $sharedApartment->id], data: $request->validated());
 
-        return redirect()->route('shared-apartments.index')->with('notificationMessage', 'Apartment Updated Successfully');
+        return redirect()->route('shared-apartments.index')->with('notificationType', 'info')->with('notificationMessage', 'Apartment Updated Successfully');
     }
 
     public function destroy(SharedApartment $sharedApartment)
     {
         $this->sharedApartmentService->delete($sharedApartment->id);
 
-        return redirect()->route('shared-apartments.index')->with('notificationMessage', 'Apartment Deleted Successfully');
+        return redirect()->route('shared-apartments.index')->with('notificationType', 'info')->with('notificationMessage', 'Apartment Deleted Successfully');
     }
 }

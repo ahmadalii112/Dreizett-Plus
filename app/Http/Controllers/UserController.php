@@ -83,7 +83,7 @@ class UserController extends Controller
             roleName: $request->input('role')
         );
 
-        return redirect()->route('users.index')->with('notificationType', 'success')->with('notificationMessage', 'User Updated Successfully');
+        return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', 'User Updated Successfully');
     }
 
     /**
@@ -93,7 +93,7 @@ class UserController extends Controller
     {
         $this->userService->delete($user->id);
 
-        return redirect()->route('users.index')->with('notificationType', 'success')->with('notificationMessage', 'User Deleted Successfully');
+        return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', 'User Deleted Successfully');
 
     }
 }

@@ -32,7 +32,7 @@ class ResidentialCommunityController extends Controller
     {
         $this->residentialCommunityService->create(data: $request->validated() + ['created_by' => auth()->id()]);
 
-        return redirect()->route('residential-communities.index');
+        return redirect()->route('residential-communities.index')->with('notificationType', 'success')->with('notificationMessage', 'Community Created Successfully');
 
     }
 
@@ -51,7 +51,7 @@ class ResidentialCommunityController extends Controller
     {
         $this->residentialCommunityService->update(where: ['id' => $residentialCommunity->id], data: $request->validated());
 
-        return redirect()->route('residential-communities.index');
+        return redirect()->route('residential-communities.index')->with('notificationType', 'info')->with('notificationMessage', 'Community Updated Successfully');
 
     }
 
@@ -59,6 +59,6 @@ class ResidentialCommunityController extends Controller
     {
         $this->residentialCommunityService->delete($residentialCommunity->id);
 
-        return redirect()->route('residential-communities.index');
+        return redirect()->route('residential-communities.index')->with('notificationType', 'info')->with('notificationMessage', 'Community Deleted Successfully');
     }
 }
