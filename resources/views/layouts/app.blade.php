@@ -31,6 +31,8 @@
                 </header>
             @endif
 
+            <!-- Notification Message -->
+            <x-notification />
             <!-- Page Content -->
             <main>
                 {{ $slot }}

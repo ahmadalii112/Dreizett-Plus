@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userService->paginate(with: ['roles'], perPage: 10);
+        $users = $this->userService->paginate(perPage: 10, with: ['roles']);
 
         return view('users.index', compact('users'));
     }
@@ -51,7 +51,7 @@ class UserController extends Controller
             roleName: $request->get('role'),
         );
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('notificationType', 'success')->with('notificationMessage', 'User Created Successfully');
     }
 
     /**
@@ -83,7 +83,7 @@ class UserController extends Controller
             roleName: $request->input('role')
         );
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('notificationType', 'success')->with('notificationMessage', 'User Updated Successfully');
     }
 
     /**
@@ -93,6 +93,7 @@ class UserController extends Controller
     {
         $this->userService->delete($user->id);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('notificationType', 'success')->with('notificationMessage', 'User Deleted Successfully');
+
     }
 }

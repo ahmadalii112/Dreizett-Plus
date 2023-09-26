@@ -1,7 +1,10 @@
 <x-app-layout>
+    <x-slot name="heading">
+        {{ __(isset($residentialCommunity) ? 'Edit Residential Community' : 'Create Residential Community') }}
+    </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __(isset($residentialCommunity) ? 'Edit User' : 'Create User') }}
+            {{ __(isset($residentialCommunity) ? 'Edit Residential Community' : 'Create Residential Community') }}
         </h2>
     </x-slot>
 

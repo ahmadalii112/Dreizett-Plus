@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="heading">
+        {{ __(isset($user) ? 'Edit User' : 'Create User') }}
+    </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __(isset($user) ? 'Edit User' : 'Create User') }}
