@@ -1,4 +1,4 @@
-FROM php:8.1.23-fpm
+FROM php:8.2-fpm
 
 # set main params
 ENV APP_HOME /var/www/html
