@@ -182,4 +182,9 @@ class BaseRepository
 
         return false;
     }
+
+    public function pluck(string $valueColumn = 'name', string $keyColumn = 'key'): array
+    {
+        return $this->model->pluck($valueColumn, $keyColumn)->toArray();
+    }
 }

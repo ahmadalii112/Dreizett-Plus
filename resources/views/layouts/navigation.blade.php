@@ -22,6 +22,9 @@
                     <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.index')">
                         {{ __('Residential Community') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.index')">
+                        {{ __('Shared Apartments') }}
+                    </x-nav-link>
                     @endhasanyrole
                 </div>
             </div>

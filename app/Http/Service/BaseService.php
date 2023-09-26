@@ -136,4 +136,9 @@ class BaseService
     {
         return $this->repository->delete($id);
     }
+
+    public function pluck(string $valueColumn = 'name', string $keyColumn = 'key'): array
+    {
+        return $this->repository->pluck($valueColumn, $keyColumn);
+    }
 }
