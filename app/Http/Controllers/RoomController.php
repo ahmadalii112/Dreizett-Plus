@@ -6,6 +6,8 @@ use App\Http\Requests\RoomRequest;
 use App\Http\Service\RoomService;
 use App\Http\Service\SharedApartmentService;
 use App\Models\Room;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class RoomController extends Controller
 {
@@ -19,14 +21,15 @@ class RoomController extends Controller
         $this->sharedApartmentService = $sharedApartment;
     }
 
-    public function index()
+    public function index(): View
     {
         $rooms = $this->roomService->paginate(with: ['apartment']);
+        $sharedApartments = $this->sharedApartmentService->all()->isEmpty();
 
-        return view('rooms.index', compact('rooms'));
+        return view('rooms.index', compact('rooms', 'sharedApartments'));
     }
 
-    public function create()
+    public function create(): View|RedirectResponse
     {
         $sharedApartments = $this->sharedApartmentService->all();
 
@@ -36,7 +39,7 @@ class RoomController extends Controller
 
     }
 
-    public function store(RoomRequest $request)
+    public function store(RoomRequest $request): RedirectResponse
     {
         $this->roomService->create(data: $request->validated());
 
@@ -54,14 +57,14 @@ class RoomController extends Controller
         return view('rooms.create-edit-form', compact('sharedApartments', 'room'));
     }
 
-    public function update(RoomRequest $request, Room $room)
+    public function update(RoomRequest $request, Room $room): RedirectResponse
     {
         $this->roomService->update(where: ['id' => $room->id], data: $request->validated());
 
         return redirect()->route('rooms.index')->with('notificationType', 'info')->with('notificationMessage', 'Room Updated Successfully');
     }
 
-    public function destroy(Room $room)
+    public function destroy(Room $room): RedirectResponse
     {
         $this->roomService->delete($room->id);
 

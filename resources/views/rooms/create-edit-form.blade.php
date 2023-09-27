@@ -24,13 +24,12 @@
                                         <option>Select Community</option>
                                         @foreach($sharedApartments as $apartment)
                                             <option value="{{$apartment->id}}"
-                                                    @if (old('apartment_id') == $apartment->id) selected="selected"
-                                                    @elseif(isset($room) && $errors->isEmpty())
-                                                        @if($apartment->id == $room->apartment_id)
-                                                            selected
+                                                    @if ((old('apartment_id') == $apartment->id) || (isset($room) && $room->apartment_id == $apartment->id && $errors->isEmpty()))
+                                                        selected="selected"
                                                 @endif
-                                                @endif
-                                            >{{$apartment->name}}</option>
+                                            >
+                                                {{$apartment->name}}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
