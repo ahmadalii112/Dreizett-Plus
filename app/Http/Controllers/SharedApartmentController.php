@@ -6,6 +6,7 @@ use App\Http\Requests\SharedApartmentRequest;
 use App\Http\Service\ResidentialCommunityService;
 use App\Http\Service\SharedApartmentService;
 use App\Models\SharedApartment;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class SharedApartmentController extends Controller
@@ -28,11 +29,14 @@ class SharedApartmentController extends Controller
         return view('shared-apartments.index', compact('sharedApartments', 'residentialCommunity'));
     }
 
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
         $residentialCommunities = $this->residentialCommunityService->all();
 
-        return view('shared-apartments.create-edit-form', compact('residentialCommunities'));
+        return $residentialCommunities->isNotEmpty()
+            ? view('shared-apartments.create-edit-form', compact('residentialCommunities'))
+            : redirect()->route('shared-apartments.index')->with('notificationType', 'warning')->with('notificationMessage', 'Please create community first');
+
     }
 
     public function store(SharedApartmentRequest $request)

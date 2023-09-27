@@ -34,7 +34,7 @@
                                         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                             <span class="text-gray-500 sm:text-sm">€</span>
                                         </div>
-                                        <input type="number" name="care_allowance" id="care_allowance"  value="{{ old('care_allowance', isset($residentialCommunity) ? $residentialCommunity?->care_allowance : '') }}" autocomplete="care_allowance" class="block w-full @error('care_allowance') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
+                                        <input type="number" step="0.01" name="care_allowance" id="care_allowance"  value="{{ old('care_allowance', isset($residentialCommunity) ? $residentialCommunity?->care_allowance : '') }}" autocomplete="care_allowance" class="block w-full @error('care_allowance') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
                                             <span class="text-gray-500 sm:text-sm" id="care_allowance">EUR</span>
                                         </div>
@@ -49,7 +49,7 @@
                                         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                             <span class="text-gray-500 sm:text-sm">€</span>
                                         </div>
-                                        <input type="number" name="household_allowance" id="household_allowance"  value="{{ old('household_allowance', isset($residentialCommunity) ? $residentialCommunity?->household_allowance : '') }}" autocomplete="household_allowance" class="block w-full @error('household_allowance') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
+                                        <input type="number" step="0.01" name="household_allowance" id="household_allowance"  value="{{ old('household_allowance', isset($residentialCommunity) ? $residentialCommunity?->household_allowance : '') }}" autocomplete="household_allowance" class="block w-full @error('household_allowance') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
                                             <span class="text-gray-500 sm:text-sm" id="household_allowance">EUR</span>
                                         </div>

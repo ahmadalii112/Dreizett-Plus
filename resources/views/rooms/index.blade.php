@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('Shared Apartments') }}
+        {{ __('Room') }}
     </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Shared Apartments') }}
+            {{ __('Room') }}
         </h2>
     </x-slot>
 
@@ -15,14 +15,14 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Shared Apartments') }}
+                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Room') }}
                                 </h1>
 
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                                <a href="{{ $residentialCommunity->isNotEmpty() ? route('shared-apartments.create') : '#' }}"
-                                   class="block rounded-md {{ $residentialCommunity->isEmpty() ? 'bg-gray-300 pointer-events-none cursor-not-allowed' : 'bg-indigo-600' }} px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    {{ __('Add Shared Apartments') }}
+                                <a href="{{ route('rooms.create') }}"
+                                        class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                     {{ __('Add Room') }}
                                 </a>
                             </div>
                         </div>
@@ -33,11 +33,30 @@
                                         <thead>
                                         <tr>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Name') }}
+                                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                                                {{ __('Room Number') }}
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                                                {{ __('Community') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Room (Square Meter)') }}
+                                            </th>
+                                            <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Common Area (Square Meter)') }}
+                                            </th>
+                                            <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Basic Rent') }}
+                                            </th>
+                                            <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Additional Costs') }}
+                                            </th>
+                                            <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Heating Costs') }}
+                                            </th>
+                                            <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Electricity Costs') }}
+                                            </th>
+
+                                            <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Apartment') }}
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Actions
@@ -46,16 +65,21 @@
                                         </tr>
                                         </thead>
                                         <tbody class="divide-y divide-gray-200">
-                                        @forelse($sharedApartments as  $keySuper => $sharedApartment)
+                                        @forelse($rooms as  $keySuper => $room)
                                             <tr>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $sharedApartment?->name ?? 'N/A'}}</td>
-                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $sharedApartment?->residentialCommunity?->name }}</td>
-
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->room_number }}</td>
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->square_meter_room }}</td>
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->square_meter_common_area }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->basic_rent ?? 'N/A'}}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->additional_costs ?? 'N/A' }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ number_format($room?->heating_costs) ?? 'N/A' }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->electricity_costs ?? 'N/A' }}</td>
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->apartment?->name }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <x-action-dropdown label="Options">
                                                         <!-- Your menu items here -->
                                                         <div class="py-1" role="none">
-                                                            <a href="{{ route('shared-apartments.edit', $sharedApartment->id) }}" class="text-gray-700 hover:bg-gray-100  group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
+                                                            <a href="{{ route('rooms.edit', $room->id) }}" class="text-gray-700 hover:bg-gray-100  group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
                                                                 <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                                     <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
                                                                     <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
@@ -75,11 +99,11 @@
                                                                     :is-open="'isModalOpen'"
                                                                     :close-action="'isModalOpen = false'"
                                                                     :modal-id="'modal'"
-                                                                    :form-action="route('shared-apartments.destroy', $sharedApartment->id)"
+                                                                    :form-action="route('rooms.destroy', $room->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="'Delete Shared Apartments'"
-                                                                    :modal-text="$sharedApartment?->name"
+                                                                    :modal-title="'Delete Room'"
+                                                                    :modal-text="'Room Number: '.$room?->room_number"
                                                                     :submit-text="'Delete'"
                                                                     :cancel-text="'Cancel'"
                                                                 />
@@ -93,7 +117,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="3"
+                                                <td colspan="9"
                                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-2xl font-medium text-center text-gray-900 sm:pl-0">
                                                     No Record Found
                                                 </td>
@@ -104,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="mt-4">
-                                {{ $sharedApartments->links() }}
+                                {{ $rooms->links() }}
                             </div>
                         </div>
                     </div>

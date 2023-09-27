@@ -25,6 +25,9 @@
                     <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.index')">
                         {{ __('Shared Apartments') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.index')">
+                        {{ __('Rooms') }}
+                    </x-nav-link>
                     @endhasanyrole
                 </div>
             </div>
