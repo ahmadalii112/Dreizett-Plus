@@ -34,6 +34,7 @@ services:
         networks:
             - dreizettplus_web
         restart: always
+        working_dir: /var/www/html
         container_name: dreizettplus_web-app
         volumes:
             - ./:/var/www/html:cached
