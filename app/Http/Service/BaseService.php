@@ -141,4 +141,9 @@ class BaseService
     {
         return $this->repository->pluck($valueColumn, $keyColumn);
     }
+
+    public function updateOrCreate(array $where, array $data): Model
+    {
+        return $this->repository->updateOrCreate($where, $data);
+    }
 }

@@ -16,17 +16,20 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @hasanyrole(\App\Enums\RoleTypeEnum::ADMINISTRATION->value .'|'. \App\Enums\RoleTypeEnum::MANAGEMENT->value)
-                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                             {{ __('Users') }}
                         </x-nav-link>
-                    <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.index')">
+                    <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.*')">
                         {{ __('Residential Community') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.index')">
+                    <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.*')">
                         {{ __('Shared Apartments') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.index')">
+                    <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.*')">
                         {{ __('Rooms') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')">
+                        {{ __('Tenants') }}
                     </x-nav-link>
                     @endhasanyrole
                 </div>

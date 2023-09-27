@@ -17,6 +17,7 @@
     </div>
 
     <div
+        x-cloak
         x-show="isOpen"
         @click.away="isOpen = false"
         x-transition:enter="transition ease-out duration-100"

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,14 +15,16 @@ class Tenant extends Model
         'salutation',
         'first_name',
         'last_name',
-        'street',
         'house_number',
+        'street',
         'zip_code',
         'city',
         'level_of_care',
         'contract_start_date',
         'contract_end_date',
     ];
+
+    protected $casts = ['contract_start_date' => 'date', 'contract_end_date' => 'date'];
 
     public function room(): BelongsTo
     {
@@ -51,5 +54,33 @@ class Tenant extends Model
     public function paymentReminders(): HasMany
     {
         return $this->hasMany(PaymentReminder::class);
+    }
+
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->first_name.' '.$this->last_name,
+        );
+    }
+
+    protected function address(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->house_number.', '.$this->street.', '.$this->zip_code.', '.$this->city,
+        );
+    }
+
+    protected function contractStart(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->contract_start_date->format('M, d Y'),
+        );
+    }
+
+    protected function contractEnd(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->contract_end_date->format('M, d Y'),
+        );
     }
 }

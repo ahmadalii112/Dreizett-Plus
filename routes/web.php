@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentialCommunityController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SharedApartmentController;
+use App\Http\Controllers\TenantController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('residential-communities', ResidentialCommunityController::class);
         Route::resource('shared-apartments', SharedApartmentController::class);
         Route::resource('rooms', RoomController::class);
+        Route::resource('tenants', TenantController::class);
 
     });
 });
