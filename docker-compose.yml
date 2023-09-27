@@ -52,15 +52,16 @@ services:
             MARIADB_PASSWORD: ${DB_PASSWORD}
             MARIADB_DATABASE: ${DB_DATABASE}
             MARIADB_ROOT_PASSWORD: 'XZcqI10WDfXvB1A'
+        ports:
+            - ${DB_HOST_PORT:-3306}:3306
         networks:
             - dreizettplus_web
 
     phpmyadmin:
         image: phpmyadmin
         container_name: dreizettplus_web-phpmyadmin
-        restart: always
         ports:
-            - 8080:80
+            - ${PHPMYADMIN_PORT:-8081}:8081
         networks:
             - dreizettplus_web
         environment:
