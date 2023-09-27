@@ -7,54 +7,39 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Setting up the Project via Docker
 
-# Setting up DreizettPlus Web Application
+Please ensure to do the following steps to setup the project via docker properly:
 
-Follow these steps to set up the DreizettPlus web application on your system:
+### Backend
+1. Make sure you have latest docker version installed in your system
+2. Make sure you have the latest code of `develop` branch
+3. Copy the `.env.example` file using `$ cp .env.example .env` command
+4. In the `.env file`, make sure to do the following changes:
+    - `APP_PORT` is currently set to `85` so you will be able to access the application on http://localhost:85
+    - `PHPMYADMIN_PORT` is set to `8082` so you will be able to access and manage the database on http://localhost:8082
+    - `DB_HOST_PORT` is set to `33012` so you can access the mysql service on this port
+    - `DB_HOST` should be the container name, it can be either `mariadb` or `dreizettplus_web-mariadb`
+    - `DB_PORT` should always be `3306`
+    - `DB_DATABASE` is the name of the database which will be created automatically inside the container
+    - `DB_USERNAME` should be the username for the database, this user will be created automatically.
+    - `DB_PASSWORD` should be the password for the database user.
+5. Run `$ docker compose up` command to build the image and start the docker containers.
+6. When the image will be built and container will be up, the `vendor` and `node_modules` folders will be created automatically. As the commands are written in the `Dockerfile`
+    - In case any of these folders is missing, you can ssh into the container using this command `$ docker exec -it dreizettplus_web-app bash` and run the relevant commands there
+        - `$ composer install`
+        - `$ npm install`
+7. If you have setup the project first time, you need to generate the app key for the laravel application.
+    - ssh into the container `$ docker exec -it dreizettplus_web-app bash`
+    - Run the command `$ php artisan key:generate`
+    - Then run the command `$ php artisan storage:link` to link the storage directory with public
+8. Make sure you have given the right permissions to `storage/logs` directory using `$ sudo chmod -R 777 storage/logs` from the host system.
+9. Finally, run the migrations and seeders using the following commands:
+    - ssh into the container `$ docker exec -it dreizettplus_web-app bash`
+    - `$ php artisan migrate`
+    - `$ php artisan db:seed`
 
-1. **Copy the Environment File:**
-    - Copy the `.env.example` file to `.env`:
-      ```
-      cp .env.example .env
-      ```
-
-2. **Start Docker Containers:**
-    - Make sure you have Docker and Docker Compose installed on your system.
-    - Run the following command to start the Docker containers:
-      ```
-      docker-compose up
-      ```
-
-3. **Configure Laravel:**
-    - Access the Docker container for the web application with a bash shell:
-      ```
-      docker exec -it dreizettplus_web-app bash
-      ```
-    - Inside the container, run the following commands:
-      a) Generate an application key:
-         ```
-         php artisan key:generate
-         ```
-      b) Migrate the database:
-         ```
-         php artisan migrate
-         ```
-      c) Seed the database (if needed):
-         ```
-         php artisan db:seed
-         ```
-
-4. **Install JavaScript Dependencies:**
-    - Ensure you have Node.js 18 or higher installed on your system.
-    - Install the required JavaScript dependencies:
-      ```
-      npm install
-      ```
-
-5. **Build JavaScript Assets:**
-    - Compile and build the JavaScript assets for the application:
-      ```
-      npm run dev
-      ```
+### Frontend
+1. You need to compile the assets too, ssh into the container `$ docker exec -it dreizettplus_web-app bash` . Then run `$ npm run dev` command to compile the assets.
 
 That's it! Your DreizettPlus web application should now be set up and ready to use. You can access it in your web browser to start using the application.
