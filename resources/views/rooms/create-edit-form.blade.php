@@ -25,10 +25,10 @@
                     <div class="border-b border-gray-900/10 pb-12">
                         <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-3">
-                                <label for="apartment_id" class="block text-sm font-medium leading-6 text-gray-900">Residential Community</label>
+                                <label for="apartment_id" class="block text-sm font-medium leading-6 text-gray-900">{{__('Shared Apartments')}}</label>
                                 <div class="mt-2">
                                     <select id="apartment_id" name="apartment_id" autocomplete="apartment_id" class="block @error('apartment_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>Select Community</option>
+                                        <option>Select Apartment</option>
                                         @foreach($sharedApartments as $apartment)
                                             <option value="{{$apartment->id}}"
                                                     @if ((old('apartment_id') == $apartment->id) || (isset($room) && $room->apartment_id == $apartment->id && $errors->isEmpty()))

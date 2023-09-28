@@ -46,8 +46,11 @@ class RoomController extends Controller
         return redirect()->route('rooms.index')->with('notificationType', 'success')->with('notificationMessage', 'Room Created Successfully');
     }
 
-    public function show(Room $room)
+    public function show(Room $room): View
     {
+        $room->load(['apartment']);
+
+        return view('rooms.show', compact('room'));
     }
 
     public function edit(Room $room)
