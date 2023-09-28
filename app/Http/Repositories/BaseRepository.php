@@ -2,9 +2,9 @@
 
 namespace App\Http\Repositories;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class BaseRepository
 {
@@ -120,12 +120,12 @@ class BaseRepository
      * "OR" part of the query. It allows you to specify multiple conditions that will be combined using
      * the "OR" operator. Each condition in the array should be in the format `[column, operator,
      * value]`, where `
-     * @param  with  $with The "with" parameter is an array that specifies the relationships that should be
+     * @param  array  $with The "with" parameter is an array that specifies the relationships that should be
      * eager loaded with the query results. It allows you to load related models in a single query to
      * improve performance.
      * @return Collection a Collection.
      */
-    public function get(array $where = [], array $orWhere = [], $with = []): Collection
+    public function get(array $where = [], array $orWhere = [], array $with = []): Collection
     {
         return $this->model->with($with)->where($where)->orWhere($orWhere)->get();
     }

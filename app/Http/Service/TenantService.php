@@ -3,7 +3,7 @@
 namespace App\Http\Service;
 
 use App\Http\Repositories\TenantRepository;
-use App\Models\Tenant;
+use Illuminate\Database\Eloquent\Model;
 
 class TenantService extends BaseService
 {
@@ -12,7 +12,7 @@ class TenantService extends BaseService
         $this->repository = $tenantRepository;
     }
 
-    public function createTenantWithAuthRepresentative(array $tenantData, $authorizedRepresentative): Tenant
+    public function createTenantWithAuthRepresentative(array $tenantData, $authorizedRepresentative): Model
     {
         $tenant = $this->create($tenantData);
         if ($authorizedRepresentative) {

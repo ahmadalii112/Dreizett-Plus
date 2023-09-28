@@ -5,6 +5,7 @@ namespace App\Http\Service;
 use App\Enums\RoleTypeEnum;
 use App\Http\Repositories\UserRepository;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 
 class UserService extends BaseService
 {
@@ -13,7 +14,7 @@ class UserService extends BaseService
         $this->repository = $userRepository;
     }
 
-    public function createUserWithRole(array $userData, string $roleName): User
+    public function createUserWithRole(array $userData, string $roleName): Model
     {
         $user = $this->create($userData);
         // Assign the role to the user
@@ -25,7 +26,7 @@ class UserService extends BaseService
     /**
      * Update a user's information and roles.
      */
-    public function updateUserWithRole(User $user, array $userData, ?string $roleName): User
+    public function updateUserWithRole(User $user, array $userData, ?string $roleName): Model
     {
         // Update the user's information
         $this->update(

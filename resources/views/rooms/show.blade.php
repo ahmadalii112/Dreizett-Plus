@@ -22,35 +22,35 @@
                             <dl class="grid grid-cols-1 sm:grid-cols-3">
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Apartment') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->apartment?->name }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->apartment?->name ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Room Number') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->room_number }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->room_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Room (Square Meter)') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->square_meter_room }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->square_meter_room ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900"> {{ __('Common Area (Square Meter)') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->square_meter_common_area }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->square_meter_common_area ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Basic Rent') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->basic_rent }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->basic_rent ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Additional Costs') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->additional_costs }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->additional_costs ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900"> {{ __('Heating Costs') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->heating_costs }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->heating_costs ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Electricity Costs') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->electricity_costs }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->electricity_costs ?? 'N/A' }}</dd>
                                 </div>
                             </dl>
 

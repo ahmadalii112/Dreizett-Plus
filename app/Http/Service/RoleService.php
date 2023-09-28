@@ -10,12 +10,4 @@ class RoleService extends BaseService
     {
         $this->repository = $roleRepository;
     }
-
-    /**
-     * Get all roles and pluck them for select options.
-     */
-    public function pluckRoles(string $valueColumn = 'name', string $keyColumn = 'key'): array
-    {
-        return $this->repository->pluckRoles($valueColumn, $keyColumn);
-    }
 }

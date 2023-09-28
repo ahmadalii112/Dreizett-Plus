@@ -22,47 +22,47 @@
                             <dl class="grid grid-cols-1 sm:grid-cols-3">
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Room Number') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->room?->room_number }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->room?->room_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('First Name') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->salutation }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->salutation ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Last Name') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->first_name }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->first_name ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Salutation') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->last_name }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->last_name ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('House Number') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->house_number }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->house_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Street') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->street }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->street ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Zip Code') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->zip_code }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->zip_code ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('City') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->city }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->city ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Level of Care') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->level_of_care }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->level_of_care ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Contract Start') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->contract_start }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->contract_start ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Contract End') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->contract_end }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->contract_end ?? 'N/A' }}</dd>
                                 </div>
                             </dl>
 
@@ -79,15 +79,15 @@
                             <dl class="grid grid-cols-1 sm:grid-cols-3">
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{__('Phone')}}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->phone_number }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->phone_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{__('Mobile')}}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->mobile_number }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->mobile_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{__('Email')}}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{  $tenant?->authorizedRepresentative?->email }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{  $tenant?->authorizedRepresentative?->email ?? 'N/A' }}</dd>
                                 </div>
                             </dl>
 

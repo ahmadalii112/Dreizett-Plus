@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = $this->roleService->pluckRoles(keyColumn: 'name');
+        $roles = $this->roleService->pluck(keyColumn: 'name');
 
         return view('users.create-edit-form', compact('roles'));
     }
@@ -67,7 +67,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = $this->roleService->pluckRoles(keyColumn: 'name');
+        $roles = $this->roleService->pluck(keyColumn: 'name');
 
         return view('users.create-edit-form', compact('roles', 'user'));
     }
