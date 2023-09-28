@@ -33,9 +33,9 @@ class BaseRepository
      * @return LengthAwarePaginator a collection of all the records from the model, with any specified
      * relationships loaded using the "with" method.
      */
-    public function paginate(array $with = [], int $perPage = 10): LengthAwarePaginator
+    public function paginate(array $with = [], int $perPage = 10, array $where = [], array $orWhere = []): LengthAwarePaginator
     {
-        return $this->model->with($with)->paginate($perPage);
+        return $this->model->with($with)->where($where)->orWhere($orWhere)->paginate($perPage);
     }
 
     /**

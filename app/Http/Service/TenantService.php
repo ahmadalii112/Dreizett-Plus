@@ -24,4 +24,14 @@ class TenantService extends BaseService
 
         return $tenant;
     }
+
+    public function updateTenantStatusForRoom($roomId): void
+    {
+        // Get the previous tenants in the room (status = 1)
+        $previousTenants = $this->repository->get(where: ['room_id' => $roomId, 'status' => 1]);
+        // Set the status to 0 for previous tenants
+        foreach ($previousTenants as $previousTenant) {
+            $previousTenant->update(['status' => 0]);
+        }
+    }
 }

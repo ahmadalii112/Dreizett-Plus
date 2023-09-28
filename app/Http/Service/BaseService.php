@@ -19,9 +19,9 @@ class BaseService
     /**
      * Get paginated records from the repository with optional relationships.
      */
-    public function paginate(int $perPage = 10, array $with = []): LengthAwarePaginator
+    public function paginate(int $perPage = 10, array $with = [], array $where = [], array $orWhere = []): LengthAwarePaginator
     {
-        return $this->repository->paginate($with, $perPage);
+        return $this->repository->paginate($with, $perPage, $where, $orWhere);
     }
 
     /**

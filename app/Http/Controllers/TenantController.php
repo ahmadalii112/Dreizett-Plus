@@ -56,6 +56,8 @@ class TenantController extends Controller
      */
     public function store(TenantRequest $request): RedirectResponse
     {
+        // Check if there's a previous tenant in the room and update their status
+        $this->tenantService->updateTenantStatusForRoom($request->input('room_id'));
         $this->tenantService->createTenantWithAuthRepresentative(
             tenantData: $request->except('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number'),
             authorizedRepresentative: $request->only('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number')
