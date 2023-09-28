@@ -14,6 +14,10 @@
             [x-cloak] {
                 display: none;
             }
+            .required:after {
+                content:" *";
+                color: red;
+            }
         </style>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

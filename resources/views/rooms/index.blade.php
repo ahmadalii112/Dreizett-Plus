@@ -69,9 +69,9 @@
                                         @forelse($rooms as  $keySuper => $room)
                                             <tr>
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->room_number }}</td>
-                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->apartment?->name }}</td>
-                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->square_meter_room }}</td>
-                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->square_meter_common_area }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->apartment?->name }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->square_meter_room }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->square_meter_common_area }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->basic_rent ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->additional_costs ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ number_format($room?->heating_costs) ?? 'N/A' }}</td>

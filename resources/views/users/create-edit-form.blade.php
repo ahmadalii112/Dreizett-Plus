@@ -20,7 +20,7 @@
                     <div class="border-b border-gray-900/10 pb-12">
                         <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="col-span-full">
-                                <label for="role" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
+                                <label for="role" class="block text-sm font-medium leading-6 text-gray-900 required">Role</label>
                                 <div class="mt-2">
                                     <select id="role" name="role" autocomplete="role-name" class="block @error('role') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option>Select Role</option>
@@ -43,7 +43,7 @@
                                 @enderror
                             </div>
                             <div class="sm:col-span-3">
-                                <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
+                                <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900 required">First Name</label>
                                 <div class="mt-2">
                                     <input type="text" name="first_name" id="first_name"  value="{{ old('first_name', isset($user) ? $user?->first_name : '') }}" autocomplete="given-name" class="block w-full @error('first_name') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900 required">Email Address</label>
                                 <div class="mt-2">
                                     <input id="email" name="email" type="email" autocomplete="email"  value="{{ old('email', isset($user) ? $user?->email : '') }}" class="block w-full @error('email') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>

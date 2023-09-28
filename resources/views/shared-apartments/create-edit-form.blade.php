@@ -21,7 +21,7 @@
                             <div class=" grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3">
 
                                 <div class="sm:col-span-3">
-                                    <label for="community_id" class="block text-sm font-medium leading-6 text-gray-900">Residential Community</label>
+                                    <label for="community_id" class="block text-sm font-medium leading-6 text-gray-900 required">Residential Community</label>
                                     <div class="mt-2">
                                         <select id="community_id" name="community_id" autocomplete="community_id" class="block @error('community_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                             <option>Select Community</option>
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="sm:col-span-3">
-                                    <label for="name" class="block text-sm font-medium leading-6 text-gray-900"> {{ __('Name') }}</label>
+                                    <label for="name" class="block text-sm font-medium leading-6 text-gray-900 required"> {{ __('Name') }}</label>
                                     <div class="mt-2">
                                         <input type="text" name="name" id="name"  value="{{ old('name', isset($sharedApartment) ? $sharedApartment?->name : '') }}" autocomplete="family-name" class="block w-full @error('name') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     </div>
