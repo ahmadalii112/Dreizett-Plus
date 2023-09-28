@@ -48,7 +48,7 @@ class TenantController extends Controller
 
         return $rooms->isNotEmpty()
             ? view('tenants.create-edit-form', compact('rooms'))
-            : redirect()->route('tenants.index')->with('notificationType', 'warning')->with('notificationMessage', 'Please create rooms first');
+            : redirect()->route('tenants.index')->with('notificationType', 'warning')->with('notificationMessage', 'No rooms are available.');
     }
 
     /**

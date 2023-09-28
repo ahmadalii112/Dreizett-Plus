@@ -35,7 +35,7 @@ class RoomController extends Controller
 
         return $sharedApartments->isNotEmpty()
             ? view('rooms.create-edit-form', compact('sharedApartments'))
-            : redirect()->route('rooms.index')->with('notificationType', 'warning')->with('notificationMessage', 'Please create apartments first');
+            : redirect()->route('rooms.index')->with('notificationType', 'warning')->with('notificationMessage', 'No apartments are available.');
 
     }
 

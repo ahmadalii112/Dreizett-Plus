@@ -22,7 +22,7 @@
      }">
                 <div class="p-4">
                     <div class="flex items-start">
-                        <div class="flex-shrink-0">
+                        <div class="flex-shrink-0 mt-1">
                             <template x-if="notification.type === 'success'">
                                 <!-- Success icon -->
                                 <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -50,6 +50,17 @@
                         </div>
                         <div class="ml-3 w-0 flex-1 pt-0.5">
                             <p class="text-sm font-medium text-gray-900" x-text="notification.message"></p>
+                            <template x-if="notification.type === 'warning'">
+                            <a href="
+                            @if(request()->routeIs('tenants.index'))
+                             {{ route('rooms.create') }}
+                            @elseif(request()->routeIs('rooms.index'))
+                              {{ route('shared-apartments.create') }}
+                            @elseif(request()->routeIs('shared-apartments.index'))
+                              {{ route('residential-communities.create') }}
+                           @endif" class="font-medium text-yellow-700 underline hover:text-yellow-600">{{__('Click here to
+                                create')}}</a>
+                            </template>
                         </div>
                         <div class="ml-4 flex flex-shrink-0">
                             <button @click="notification.isOpen = false" type="button"

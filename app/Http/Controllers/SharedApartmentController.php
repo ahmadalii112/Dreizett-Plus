@@ -23,7 +23,7 @@ class SharedApartmentController extends Controller
 
     public function index(): View
     {
-        $sharedApartments = $this->sharedApartmentService->paginate(with: ['residentialCommunity']);
+        $sharedApartments = $this->sharedApartmentService->paginate(with: ['residentialCommunity', 'rooms']);
         $residentialCommunity = $this->residentialCommunityService->all()->isEmpty();
 
         return view('shared-apartments.index', compact('sharedApartments', 'residentialCommunity'));
@@ -35,7 +35,7 @@ class SharedApartmentController extends Controller
 
         return $residentialCommunities->isNotEmpty()
             ? view('shared-apartments.create-edit-form', compact('residentialCommunities'))
-            : redirect()->route('shared-apartments.index')->with('notificationType', 'warning')->with('notificationMessage', 'Please create community first');
+            : redirect()->route('shared-apartments.index')->with('notificationType', 'warning')->with('notificationMessage', 'No communities are available.');
 
     }
 

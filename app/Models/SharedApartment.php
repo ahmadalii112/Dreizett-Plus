@@ -20,6 +20,6 @@ class SharedApartment extends Model
 
     public function rooms(): HasMany
     {
-        return $this->hasMany(Room::class);
+        return $this->hasMany(Room::class, 'apartment_id');
     }
 }

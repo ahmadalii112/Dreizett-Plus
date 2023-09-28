@@ -40,6 +40,10 @@
                                                 {{ __('Community') }}
                                             </th>
                                             <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                                {{ __('Rooms') }}
+                                            </th>
+                                            <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Actions
                                             </th>
 
@@ -50,6 +54,7 @@
                                             <tr>
                                                 <td class="whitespace-nowrap px-3 py-4 font-medium text-sm text-gray-900">{{ $sharedApartment?->name ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $sharedApartment?->residentialCommunity?->name }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $sharedApartment?->rooms?->count() ?? 0 }}</td>
 
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <x-action-dropdown label="Options">
@@ -93,7 +98,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="3"
+                                                <td colspan="4"
                                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-2xl font-medium text-center text-gray-900 sm:pl-0">
                                                     No Record Found
                                                 </td>
