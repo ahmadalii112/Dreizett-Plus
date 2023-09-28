@@ -3,9 +3,10 @@
             {{ __('Tenants') }}
     </x-slot>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Tenants') }}
-        </h2>
+        <x-breadcrumb :items="[
+            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' => route('tenants.index'), 'label' => __('Tenants')],
+        ]"/>
     </x-slot>
 
     <div class="py-12">

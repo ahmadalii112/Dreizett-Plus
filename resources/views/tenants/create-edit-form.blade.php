@@ -3,9 +3,11 @@
         {{ __(isset($tenant) ? 'Edit Tenant' : 'Create Tenant') }}
     </x-slot>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __(isset($tenant) ? 'Edit Tenant' : 'Create Tenant') }}
-        </h2>
+        <x-breadcrumb :items="[
+            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' => route('tenants.index'), 'label' => __('Tenants')],
+            ['url' =>  isset($tenant) ? route('tenants.edit', $tenant->id) : route('tenants.create'), 'label' => isset($tenant) ? __('Edit Tenant') : __('Add Tenant')],
+        ]"/>
     </x-slot>
 
     <div class="py-12">

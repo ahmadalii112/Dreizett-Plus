@@ -7,6 +7,13 @@
             {{ __(isset($room) ? 'Edit Room' : 'Create Room') }}
         </h2>
     </x-slot>
+    <x-slot name="header">
+        <x-breadcrumb :items="[
+            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' => route('rooms.index'), 'label' => __('Rooms')],
+            ['url' =>  isset($room) ? route('rooms.edit', $room->id) : route('rooms.create'), 'label' => isset($room) ? __('Edit Room') : __('Add Room')],
+        ]"/>
+    </x-slot>
 
     <div class="py-12">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">

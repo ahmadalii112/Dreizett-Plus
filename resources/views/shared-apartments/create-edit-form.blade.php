@@ -3,9 +3,11 @@
         {{ __(isset($sharedApartment) ? 'Edit Shared Apartment' : 'Create Shared Apartment') }}
     </x-slot>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __(isset($sharedApartment) ? 'Edit Shared Apartment' : 'Create Shared Apartment') }}
-        </h2>
+        <x-breadcrumb :items="[
+            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' => route('shared-apartments.index'), 'label' => __('Shared Apartments')],
+            ['url' =>  isset($sharedApartment) ? route('shared-apartments.edit', $sharedApartment->id) : route('shared-apartments.create'), 'label' => isset($sharedApartment) ? __('Edit Shared Apartment') : __('Add Shared Apartment')],
+        ]"/>
     </x-slot>
 
     <div class="py-12">

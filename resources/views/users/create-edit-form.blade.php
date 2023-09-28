@@ -3,9 +3,11 @@
         {{ __(isset($user) ? 'Edit User' : 'Create User') }}
     </x-slot>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __(isset($user) ? 'Edit User' : 'Create User') }}
-        </h2>
+        <x-breadcrumb :items="[
+            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' => route('users.index'), 'label' => __('Users')],
+            ['url' =>  isset($user) ? route('users.edit', $user->id) : route('users.create'), 'label' => isset($user) ? __('Edit User') : __('Add User')],
+        ]"/>
     </x-slot>
 
     <div class="py-12">

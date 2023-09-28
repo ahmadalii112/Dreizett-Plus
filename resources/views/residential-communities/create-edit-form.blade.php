@@ -3,9 +3,11 @@
         {{ __(isset($residentialCommunity) ? 'Edit Residential Community' : 'Create Residential Community') }}
     </x-slot>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __(isset($residentialCommunity) ? 'Edit Residential Community' : 'Create Residential Community') }}
-        </h2>
+        <x-breadcrumb :items="[
+            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' => route('residential-communities.index'), 'label' => __('Residential Community')],
+            ['url' =>  isset($residentialCommunity) ? route('residential-communities.edit', $residentialCommunity->id) : route('residential-communities.create'), 'label' => isset($residentialCommunity) ? __('Edit Residential Community') : __('Add Residential Community')],
+        ]"/>
     </x-slot>
 
     <div class="py-12">
