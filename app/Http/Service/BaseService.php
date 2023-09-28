@@ -146,4 +146,9 @@ class BaseService
     {
         return $this->repository->updateOrCreate($where, $data);
     }
+
+    public function role($roleName)
+    {
+        return $this->repository->role($roleName);
+    }
 }

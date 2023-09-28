@@ -2,6 +2,7 @@
 
 namespace App\Http\Service;
 
+use App\Enums\RoleTypeEnum;
 use App\Http\Repositories\UserRepository;
 use App\Models\User;
 
@@ -38,5 +39,10 @@ class UserService extends BaseService
         }
 
         return $user;
+    }
+
+    public function checkAdministration($userID): bool
+    {
+        return $this->repository->role(RoleTypeEnum::ADMINISTRATION->value)->first()->id == $userID;
     }
 }

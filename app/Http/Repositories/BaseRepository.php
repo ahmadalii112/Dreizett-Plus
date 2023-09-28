@@ -187,4 +187,9 @@ class BaseRepository
     {
         return $this->model->pluck($valueColumn, $keyColumn)->toArray();
     }
+
+    public function role($roleName)
+    {
+        return $this->model->role($roleName);
+    }
 }

@@ -91,6 +91,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if ($this->userService->checkAdministration($user->id)) {
+            return redirect()->route('users.index')->with('notificationType', 'danger')->with('notificationMessage', 'You cannot delete this user');
+        }
         $this->userService->delete($user->id);
 
         return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', 'User Deleted Successfully');
