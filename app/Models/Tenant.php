@@ -73,14 +73,15 @@ class Tenant extends Model
     protected function contractStart(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->contract_start_date->format('M, d Y'),
+            get: fn () => $this->contract_start_date?->format('M d, Y'),
         );
     }
 
     protected function contractEnd(): Attribute
     {
+
         return Attribute::make(
-            get: fn () => $this->contract_end_date->format('M, d Y'),
+            get: fn () => $this->contract_end_date?->format('M d, Y'),
         );
     }
 }

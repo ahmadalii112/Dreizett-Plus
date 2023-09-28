@@ -67,9 +67,11 @@ class TenantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tenant $tenant)
+    public function show(Tenant $tenant): View
     {
-        // show page
+        $tenant->load(['room', 'authorizedRepresentative']);
+
+        return view('tenants.show', compact('tenant'));
     }
 
     /**

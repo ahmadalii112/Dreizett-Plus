@@ -20,8 +20,8 @@ class TenantRequest extends FormRequest
             'level_of_care' => ['required', 'integer', 'max:255'],
             'contract_start_date' => ['required', 'date'],
             'contract_end_date' => ['nullable', 'date'],
-            'authorized_representative.phone_number' => ['nullable', 'string', 'max:255'],
-            'authorized_representative.mobile_number' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.phone_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:255'],
+            'authorized_representative.mobile_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:255'],
             'authorized_representative.email' => ['nullable', 'email', 'max:255'],
         ];
     }
@@ -29,5 +29,14 @@ class TenantRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function messages()
+    {
+        return [
+            'authorized_representative.phone_number.regex' => trans('validation.regex', ['attribute' => 'phone number']),
+            'authorized_representative.mobile_number.regex' => trans('validation.regex', ['attribute' => 'mobile number']),
+            'authorized_representative.mobile_number.email' => trans('validation.regex', ['attribute' => 'email']),
+        ];
     }
 }

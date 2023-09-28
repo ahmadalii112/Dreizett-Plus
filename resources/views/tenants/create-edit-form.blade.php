@@ -122,7 +122,7 @@
                             <div class="sm:col-span-3">
                                 <label for="contract_start_date" class="block text-sm font-medium leading-6 text-gray-900"> {{ __('Contract Start Date') }}</label>
                                 <div class="mt-2">
-                                    <input id="contract_start_date" name="contract_start_date"  type="date"  autocomplete="contract_start_date"  value="{{ old('contract_start_date', isset($tenant) ? $tenant?->contract_start_date : '') }}" class="block w-full @error('contract_start_date') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input id="contract_start_date" name="contract_start_date"  type="date"  autocomplete="contract_start_date"  value="{{ old('contract_start_date', isset($tenant) ? \Carbon\Carbon::parse($tenant?->contract_start_date)->format('Y-m-d') : '') }}" class="block w-full @error('contract_start_date') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                                 @error('contract_start_date')
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
@@ -131,7 +131,7 @@
                             <div class="sm:col-span-3">
                                 <label for="contract_end_date" class="block text-sm font-medium leading-6 text-gray-900"> {{ __('Contract End Date') }}</label>
                                 <div class="mt-2">
-                                    <input id="contract_end_date" name="contract_end_date"  type="date"  autocomplete="contract_end_date"  value="{{ old('contract_end_date', isset($tenant) ? $tenant?->contract_end_date : '') }}" class="block w-full @error('contract_end_date') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input id="contract_end_date" name="contract_end_date"  type="date"  autocomplete="contract_end_date"  value="{{ old('contract_end_date', isset($tenant) ? \Carbon\Carbon::parse($tenant?->contract_end_date)->format('Y-m-d')  : '') }}" class="block w-full @error('contract_end_date') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                                 @error('contract_end_date')
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
