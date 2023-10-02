@@ -46,7 +46,7 @@
                                                 {{ __('Status') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Contract Start Date') }}
+                                                {{ __('Contract Dates') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                 {{ __('Actions') }}
@@ -128,7 +128,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="5"
+                                                <td colspan="6"
                                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-2xl font-medium text-center text-gray-900 sm:pl-0">
                                                     No Record Found
                                                 </td>

@@ -4,8 +4,9 @@ namespace App\Enums;
 
 enum RoleTypeEnum: string
 {
-    case ADMINISTRATION = 'Administration';
-    case CAREGIVER = 'Caregiver';
-    case MANAGEMENT = 'Management';
-    case TECHNICIAN = 'Technician';
+    case ADMINISTRATION = 'Verwaltung';
+    case CAREGIVER = 'Pflegekraft';
+    case MANAGEMENT = 'Leitung';
+    case TECHNICIAN = 'Techniker';
+
 }

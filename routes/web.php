@@ -6,6 +6,7 @@ use App\Http\Controllers\ResidentialCommunityController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SharedApartmentController;
 use App\Http\Controllers\TenantController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('rooms', RoomController::class);
         Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);
+        Route::resource('tickets', TicketController::class);
 
     });
 });

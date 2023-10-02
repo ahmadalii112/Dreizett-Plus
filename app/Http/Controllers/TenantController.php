@@ -35,7 +35,7 @@ class TenantController extends Controller
     {
         $tenants = (is_null($roomId))
             ? $this->tenantService->paginate(with: ['room'], where: ['status' => '1'])
-            : $this->tenantService->paginate(with: ['room'], where: ['status' => '0']);
+            : $this->tenantService->paginate(with: ['room'], where: ['status' => '0', 'room_id' => $roomId]);
         $rooms = $this->roomService->all()->isEmpty();
 
         return view('tenants.index', compact('tenants', 'rooms', 'roomId'));

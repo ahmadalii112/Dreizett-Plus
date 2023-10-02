@@ -33,6 +33,9 @@
                         {{ __('Tenants') }}
                     </x-nav-link>
                     @endhasanyrole
+                    <x-nav-link :href="route('tickets.index')" :active="request()->routeIs('tickets.*')">
+                        {{ __('Tickets') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -6,6 +6,7 @@ namespace App\Models;
 use App\Enums\RoleTypeEnum;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -87,11 +88,21 @@ class User extends Authenticatable
     {
         return Attribute::make(
             get: fn () => [
-                'Administration' => 'green',
-                'Caregiver' => 'yellow',
-                'Management' => 'indigo',
-                'Technician' => 'purple',
+                RoleTypeEnum::ADMINISTRATION->value => 'green',
+                RoleTypeEnum::CAREGIVER->value => 'yellow',
+                RoleTypeEnum::MANAGEMENT->value => 'indigo',
+                RoleTypeEnum::TECHNICIAN->value => 'purple',
             ][optional($this->roles->first())->name] ?? 'red'
         );
+    }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function ticketNotes(): HasMany
+    {
+        return $this->hasMany(TicketNote::class);
     }
 }
