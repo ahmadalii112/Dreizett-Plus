@@ -139,7 +139,9 @@
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
-
+                            @unless(isset($tenant))
+                            <input type="hidden" name="status" value="1" class="hidden" hidden>
+                            @endunless
                         </div>
                     </div>
                     <div class="mt-6 pb-12">

@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('residential-communities', ResidentialCommunityController::class);
         Route::resource('shared-apartments', SharedApartmentController::class);
         Route::resource('rooms', RoomController::class);
+        Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);
 
     });

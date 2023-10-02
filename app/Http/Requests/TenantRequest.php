@@ -10,6 +10,7 @@ class TenantRequest extends FormRequest
     {
         return [
             'room_id' => ['required', 'exists:rooms,id'],
+            'status' => 'nullable',
             'salutation' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],

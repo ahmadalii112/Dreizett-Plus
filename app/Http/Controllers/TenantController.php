@@ -31,12 +31,14 @@ class TenantController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index($roomId = null): View
     {
-        $tenants = $this->tenantService->paginate(with: ['room']);
+        $tenants = (is_null($roomId))
+            ? $this->tenantService->paginate(with: ['room'], where: ['status' => '1'])
+            : $this->tenantService->paginate(with: ['room'], where: ['status' => '0']);
         $rooms = $this->roomService->all()->isEmpty();
 
-        return view('tenants.index', compact('tenants', 'rooms'));
+        return view('tenants.index', compact('tenants', 'rooms', 'roomId'));
     }
 
     /**

@@ -22,6 +22,7 @@ class Tenant extends Model
         'level_of_care',
         'contract_start_date',
         'contract_end_date',
+        'status',
     ];
 
     protected $casts = ['contract_start_date' => 'date', 'contract_end_date' => 'date'];
@@ -82,6 +83,13 @@ class Tenant extends Model
 
         return Attribute::make(
             get: fn () => $this->contract_end_date?->format('M d, Y'),
+        );
+    }
+
+    protected function tenantStatus(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->status ? 'Current Tenant' : 'Previous Tenant',
         );
     }
 }
