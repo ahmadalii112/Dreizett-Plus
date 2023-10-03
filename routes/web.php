@@ -47,9 +47,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('rooms', RoomController::class);
         Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);
-        Route::resource('tickets', TicketController::class);
-
     });
+    Route::resource('tickets', TicketController::class);
 });
 
 require __DIR__.'/auth.php';

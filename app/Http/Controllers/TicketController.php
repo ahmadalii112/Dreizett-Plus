@@ -6,6 +6,7 @@ use App\Http\Requests\TicketRequest;
 use App\Http\Service\TicketService;
 use App\Models\Ticket;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class TicketController extends Controller
@@ -22,7 +23,8 @@ class TicketController extends Controller
      */
     public function index(): View
     {
-        $tickets = $this->ticketService->paginate(with: ['user']);
+        $user = Auth::user();
+        $tickets = $this->ticketService->getTicketsByUserRole($user);
 
         return view('tickets.index', compact('tickets'));
 
