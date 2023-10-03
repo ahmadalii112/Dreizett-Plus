@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\TicketStatusEnum;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -40,6 +41,13 @@ class TicketNote extends Model
                 TicketStatusEnum::IN_PROGRESS->value => 'indigo',
                 TicketStatusEnum::COMPLETED->value => 'red',
             ][$this->status->value] ?? 'indigo'
+        );
+    }
+
+    protected function createDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Carbon::parse($this->created_at)->format('M d, Y')
         );
     }
 }

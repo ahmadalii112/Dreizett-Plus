@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\RoleTypeEnum;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentialCommunityController;
 use App\Http\Controllers\RoomController;
@@ -50,8 +51,9 @@ Route::middleware('auth')->group(function () {
         Route::resource('tenants', TenantController::class);
     });
     // Ticket Management and Ticket Note
-    Route::post('tickets/{ticket}/add-note', TicketNoteController::class)->name('tickets.add-note');
     Route::resource('tickets', TicketController::class);
+    Route::post('tickets/{ticket}/add-note', TicketNoteController::class)->name('tickets.add-note');
+    Route::get('tickets/{ticket}/export-pdf', [PDFController::class, 'exportPdf'])->name('tickets.export-pdf');
 });
 
 require __DIR__.'/auth.php';
