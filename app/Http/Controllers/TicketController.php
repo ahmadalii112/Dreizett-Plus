@@ -54,6 +54,8 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket): View
     {
+        $user = Auth::user();
+        $this->ticketService->showTicketsByUserRole($user, $ticket);
         $ticket->load(['user', 'notes']);
 
         return view('tickets.show', compact('ticket'));

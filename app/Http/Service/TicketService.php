@@ -22,4 +22,15 @@ class TicketService extends BaseService
             default => $this->paginate(with: ['user']),
         };
     }
+
+    public function showTicketsByUserRole($user, $ticket): void
+    {
+        if (
+            ($user->hasRole(RoleTypeEnum::CAREGIVER->value) && $user->id !== $ticket->user_id) ||
+            ($user->hasRole(RoleTypeEnum::TECHNICIAN->value) && $ticket->ticket_type->value !== TicketTypeEnum::REPORT->value)
+        ) {
+            // Caregivers can only view their own tickets, and Technicians can only view technical tickets.
+            abort(403, 'Unauthorized');
+        }
+    }
 }

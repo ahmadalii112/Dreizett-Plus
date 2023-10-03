@@ -7,6 +7,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SharedApartmentController;
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TicketNoteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,8 @@ Route::middleware('auth')->group(function () {
         Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);
     });
+    // Ticket Management and Ticket Note
+    Route::post('tickets/{ticket}/add-note', TicketNoteController::class)->name('tickets.add-note');
     Route::resource('tickets', TicketController::class);
 });
 
