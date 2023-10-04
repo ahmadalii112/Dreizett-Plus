@@ -3,6 +3,7 @@
 namespace App\Http\Service;
 
 use App\Http\Repositories\TenantRepository;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Database\Eloquent\Model;
 
 class TenantService extends BaseService
@@ -33,5 +34,14 @@ class TenantService extends BaseService
         foreach ($previousTenants as $previousTenant) {
             $previousTenant->update(['status' => 0]);
         }
+    }
+
+    public function generateContractPDF($tenant)
+    {
+        $pdf = PDF::loadView('tenants.contract-pdf', ['tenant' => $tenant]);
+        $contractPdfPath = 'contracts/'.$tenant->id.'_contract.pdf';
+        $pdf->save(storage_path('app/public/'.$contractPdfPath));
+        $url = asset('storage/'.$contractPdfPath);
+        $tenant->tenantContract()->create(['contract_pdf_path' => $url]);
     }
 }

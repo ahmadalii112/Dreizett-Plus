@@ -9,6 +9,7 @@ use App\Http\Service\TenantService;
 use App\Models\Tenant;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class TenantController extends Controller
 {
@@ -60,12 +61,13 @@ class TenantController extends Controller
     {
         // Check if there's a previous tenant in the room and update their status
         $this->tenantService->updateTenantStatusForRoom($request->input('room_id'));
-        $this->tenantService->createTenantWithAuthRepresentative(
+        $tenant = $this->tenantService->createTenantWithAuthRepresentative(
             tenantData: $request->except('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number'),
             authorizedRepresentative: $request->only('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number')
         );
+        $this->tenantService->generateContractPDF($tenant);
 
-        return redirect()->route('tenants.index')->with('notificationType', 'success')->with('notificationMessage', 'Tenant Created Successfully');
+        return redirect()->route('tenants.show', $tenant->id)->with('notificationType', 'success')->with('notificationMessage', 'Tenant Created Successfully');
     }
 
     /**
