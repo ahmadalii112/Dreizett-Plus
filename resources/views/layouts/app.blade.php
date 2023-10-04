@@ -7,6 +7,7 @@
 
         <title>@if (isset($heading)) {{ $heading }} @else {{ config('app.name', 'Laravel') }} @endif</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="{{asset('images/logo.ico')}}">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
