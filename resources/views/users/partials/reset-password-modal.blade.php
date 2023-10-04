@@ -35,19 +35,19 @@
                     </svg>
                 </div>
                 <div class="text-center sm:ml-4 sm:mt-0 sm:text-left">
-                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Reset Password</h3>
+                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">{{ trans('language.passwords.reset_password') }}</h3>
                 </div>
             </div>
             <!-- Email Address -->
             <div class="mt-5">
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="trans('language.users.email')" />
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $userEmail)" required autofocus />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ trans('language.actions.email_password_link') }}
                 </x-primary-button>
             </div>
         </form>

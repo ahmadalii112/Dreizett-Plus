@@ -37,7 +37,7 @@
                 <div class="mt-3 text-center sm:mt-5">
                     <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">{{ $modalTitle }}</h3>
                     <div class="mt-2">
-                        <p class="text-sm text-gray-700">Are you sure you want to delete <span class="font-semibold">"{{ $modalText }}"</span></p>
+                        <p class="text-sm text-gray-700">{{ trans('language.actions.message')  }} <span class="font-semibold">"{{ $modalText }}"</span></p>
                     </div>
                 </div>
             </div>
