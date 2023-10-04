@@ -12,6 +12,7 @@ return [
         'mobile_number' => 'Handynummer',
         'email' => 'Email',
         'password' => 'Passwort',
+        'profile' => 'Profil',
         'profile_information' => 'Profil Information',
         'profile_info_message' => 'Aktualisieren Sie die Profilinformationen und die E-Mail-Adresse Ihres Kontos',
     ],
@@ -21,6 +22,14 @@ return [
         'new_password' => 'Neues Passwort',
         'confirm_password' => 'Passwort bestätigen',
         'update_password' => 'Passwort aktualisieren',
+        'forgot_password' => 'Haben Sie Ihr Passwort vergessen?',
+    ],
+    'auth_pages' => [
+        'login' => 'Anmelden',
+        'logout' => 'Abmelden',
+        'remember_me' => 'Erinnere dich an mich',
+        'register' => 'Registrieren',
+        'already_register' => 'Bereits registriert?',
     ],
     'roles' => [
         'role' => 'Rolle',

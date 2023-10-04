@@ -12,9 +12,9 @@ return [
         'mobile_number' => 'Mobile',
         'email' => 'Email',
         'password' => 'Password',
+        'profile' => 'Profile',
         'profile_information' => 'Profile Information',
         'profile_info_message' => "Update your account's profile information and email address.",
-
     ],
     'passwords' => [
         'reset_password' => 'Reset Password',
@@ -22,6 +22,14 @@ return [
         'new_password' => 'New Password',
         'confirm_password' => 'Confirm Password',
         'update_password' => 'Update Password',
+        'forgot_password' => 'Forgot your password?',
+    ],
+    'auth_pages' => [
+        'login' => 'Log in',
+        'logout' => 'Log Out',
+        'remember_me' => 'Remember me',
+        'register' => 'Register',
+        'already_register' => 'Already registered?',
     ],
     'roles' => [
         'role' => 'Role',

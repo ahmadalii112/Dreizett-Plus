@@ -17,12 +17,18 @@
                         <div class="px-4 sm:px-0">
                             <div class="flex justify-between">
                                 <h3 class="text-base font-semibold leading-7 text-gray-900"> {{ __('Tenant Details') }}</h3>
+                                <div class="flex max">
+                                    <a href="{{ route('previous-tenants', $tenant?->room?->id) }}"
+                                       class="mr-3 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                       Previous Tenants
+                                    </a>
                                 @if(!empty($tenant?->tenantContract))
-                                    <a href="{{ $tenant?->tenantContract?->contract_pdf_path }}" target="_blank"
+                                    <a href="{{ $tenant?->tenantContract?->contract_pdf_path }}"
                                        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                         Export PDF
                                     </a>
                                 @endif
+                                    </div>
                             </div>
                             <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500"> {{ __('Information') }}</p>
                         </div>

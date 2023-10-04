@@ -18,7 +18,7 @@
                     </x-nav-link>
                     @hasanyrole(\App\Enums\RoleTypeEnum::ADMINISTRATION->value .'|'. \App\Enums\RoleTypeEnum::MANAGEMENT->value)
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
-                            {{ __('Users') }}
+                            {{ trans_choice('language.users.users|user', 1) }}
                         </x-nav-link>
                     <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.*')">
                         {{ __('Residential Community') }}
@@ -56,7 +56,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ trans('language.users.profile')  }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -66,11 +66,13 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ trans('language.auth_pages.logout')  }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
+                @include('layouts.localization')
+
             </div>
 
             <!-- Hamburger -->
