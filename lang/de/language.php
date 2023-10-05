@@ -52,6 +52,7 @@ return [
         'select' => 'Wählen :name',
         'delete_account' => 'Konto löschen',
         'delete_account_message' => 'Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie Ihr Konto löschen, laden Sie bitte alle Daten oder Informationen herunter, die Sie behalten möchten.',
+        'details' => ':name Einzelheiten',
     ],
     'residential_community' => [
         'communities|community' => 'Gemeinschaften|Gemeinschaft',
@@ -65,8 +66,15 @@ return [
         'name' => 'Name',
     ],
     'rooms' => [
-        'rooms|room' => 'Räume|Room',
+        'rooms|room' => 'Räume|Zimmer',
         'name' => 'Name',
+        'room_number' => 'Zimmernummer',
+        'square_meter_room' => 'Zimmer (Quadratmeter)',
+        'square_meter_common_area' => 'Gemeinschaftsbereich (Quadratmeter)',
+        'basic_rent' => 'Grundmiete',
+        'additional_costs' => 'Zusätzliche Kosten',
+        'heating_costs' => 'Heizkosten',
+        'electricity_costs' => 'Stromkosten',
     ],
 
 ];

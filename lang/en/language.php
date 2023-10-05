@@ -52,6 +52,7 @@ return [
         'select' => 'Select :name',
         'delete_account' => 'Delete Account',
         'delete_account_message' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+        'details' => ':name Details',
     ],
     'residential_community' => [
         'communities|community' => 'Residential Communities|Residential Community',
@@ -67,6 +68,13 @@ return [
     'rooms' => [
         'rooms|room' => 'Rooms|Room',
         'name' => 'Name',
+        'room_number' => 'Room Number',
+        'square_meter_room' => 'Room (Square Meter)',
+        'square_meter_common_area' => 'Common Area (Square Meter)',
+        'basic_rent' => 'Basic Rent',
+        'additional_costs' => 'Additional Costs',
+        'heating_costs' => 'Heating Costs',
+        'electricity_costs' => 'Electricity Costs',
     ],
 
 ];
