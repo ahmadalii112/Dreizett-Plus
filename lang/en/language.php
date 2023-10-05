@@ -101,6 +101,7 @@ return [
         'current_status' => 'Current Tenants|Current Tenant',
         'previous_status' => 'Previous Tenants|Previous Tenant',
         'tenant_information' => 'Please fill out the tenant information',
+        'tenant_contract' => 'Tenant Contract',
     ],
     'authorized_representative' => 'Authorized Representative',
     'authorized_representative_information' => 'Please fill out the authorized representative information.',

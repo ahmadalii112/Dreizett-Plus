@@ -101,6 +101,7 @@ return [
         'current_status' => 'Aktueller Mieter',
         'previous_status' => 'Vorheriger Mieter',
         'tenant_information' => 'Bitte füllen Sie die Mieterdaten aus',
+        'tenant_contract' => 'Mietvertrag',
     ],
     'authorized_representative' => 'Bevollmächtigter Vertreter',
     'authorized_representative_information' => 'Bitte füllen Sie die Angaben zum Bevollmächtigten aus.',
