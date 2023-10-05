@@ -1,11 +1,16 @@
 <x-app-layout>
     <x-slot name="heading">
-           @if(request()->routeIs('tenants.index'))  {{ __('Tenants') }} @else {{ __('Previous Tenants') }} @endif
+           @if(request()->routeIs('tenants.index'))  {{ trans_choice('language.tenants.tenants|tenant', 1) }} @else {{ trans_choice('language.tenants.previous_status', 1) }} @endif
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
-            ['url' =>  route('dashboard'), 'label' => 'Home'],
-            ['url' => request()->routeIs('tenants.index') ? route('tenants.index') : route('previous-tenants', $roomId), 'label' => request()->routeIs('tenants.index') ? __('Tenants') :  __('Previous Tenants')],
+            ['url' =>  route('dashboard'), 'label' => trans('language.home')],
+            ['url' => request()->routeIs('tenants.index')
+                        ? route('tenants.index')
+                        : route('previous-tenants', $roomId),
+             'label' => request()->routeIs('tenants.index')
+                        ?  trans_choice('language.tenants.tenants|tenant', 1)
+                        :  trans_choice('language.tenants.previous_status', 1)],
         ]"/>
     </x-slot>
 
@@ -16,13 +21,13 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900">@if(request()->routeIs('tenants.index'))  {{ __('Tenants') }} @else {{ __('Previous Tenants') }} @endif</h1>
+                                <h1 class="text-base font-semibold leading-6 text-gray-900">@if(request()->routeIs('tenants.index'))  {{ trans_choice('language.tenants.tenants|tenant', 1) }} @else {{  trans_choice('language.tenants.previous_status', 1) }} @endif</h1>
                             </div>
                             @if(request()->routeIs('tenants.index'))
                                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                     <a href="{{ route('tenants.create') }}"
                                             class="block rounded-md {{ $rooms ? 'bg-gray-300 ' : 'bg-indigo-600' }} px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                        {{ __('Add Tenant') }}
+                                        {{ trans('language.actions.add', ['action' =>  trans_choice('language.tenants.tenants|tenant', 2)]) }}
                                     </a>
                                 </div>
                             @endif
@@ -34,19 +39,19 @@
                                         <thead>
                                         <tr>
                                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                                                {{ __('Name') }}
+                                                {{ trans('language.name') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Address') }}
+                                                {{ trans('language.address') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Room') }}
+                                                {{ trans('language.rooms.room_number') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Status') }}
+                                                {{ trans('language.status') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Contract Dates') }}
+                                                {{ trans('language.tenants.contract_dates') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                 {{ trans('language.actions.actions') }}
@@ -87,7 +92,7 @@
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                                     </svg>
-                                                                    Previous Tenants
+                                                                    {{ trans_choice('language.tenants.previous_status', 1) }}
                                                                 </a>
                                                             @endif
                                                             <a href="{{ route('tenants.edit', $tenant->id) }}" class="text-gray-700 hover:bg-gray-100  group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
@@ -113,7 +118,7 @@
                                                                     :form-action="route('tenants.destroy', $tenant->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="'Delete Tenant'"
+                                                                    :modal-title="trans('language.actions.delete', ['action' =>  trans_choice('language.tenants.tenants|tenant', 2)])"
                                                                     :modal-text="$tenant->full_name"
                                                                     :submit-text="trans('language.actions.delete', ['action' => null])"
                                                                     :cancel-text="trans('language.actions.cancel', ['name' => null])"
@@ -130,7 +135,7 @@
                                             <tr>
                                                 <td colspan="6"
                                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-2xl font-medium text-center text-gray-900 sm:pl-0">
-                                                    No Record Found
+                                                    {{ trans('language.no_record') }}
                                                 </td>
                                             </tr>
                                         @endforelse

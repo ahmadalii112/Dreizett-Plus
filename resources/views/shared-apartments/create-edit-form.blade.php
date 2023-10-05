@@ -6,7 +6,7 @@
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
-            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' =>  route('dashboard'), 'label' => trans('language.home')],
             ['url' => route('shared-apartments.index'), 'label' => trans_choice('language.shared_apartments.apartments|apartment', 1)],
             ['url' =>  isset($sharedApartment)
                 ? route('shared-apartments.edit', $sharedApartment->id)

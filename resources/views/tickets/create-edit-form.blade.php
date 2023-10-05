@@ -4,7 +4,7 @@
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
-            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' =>  route('dashboard'), 'label' => trans('language.home')],
             ['url' => route('tickets.index'), 'label' => __('Tickets')],
             ['url' =>  isset($ticket) ? route('tickets.edit', $ticket->id) : route('tickets.create'), 'label' => isset($ticket) ? __('Edit Ticket') : __('Add Ticket')],
         ]"/>

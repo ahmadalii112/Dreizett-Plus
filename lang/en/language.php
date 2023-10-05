@@ -2,7 +2,20 @@
 
 return [
     'welcome' => 'Welcome, :Full_name',
+    'dashboard' => 'Dashboard',
     'home' => 'Home',
+    'name' => 'Name',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'email' => 'Email',
+    'mobile_number' => 'Mobile',
+    'phone_number' => 'Phone',
+    'street' => 'Street',
+    'zip_code' => 'Zip Code',
+    'city' => 'City',
+    'address' => 'Address',
+    'status' => 'Status',
+    'no_record' => 'No Record Found',
     'users' => [
         'users|user' => 'Users|User',
         'information' => 'A list of all the users in your account including their name, mobile, email and role.',
@@ -47,6 +60,7 @@ return [
         'view' => 'View :action',
         'cancel' => 'Cancel :name',
         'save' => 'Save :name',
+        'export' => 'Export PDF',
         'message' => 'Are you sure you want to delete',
         'email_password_link' => 'EMAIL PASSWORD RESET LINK',
         'select' => 'Select :name',
@@ -76,5 +90,19 @@ return [
         'heating_costs' => 'Heating Costs',
         'electricity_costs' => 'Electricity Costs',
     ],
+    'tenants' => [
+        'tenants|tenant' => 'Tenants|Tenant',
+        'salutation' => 'Salutation',
+        'house_number' => 'House Number',
+        'level_of_care' => 'Level of Care',
+        'contract_dates' => 'Contract Date',
+        'contract_start_date' => 'Contract Start',
+        'contract_end_date' => 'Contract End',
+        'current_status' => 'Current Tenants|Current Tenant',
+        'previous_status' => 'Previous Tenants|Previous Tenant',
+        'tenant_information' => 'Please fill out the tenant information',
+    ],
+    'authorized_representative' => 'Authorized Representative',
+    'authorized_representative_information' => 'Please fill out the authorized representative information.',
 
 ];

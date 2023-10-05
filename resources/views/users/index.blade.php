@@ -141,7 +141,7 @@
                                             <tr>
                                                 <td colspan="5"
                                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-2xl font-medium text-center text-gray-900 sm:pl-0">
-                                                    No Record Found
+                                                    {{ trans('language.no_record') }}
                                                 </td>
                                             </tr>
                                         @endforelse

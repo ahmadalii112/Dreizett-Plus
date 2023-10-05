@@ -14,7 +14,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ trans('language.dashboard') }}
                     </x-nav-link>
                     @hasanyrole(\App\Enums\RoleTypeEnum::ADMINISTRATION->value .'|'. \App\Enums\RoleTypeEnum::MANAGEMENT->value)
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
@@ -30,7 +30,7 @@
                         {{ trans_choice("language.rooms.rooms|room", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')">
-                        {{ __('Tenants') }}
+                        {{  trans_choice('language.tenants.tenants|tenant', 1) }}
                     </x-nav-link>
                     @endhasanyrole
                     <x-nav-link :href="route('tickets.index')" :active="request()->routeIs('tickets.*')">
@@ -91,7 +91,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ trans('language.dashboard') }}
             </x-responsive-nav-link>
         </div>
 

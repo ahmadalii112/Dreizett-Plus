@@ -4,7 +4,7 @@
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
-            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' =>  route('dashboard'), 'label' => trans('language.home')],
             ['url' => route('rooms.index'), 'label' =>  trans_choice('language.rooms.rooms|room', 1)],
         ]"/>
     </x-slot>
@@ -127,7 +127,7 @@
                                             <tr>
                                                 <td colspan="9"
                                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-2xl font-medium text-center text-gray-900 sm:pl-0">
-                                                    No Record Found
+                                                    {{ trans('language.no_record') }}
                                                 </td>
                                             </tr>
                                         @endforelse

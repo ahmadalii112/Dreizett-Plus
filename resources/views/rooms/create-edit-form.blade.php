@@ -12,7 +12,7 @@
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
-            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' =>  route('dashboard'), 'label' => trans('language.home')],
             ['url' => route('rooms.index'), 'label' =>  trans_choice('language.rooms.rooms|room', 1)],
             ['url' =>  isset($room)
                         ? route('rooms.edit', $room->id)

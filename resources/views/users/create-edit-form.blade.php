@@ -7,7 +7,7 @@
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
-            ['url' =>  route('dashboard'), 'label' => 'Home'],
+            ['url' =>  route('dashboard'), 'label' => trans('language.home')],
             ['url' => route('users.index'), 'label' => trans_choice('language.users.users|user', 1)],
             ['url' =>  isset($user)
                     ? route('users.edit', $user->id)

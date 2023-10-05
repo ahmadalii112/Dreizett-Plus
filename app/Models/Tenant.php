@@ -89,7 +89,7 @@ class Tenant extends Model
     protected function tenantStatus(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->status ? 'Current Tenant' : 'Previous Tenant',
+            get: fn () => $this->status ? trans_choice('language.tenants.current_status', 2) : trans_choice('language.tenants.previous_status', 2),
         );
     }
 }
