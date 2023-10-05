@@ -6,6 +6,8 @@ use App\Http\Requests\UserRequest;
 use App\Http\Service\RoleService;
 use App\Http\Service\UserService;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -24,7 +26,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $users = $this->userService->paginate(perPage: 10, with: ['roles']);
 
@@ -34,7 +36,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         $roles = $this->roleService->pluck(keyColumn: 'name');
 
@@ -44,7 +46,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(UserRequest $request): RedirectResponse
     {
         $user = $this->userService->createUserWithRole(
             userData: $request->validated(),
@@ -65,7 +67,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(User $user): View
     {
         $roles = $this->roleService->pluck(keyColumn: 'name');
 
@@ -75,7 +77,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, User $user): RedirectResponse
     {
         $updatedUser = $this->userService->updateUserWithRole(
             user: $user,
@@ -89,7 +91,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $user): RedirectResponse
     {
         if ($this->userService->checkAdministration($user->id)) {
             return redirect()->route('users.index')->with('notificationType', 'danger')->with('notificationMessage', 'You cannot delete this user');
