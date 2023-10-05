@@ -15,6 +15,7 @@ return [
         'profile' => 'Profil',
         'profile_information' => 'Profil Information',
         'profile_info_message' => 'Aktualisieren Sie die Profilinformationen und die E-Mail-Adresse Ihres Kontos',
+        'created_by' => 'Erstellt von',
     ],
     'passwords' => [
         'reset_password' => 'Passwort zurücksetzen',
@@ -43,6 +44,7 @@ return [
         'add' => 'Hinzufügen :action',
         'edit' => 'Bearbeiten :action',
         'delete' => 'Löschen :action',
+        'view' => 'Sicht :action',
         'cancel' => 'Abbrechen :name',
         'save' => 'Speichern :name',
         'message' => 'Sind Sie sicher, dass Sie löschen möchten',
@@ -50,6 +52,14 @@ return [
         'select' => 'Wählen :name',
         'delete_account' => 'Konto löschen',
         'delete_account_message' => 'Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie Ihr Konto löschen, laden Sie bitte alle Daten oder Informationen herunter, die Sie behalten möchten.',
+    ],
+
+    'residential_community' => [
+        'communities|community' => 'Gemeinschaften|Gemeinschaft',
+        'name' => 'Name',
+        'care_allowance' => 'Pflegegeld',
+        'household_allowance' => 'Haushaltszulage',
+        'deduction_amount' => 'Abzugsbetrag',
     ],
 
 ];

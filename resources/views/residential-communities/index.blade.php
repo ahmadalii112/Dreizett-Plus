@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('Residential Community') }}
+        {{ trans_choice("language.residential_community.communities|community", 1) }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => 'Home'],
-            ['url' => route('residential-communities.index'), 'label' => __('Residential Community')],
+            ['url' => route('residential-communities.index'), 'label' => trans_choice('language.residential_community.communities|community', 1)],
         ]"/>
     </x-slot>
 
@@ -16,14 +16,14 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Residential Community') }}
+                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ trans_choice("language.residential_community.communities|community", 1) }}
                                 </h1>
 
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('residential-communities.create') }}"
                                         class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                     {{ __('Add Residential Community') }}
+                                     {{ trans("language.actions.add", ['action' => trans_choice("language.residential_community.communities|community", 2)]) }}
                                 </a>
                             </div>
                         </div>
@@ -35,23 +35,23 @@
                                         <tr>
                                             <th scope="col"
                                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                                                {{ __('Name') }}
+                                                {{ trans('language.residential_community.name') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Care Allowance (€)') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.residential_community.care_allowance') }} (&euro;)
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Household Allowance (€)') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.household_allowance') }} (&euro;)
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Deduction Amount') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.deduction_amount') }} (&euro;)
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Created By') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{  trans('language.users.created_by') }}
                                             </th>
 
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Actions
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.actions.actions') }}
                                             </th>
 
                                         </tr>
@@ -73,7 +73,7 @@
                                                                     <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
                                                                     <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
                                                                 </svg>
-                                                                Edit
+                                                               {{ trans('language.actions.edit', ['action' => null]) }}
                                                             </a>
                                                             <div x-data="{ isModalOpen: false }" x-cloak>
                                                                 <!-- Delete User Button -->
@@ -81,7 +81,7 @@
                                                                     <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                                         <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd" />
                                                                     </svg>
-                                                                    Delete
+                                                                    {{ trans('language.actions.delete', ['action' => null]) }}
                                                                 </a>
                                                                 <!-- Delete  Modal -->
                                                                 <x-delete-modal

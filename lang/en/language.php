@@ -15,6 +15,7 @@ return [
         'profile' => 'Profile',
         'profile_information' => 'Profile Information',
         'profile_info_message' => "Update your account's profile information and email address.",
+        'created_by' => 'Created By',
     ],
     'passwords' => [
         'reset_password' => 'Reset Password',
@@ -43,6 +44,7 @@ return [
         'add' => 'Add :action',
         'edit' => 'Edit :action',
         'delete' => 'Delete :action',
+        'view' => 'View :action',
         'cancel' => 'Cancel :name',
         'save' => 'Save :name',
         'message' => 'Are you sure you want to delete',
@@ -50,7 +52,13 @@ return [
         'select' => 'Select :name',
         'delete_account' => 'Delete Account',
         'delete_account_message' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-
+    ],
+    'residential_community' => [
+        'communities|community' => 'Residential Communities|Residential Community',
+        'name' => 'Name',
+        'care_allowance' => 'Care Allowance ',
+        'household_allowance' => 'Household Allowance',
+        'deduction_amount' => 'Deduction Amount',
     ],
 
 ];

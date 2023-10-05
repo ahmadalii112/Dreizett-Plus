@@ -21,7 +21,7 @@
                             {{ trans_choice('language.users.users|user', 1) }}
                         </x-nav-link>
                     <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.*')">
-                        {{ __('Residential Community') }}
+                        {{ trans_choice("language.residential_community.communities|community", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.*')">
                         {{ __('Shared Apartments') }}
