@@ -29,10 +29,10 @@
                             <div class=" grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3">
 
                                 <div class="sm:col-span-3">
-                                    <label for="community_id" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans_choice("language.residential_community.communities|community", 2) }}</label>
+                                    <label for="community_id" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans_choice("language.residential_community.community", 2) }}</label>
                                     <div class="mt-2">
                                         <select id="community_id" name="community_id" autocomplete="community_id" class="block @error('community_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                            <option>{{ trans('language.actions.select', ['name' => trans_choice("language.residential_community.communities|community", 2)]) }}</option>
+                                            <option>{{ trans('language.actions.select', ['name' => trans_choice("language.residential_community.community", 2)]) }}</option>
                                             @foreach($residentialCommunities as $community)
                                                 <option value="{{$community->id}}"
                                                         @if (old('community_id') == $community->id) selected="selected"

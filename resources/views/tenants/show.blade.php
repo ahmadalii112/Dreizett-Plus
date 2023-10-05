@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{trans('language.actions.details', ['name' => trans_choice('language.tenants.tenants|tenant', 2) ]) }}
+        {{trans('language.actions.details', ['name' => trans_choice('language.tenants.tenants', 2) ]) }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('tenants.index'), 'label' => trans_choice('language.tenants.tenants|tenant', 1)],
-            ['url' => route('tenants.show', $tenant->id), 'label' =>  trans('language.actions.details', ['name' => trans_choice('language.tenants.tenants|tenant', 2) ])],
+            ['url' => route('tenants.index'), 'label' => trans_choice('language.tenants.tenants', 1)],
+            ['url' => route('tenants.show', $tenant->id), 'label' =>  trans('language.actions.details', ['name' => trans_choice('language.tenants.tenants', 2) ])],
         ]"/>
     </x-slot>
     <div class="py-12">
@@ -16,7 +16,7 @@
                     <div>
                         <div class="px-4 sm:px-0">
                             <div class="flex justify-between">
-                                <h3 class="text-base font-semibold leading-7 text-gray-900"> {{ trans('language.actions.details', ['name' => trans_choice('language.tenants.tenants|tenant', 2) ]) }}</h3>
+                                <h3 class="text-base font-semibold leading-7 text-gray-900"> {{ trans('language.actions.details', ['name' => trans_choice('language.tenants.tenants', 2) ]) }}</h3>
                                 <div class="flex max">
                                     <a href="{{ route('previous-tenants', $tenant?->room?->id) }}"
                                        class="mr-3 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

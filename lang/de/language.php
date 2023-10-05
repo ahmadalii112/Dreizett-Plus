@@ -17,7 +17,7 @@ return [
     'status' => 'Status',
     'no_record' => 'Kein Eintrag gefunden',
     'users' => [
-        'users|user' => 'Benutzer|Benutzer',
+        'users' => 'Benutzer|Benutzer',
         'information' => 'Eine Liste aller Benutzer in Ihrem Konto, einschließlich Name, Mobiltelefon, E-Mail-Adresse und Rolle.',
         'name' => 'Vorname',
         'first_name' => 'Vorname',
@@ -69,7 +69,7 @@ return [
         'details' => ':name Einzelheiten',
     ],
     'residential_community' => [
-        'communities|community' => 'Gemeinschaften|Gemeinschaft',
+        'community' => 'Gemeinschaften|Gemeinschaft',
         'name' => 'Name',
         'care_allowance' => 'Pflegegeld',
         'household_allowance' => 'Haushaltszulage',
@@ -80,7 +80,7 @@ return [
         'name' => 'Name',
     ],
     'rooms' => [
-        'rooms|room' => 'Räume|Zimmer',
+        'rooms' => 'Räume|Zimmer',
         'name' => 'Name',
         'room_number' => 'Zimmernummer',
         'square_meter_room' => 'Zimmer (Quadratmeter)',
@@ -91,7 +91,7 @@ return [
         'electricity_costs' => 'Stromkosten',
     ],
     'tenants' => [
-        'tenants|tenant' => 'Mieterinnen|Mieterin',
+        'tenants' => 'Mieterinnen|Mieterin',
         'salutation' => 'Anrede',
         'house_number' => 'Hausnummer',
         'level_of_care' => 'Pflegegrad',

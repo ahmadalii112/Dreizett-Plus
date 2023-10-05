@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="heading">
-           @if(request()->routeIs('tenants.index'))  {{ trans_choice('language.tenants.tenants|tenant', 1) }} @else {{ trans_choice('language.tenants.previous_status', 1) }} @endif
+           @if(request()->routeIs('tenants.index'))  {{ trans_choice('language.tenants.tenants', 1) }} @else {{ trans_choice('language.tenants.previous_status', 1) }} @endif
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
@@ -9,7 +9,7 @@
                         ? route('tenants.index')
                         : route('previous-tenants', $roomId),
              'label' => request()->routeIs('tenants.index')
-                        ?  trans_choice('language.tenants.tenants|tenant', 1)
+                        ?  trans_choice('language.tenants.tenants', 1)
                         :  trans_choice('language.tenants.previous_status', 1)],
         ]"/>
     </x-slot>
@@ -21,13 +21,13 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900">@if(request()->routeIs('tenants.index'))  {{ trans_choice('language.tenants.tenants|tenant', 1) }} @else {{  trans_choice('language.tenants.previous_status', 1) }} @endif</h1>
+                                <h1 class="text-base font-semibold leading-6 text-gray-900">@if(request()->routeIs('tenants.index'))  {{ trans_choice('language.tenants.tenants', 1) }} @else {{  trans_choice('language.tenants.previous_status', 1) }} @endif</h1>
                             </div>
                             @if(request()->routeIs('tenants.index'))
                                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                     <a href="{{ route('tenants.create') }}"
                                             class="block rounded-md {{ $rooms ? 'bg-gray-300 ' : 'bg-indigo-600' }} px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                        {{ trans('language.actions.add', ['action' =>  trans_choice('language.tenants.tenants|tenant', 2)]) }}
+                                        {{ trans('language.actions.add', ['action' =>  trans_choice('language.tenants.tenants', 2)]) }}
                                     </a>
                                 </div>
                             @endif
@@ -118,7 +118,7 @@
                                                                     :form-action="route('tenants.destroy', $tenant->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="trans('language.actions.delete', ['action' =>  trans_choice('language.tenants.tenants|tenant', 2)])"
+                                                                    :modal-title="trans('language.actions.delete', ['action' =>  trans_choice('language.tenants.tenants', 2)])"
                                                                     :modal-text="$tenant->full_name"
                                                                     :submit-text="trans('language.actions.delete', ['action' => null])"
                                                                     :cancel-text="trans('language.actions.cancel', ['name' => null])"

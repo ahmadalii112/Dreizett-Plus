@@ -1,20 +1,20 @@
 <x-app-layout>
     <x-slot name="heading">
         {{ __(isset($user)
-            ? trans('language.actions.edit', ['action' => trans_choice('language.users.users|user', 2)])
-            : trans('language.actions.add', ['action' => trans_choice('language.users.users|user', 2)]))
+            ? trans('language.actions.edit', ['action' => trans_choice('language.users.users', 2)])
+            : trans('language.actions.add', ['action' => trans_choice('language.users.users', 2)]))
         }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('users.index'), 'label' => trans_choice('language.users.users|user', 1)],
+            ['url' => route('users.index'), 'label' => trans_choice('language.users.users', 1)],
             ['url' =>  isset($user)
                     ? route('users.edit', $user->id)
                     : route('users.create'),
             'label' => isset($user)
-                    ? trans('language.actions.edit', ['action' => trans_choice('language.users.users|user', 2)])
-                    : trans('language.actions.add', ['action' => trans_choice('language.users.users|user', 2)])],
+                    ? trans('language.actions.edit', ['action' => trans_choice('language.users.users', 2)])
+                    : trans('language.actions.add', ['action' => trans_choice('language.users.users', 2)])],
         ]"/>
     </x-slot>
 

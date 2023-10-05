@@ -38,11 +38,11 @@
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ trans_choice("language.residential_community.communities|community", 2) }}
+                                                {{ trans_choice("language.residential_community.community", 2) }}
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ trans_choice("language.rooms.rooms|room", 1) }}
+                                                {{ trans_choice("language.rooms.rooms", 1) }}
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.actions.actions') }}

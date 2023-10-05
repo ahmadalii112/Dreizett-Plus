@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{ trans_choice('language.users.users|user', 1) }}
+        {{ trans_choice('language.users.users', 1) }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('users.index'), 'label' => trans_choice('language.users.users|user', 1) ],
+            ['url' => route('users.index'), 'label' => trans_choice('language.users.users', 1) ],
         ]"/>
     </x-slot>
 
@@ -16,13 +16,13 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900"> {{ trans_choice('language.users.users|user', 1) }}</h1>
+                                <h1 class="text-base font-semibold leading-6 text-gray-900"> {{ trans_choice('language.users.users', 1) }}</h1>
                                 <p class="mt-2 text-sm text-gray-700"> {{ trans('language.users.information') }}</p>
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('users.create') }}"
                                    class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    {{ trans('language.actions.add', ['action' =>  trans_choice('language.users.users|user', 2)]) }}
+                                    {{ trans('language.actions.add', ['action' =>  trans_choice('language.users.users', 2)]) }}
                                 </a>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                                                                     :form-action="route('users.destroy', $user->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="trans('language.actions.delete', ['action' => trans_choice('language.users.users|user', 2)])"
+                                                                    :modal-title="trans('language.actions.delete', ['action' => trans_choice('language.users.users', 2)])"
                                                                     :modal-text="$user->full_name"
                                                                     :submit-text="trans('language.actions.delete', ['action' => null])"
                                                                     :cancel-text="trans('language.actions.cancel', ['name' => null])"

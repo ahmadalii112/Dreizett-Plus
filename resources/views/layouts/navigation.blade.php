@@ -18,19 +18,19 @@
                     </x-nav-link>
                     @hasanyrole(\App\Enums\RoleTypeEnum::ADMINISTRATION->value .'|'. \App\Enums\RoleTypeEnum::MANAGEMENT->value)
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
-                            {{ trans_choice('language.users.users|user', 1) }}
+                            {{ trans_choice('language.users.users', 1) }}
                         </x-nav-link>
                     <x-nav-link :href="route('residential-communities.index')" :active="request()->routeIs('residential-communities.*')">
-                        {{ trans_choice("language.residential_community.communities|community", 1) }}
+                        {{ trans_choice("language.residential_community.community", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.*')">
                         {{ trans_choice("language.shared_apartments.apartments|apartment", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.*')">
-                        {{ trans_choice("language.rooms.rooms|room", 1) }}
+                        {{ trans_choice("language.rooms.rooms", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')">
-                        {{  trans_choice('language.tenants.tenants|tenant', 1) }}
+                        {{  trans_choice('language.tenants.tenants', 1) }}
                     </x-nav-link>
                     @endhasanyrole
                     <x-nav-link :href="route('tickets.index')" :active="request()->routeIs('tickets.*')">

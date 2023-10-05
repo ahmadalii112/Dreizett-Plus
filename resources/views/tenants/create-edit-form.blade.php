@@ -1,20 +1,20 @@
 <x-app-layout>
     <x-slot name="heading">
         {{ isset($tenant)
-                ? trans('language.actions.edit', ['action' => trans_choice('language.tenants.tenants|tenant', 2)])
-                : trans('language.actions.add', ['action' => trans_choice('language.tenants.tenants|tenant', 2)])
+                ? trans('language.actions.edit', ['action' => trans_choice('language.tenants.tenants', 2)])
+                : trans('language.actions.add', ['action' => trans_choice('language.tenants.tenants', 2)])
                  }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('tenants.index'), 'label' => trans_choice('language.tenants.tenants|tenant', 1)],
+            ['url' => route('tenants.index'), 'label' => trans_choice('language.tenants.tenants', 1)],
             ['url' =>  isset($tenant)
                         ? route('tenants.edit', $tenant->id)
                         : route('tenants.create'),
              'label' => isset($tenant)
-                    ? trans('language.actions.edit', ['action' => trans_choice('language.tenants.tenants|tenant', 2)])
-                    : trans('language.actions.add', ['action' => trans_choice('language.tenants.tenants|tenant', 2)])],
+                    ? trans('language.actions.edit', ['action' => trans_choice('language.tenants.tenants', 2)])
+                    : trans('language.actions.add', ['action' => trans_choice('language.tenants.tenants', 2)])],
         ]"/>
     </x-slot>
 
@@ -26,7 +26,7 @@
                         @isset($tenant) @method('PUT')@endisset
                         @csrf
                     <div class="pb-12">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900"> {{ trans_choice('language.tenants.tenants|tenant', 2) }}</h2>
+                        <h2 class="text-base font-semibold leading-7 text-gray-900"> {{ trans_choice('language.tenants.tenants', 2) }}</h2>
                         <p class="mt-1 text-sm leading-6 text-gray-600">{{ trans('language.tenants.tenant_information') }}</p>
                     </div>
                     <div class="border-b border-gray-900/10 pb-12">
@@ -35,7 +35,7 @@
                                 <label for="room_id" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.rooms.room_number') }}</label>
                                 <div class="mt-2">
                                     <select id="room_id" name="room_id" autocomplete="room_id" class="block @error('room_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>{{ trans('language.actions.select', ['name' => trans_choice('language.rooms.rooms|room', 2) ]) }}</option>
+                                        <option>{{ trans('language.actions.select', ['name' => trans_choice('language.rooms.rooms', 2) ]) }}</option>
                                         @foreach($rooms as $room)
                                             <option value="{{$room->id}}"
                                                     @if ((old('room_id') == $room->id) || (isset($tenant) && $tenant->room_id == $room->id && $errors->isEmpty()))

@@ -17,7 +17,7 @@ return [
     'status' => 'Status',
     'no_record' => 'No Record Found',
     'users' => [
-        'users|user' => 'Users|User',
+        'users' => 'Users|User',
         'information' => 'A list of all the users in your account including their name, mobile, email and role.',
         'name' => 'Name',
         'first_name' => 'First Name',
@@ -69,7 +69,7 @@ return [
         'details' => ':name Details',
     ],
     'residential_community' => [
-        'communities|community' => 'Residential Communities|Residential Community',
+        'community' => 'Residential Communities|Residential Community',
         'name' => 'Name',
         'care_allowance' => 'Care Allowance ',
         'household_allowance' => 'Household Allowance',
@@ -80,7 +80,7 @@ return [
         'name' => 'Name',
     ],
     'rooms' => [
-        'rooms|room' => 'Rooms|Room',
+        'rooms' => 'Rooms|Room',
         'name' => 'Name',
         'room_number' => 'Room Number',
         'square_meter_room' => 'Room (Square Meter)',
@@ -91,7 +91,7 @@ return [
         'electricity_costs' => 'Electricity Costs',
     ],
     'tenants' => [
-        'tenants|tenant' => 'Tenants|Tenant',
+        'tenants' => 'Tenants|Tenant',
         'salutation' => 'Salutation',
         'house_number' => 'House Number',
         'level_of_care' => 'Level of Care',

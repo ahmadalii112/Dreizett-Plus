@@ -1,20 +1,20 @@
 <x-app-layout>
     <x-slot name="heading">
         {{ __(isset($residentialCommunity)
-            ? trans('language.actions.edit', ['action' => trans_choice('language.residential_community.communities|community', 2)])
-            : trans('language.actions.add', ['action' => trans_choice('language.residential_community.communities|community', 2)]))
+            ? trans('language.actions.edit', ['action' => trans_choice('language.residential_community.community', 2)])
+            : trans('language.actions.add', ['action' => trans_choice('language.residential_community.community', 2)]))
         }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('residential-communities.index'), 'label' =>  trans_choice('language.residential_community.communities|community', 1) ],
+            ['url' => route('residential-communities.index'), 'label' =>  trans_choice('language.residential_community.community', 1) ],
             ['url' =>  isset($residentialCommunity)
                     ? route('residential-communities.edit', $residentialCommunity->id)
                     : route('residential-communities.create'),
             'label' => isset($residentialCommunity)
-                    ? trans('language.actions.edit', ['action' => trans_choice('language.residential_community.communities|community', 2)])
-                    : trans('language.actions.add', ['action' => trans_choice('language.residential_community.communities|community', 2)])],
+                    ? trans('language.actions.edit', ['action' => trans_choice('language.residential_community.community', 2)])
+                    : trans('language.actions.add', ['action' => trans_choice('language.residential_community.community', 2)])],
         ]"/>
     </x-slot>
 

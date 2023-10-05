@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="heading">
         {{ __(isset($room)
-            ? trans('language.actions.edit', ['action' => trans_choice('language.rooms.rooms|room', 2)])
-            : trans('language.actions.add', ['action' => trans_choice('language.rooms.rooms|room', 2)]))
+            ? trans('language.actions.edit', ['action' => trans_choice('language.rooms.rooms', 2)])
+            : trans('language.actions.add', ['action' => trans_choice('language.rooms.rooms', 2)]))
              }}
     </x-slot>
     <x-slot name="header">
@@ -13,13 +13,13 @@
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('rooms.index'), 'label' =>  trans_choice('language.rooms.rooms|room', 1)],
+            ['url' => route('rooms.index'), 'label' =>  trans_choice('language.rooms.rooms', 1)],
             ['url' =>  isset($room)
                         ? route('rooms.edit', $room->id)
                         : route('rooms.create'),
              'label' => isset($room)
-                        ? trans('language.actions.edit', ['action' => trans_choice('language.rooms.rooms|room', 2)])
-                        : trans('language.actions.add', ['action' => trans_choice('language.rooms.rooms|room', 2)])],
+                        ? trans('language.actions.edit', ['action' => trans_choice('language.rooms.rooms', 2)])
+                        : trans('language.actions.add', ['action' => trans_choice('language.rooms.rooms', 2)])],
         ]"/>
     </x-slot>
 
