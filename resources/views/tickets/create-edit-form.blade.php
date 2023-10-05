@@ -1,12 +1,18 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{ __(isset($ticket) ? 'Edit Ticket' : 'Create Ticket') }}
+        {{ isset($ticket)
+                ? trans('language.actions.edit', ['action' => trans_choice('language.tickets.tickets', 2)])
+                :  trans('language.actions.add', ['action' => trans_choice('language.tickets.tickets', 2)])
+                 }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
             ['url' => route('tickets.index'), 'label' => __('Tickets')],
-            ['url' =>  isset($ticket) ? route('tickets.edit', $ticket->id) : route('tickets.create'), 'label' => isset($ticket) ? __('Edit Ticket') : __('Add Ticket')],
+            ['url' =>  isset($ticket) ? route('tickets.edit', $ticket->id) : route('tickets.create'),
+             'label' => isset($ticket)
+                    ? trans('language.actions.edit', ['action' => trans_choice('language.tickets.tickets', 2)])
+                    : trans('language.actions.add', ['action' => trans_choice('language.tickets.tickets', 2)])],
         ]"/>
     </x-slot>
 
@@ -18,16 +24,16 @@
                         @isset($ticket) @method('PUT')@endisset
                         @csrf
                     <div class="pb-12">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900"> {{ __('Ticket') }}</h2>
-                        <p class="mt-1 text-sm leading-6 text-gray-600">{{__('Please fill out the tenant information')}}.</p>
+                        <h2 class="text-base font-semibold leading-7 text-gray-900"> {{ trans_choice('language.tickets.tickets', 1) }}</h2>
+                        <p class="mt-1 text-sm leading-6 text-gray-600">{{ trans('language.tickets.tickets_information') }}.</p>
                     </div>
                     <div class="border-b border-gray-900/10 pb-12">
                         <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-3">
-                                <label for="location" class="block text-sm font-medium leading-6 text-gray-900 required">{{__('Location')}}</label>
+                                <label for="location" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tickets.location') }}</label>
                                 <div class="mt-2">
                                     <select id="location" name="location" autocomplete="location" class="block @error('location') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>Select Location</option>
+                                        <option>{{ trans('language.actions.select', ['name' =>  trans('language.tickets.location') ]) }}</option>
                                         @foreach(\App\Enums\LocationTypeEnum::cases() as $location)
                                             <option value="{{$location->value}}"
                                                     @if ((old('location') == $location->value) || (isset($ticket) && $ticket->location == $location->value && $errors->isEmpty()))
@@ -44,10 +50,10 @@
                                 @enderror
                             </div>
                             <div class="sm:col-span-3">
-                                <label for="ticket_type" class="block text-sm font-medium leading-6 text-gray-900 required">{{__('Ticket Type')}}</label>
+                                <label for="ticket_type" class="block text-sm font-medium leading-6 text-gray-900 required">{{  trans('language.tickets.ticket_type')  }}</label>
                                 <div class="mt-2">
                                     <select id="ticket_type" name="ticket_type" autocomplete="ticket_type" class="block @error('ticket_type') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>Select Type</option>
+                                        <option>{{  trans('language.actions.select', ['name' =>  trans('language.tickets.ticket_type') ]) }}</option>
                                         @foreach(\App\Enums\TicketTypeEnum::cases() as $ticket_type)
                                             <option value="{{$ticket_type->value}}"
                                                     @if ((old('ticket_type') == $ticket_type->value) || (isset($ticket) && $ticket->ticket_type == $ticket_type->value && $errors->isEmpty()))
@@ -64,7 +70,7 @@
                                 @enderror
                             </div>
                             <div class="col-span-full">
-                                <label for="message" class="block text-sm font-medium leading-6 text-gray-900 ">{{ __('Message') }}</label>
+                                <label for="message" class="block text-sm font-medium leading-6 text-gray-900 ">{{ trans('language.tickets.message')}}</label>
                                 <div class="mt-2">
                                     <textarea id="message" name="message" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("message", isset($ticket) ? $ticket->message :  "") }}</textarea>
 
@@ -74,7 +80,7 @@
                                 @enderror
                             </div>
                             <div class="col-span-full">
-                                <label for="dimensions" class="block text-sm font-medium leading-6 text-gray-900">{{ __('Dimensions') }}</label>
+                                <label for="dimensions" class="block text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.dimensions') }}</label>
                                 <div class="mt-2">
                                     <input type="number" name="dimensions" id="dimensions"  value="{{ old('dimensions', isset($ticket) ? $ticket?->dimensions : '') }}" autocomplete="given-name" class="block w-full @error('dimensions') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
@@ -84,7 +90,7 @@
                             </div>
                             <!-- Why Needed (required for 'Order Request') -->
                             <div class="sm:col-span-3">
-                                <label for="why_needed" class="block text-sm font-medium leading-6 text-gray-900">{{ __("Why is it needed? (required for 'Order Request'):") }}</label>
+                                <label for="why_needed" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.why_needed')}} (Order Request)</label>
                                 <div class="mt-2">
                                     <textarea id="why_needed" name="why_needed" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("why_needed", isset($ticket) ? $ticket->why_needed :  "") }}</textarea>
                                 </div>
@@ -94,7 +100,7 @@
                             </div>
                             <!-- Solution Suggestion (required for 'Suggestion for Improvement') -->
                             <div class="sm:col-span-3">
-                                <label for="solution_suggestion" class="block text-sm font-medium leading-6 text-gray-900">{{ __("Solution Suggestion (required for 'Suggestion for Improvement'):") }}</label>
+                                <label for="solution_suggestion" class="block text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.solution_suggestion') }}</label>
                                 <div class="mt-2">
                                     <textarea id="solution_suggestion" name="solution_suggestion" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("solution_suggestion", isset($ticket) ? $ticket->solution_suggestion :  "") }}</textarea>
                                 </div>
@@ -104,10 +110,10 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="trade" class="block text-sm font-medium leading-6 text-gray-900 required">{{__("Trade (mandatory for 'Report a Technical Malfunction')")}}</label>
+                                <label for="trade" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tickets.trade') }} (Technical Malfunction)</label>
                                 <div class="mt-2">
                                     <select id="trade" name="trade" autocomplete="trade" class="block @error('trade') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>Select Trade</option>
+                                        <option>{{ trans('language.actions.select', ['name' => trans('language.tickets.trade') ]) }} </option>
                                         @foreach(\App\Enums\TradeTypeEnum::cases() as $trade)
                                             <option value="{{$trade->value}}"
                                                     @if ((old('trade') == $trade->value) || (isset($ticket) && $ticket->trade == $trade->value && $errors->isEmpty()))
@@ -125,7 +131,7 @@
                             </div>
                             <!-- Problem Location (mandatory for 'Report a Technical Malfunction') -->
                             <div class="sm:col-span-3">
-                                <label for="problem_location" class="block text-sm font-medium leading-6 text-gray-900">{{ __("Where exactly is the problem? (mandatory for 'Report a Technical Malfunction')") }}</label>
+                                <label for="problem_location" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.problem_location') }} (Technical Malfunction)</label>
                                 <div class="mt-2">
                                     <textarea id="problem_location" name="problem_location" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("problem_location", isset($ticket) ? $ticket->problem_location :  "") }}</textarea>
                                 </div>
@@ -135,7 +141,7 @@
                             </div>
                             <!-- Tried to Solve (mandatory for 'Report a Technical Malfunction') -->
                             <div class="sm:col-span-3">
-                                <label for="tried_to_solve" class="block text-sm font-medium leading-6 text-gray-900">{{ __("Have you already tried to solve the problem yourself? (mandatory for 'Report a Technical Malfunction')") }}</label>
+                                <label for="tried_to_solve" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.tried_to_solve') }} (Technical Malfunction)</label>
                                 <div class="mt-2">
                                     <textarea id="tried_to_solve" name="tried_to_solve" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("tried_to_solve", isset($ticket) ? $ticket->tried_to_solve :  "") }}</textarea>
                                 </div>
@@ -145,7 +151,7 @@
                             </div>
                             <!-- Proposed Solution (mandatory for 'Report a Technical Malfunction') -->
                             <div class="sm:col-span-3">
-                                <label for="proposed_solution" class="block text-sm font-medium leading-6 text-gray-900">{{ __("What solution do you suggest? (mandatory for 'Report a Technical Malfunction'):") }}</label>
+                                <label for="proposed_solution" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.proposed_solution') }} (Technical Malfunction)</label>
                                 <div class="mt-2">
                                     <textarea id="proposed_solution" name="proposed_solution" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("proposed_solution", isset($ticket) ? $ticket->proposed_solution :  "") }}</textarea>
                                 </div>
@@ -155,7 +161,7 @@
                             </div>
                             <!-- Expense Reason (required for 'Reimbursement of Expenses') -->
                             <div class="sm:col-span-3">
-                                <label for="expense_reason" class="block text-sm font-medium leading-6 text-gray-900">{{ __("What was this expense for? (required for 'Reimbursement of Expenses'):") }}</label>
+                                <label for="expense_reason" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.expense_reason') }}</label>
                                 <div class="mt-2">
                                     <textarea id="expense_reason" name="expense_reason" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("expense_reason", isset($ticket) ? $ticket->expense_reason :  "") }}</textarea>
                                 </div>
@@ -165,7 +171,7 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="notes" class="block text-sm font-medium leading-6 text-gray-900">{{ __("Note") }}</label>
+                                <label for="notes" class="block text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.notes')  }}</label>
                                 <div class="mt-2">
                                     <textarea id="notes" name="notes" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("notes", isset($ticket) ? $ticket->notes :  "") }}</textarea>
                                 </div>

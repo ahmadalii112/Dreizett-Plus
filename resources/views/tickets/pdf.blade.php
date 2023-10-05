@@ -39,7 +39,7 @@
 </head>
 <body>
 <div class="ticket-info">
-    <h2>Ticket Information</h2>
+    <h2>Ticketinformation</h2>
     <p><strong>Location:</strong> {{ $ticket->location }}</p>
     <p><strong>Ticket Type:</strong> {{ $ticket->ticket_type }}</p>
     <p><strong>User:</strong> {{ $ticket?->user?->full_name }}</p>
@@ -47,46 +47,46 @@
 </div>
 
 <div class="ticket-details">
-    <h2>Additional Details</h2>
+    <h2>Weitere Details</h2>
     <table>
         <tr>
-            <th>Dimensions</th>
+            <th>{{ trans('language.tickets.dimensions') }}</th>
             <td>{{ $ticket->dimensions }}</td>
         </tr>
         <tr>
-            <th>Why Needed</th>
+            <th>Warum benötigt</th>
             <td>{{ $ticket->why_needed }}</td>
         </tr>
         <tr>
-            <th>Solution Suggestion</th>
+            <th>Lösungsvorschlag</th>
             <td>{{ $ticket->solution_suggestion }}</td>
         </tr>
         <tr>
-            <th>Trade</th>
+            <th>{{ trans('language.tickets.trade') }}</th>
             <td>{{ $ticket->trade }}</td>
         </tr>
         <tr>
-            <th>Problem Location</th>
+            <th>Problemort</th>
             <td>{{ $ticket->problem_location }}</td>
         </tr>
         <tr>
-            <th>Tried to Solve</th>
+            <th>Versucht zu lösen</th>
             <td>{{ $ticket->tried_to_solve }}</td>
         </tr>
         <tr>
-            <th>Proposed Solution</th>
+            <th>Vorgeschlagene Lösung</th>
             <td>{{ $ticket->proposed_solution }}</td>
         </tr>
         <tr>
-            <th>Expense Reason</th>
+            <th>Kostengrund</th>
             <td>{{ $ticket->expense_reason }}</td>
         </tr>
         <tr>
-            <th>Notes</th>
+            <th>{{ trans('language.notes') }}</th>
             <td>{{ $ticket->notes }}</td>
         </tr>
         <tr>
-            <th>Ticket Status</th>
+            <th>{{ trans('language.tickets.ticket_status') }}</th>
             <td>{{ $ticket->ticket_status }}</td>
         </tr>
         {{--<tr>
@@ -107,12 +107,12 @@
     </table>
 </div>
 <div class="ticket-details">
-    <h2>Notes</h2>
+    <h2>{{ trans('language.notes') }}</h2>
     <table>
         <tr>
-            <th>Status</th>
-            <th>Note</th>
-            <th>Create Date</th>
+            <th>{{ trans('language.status') }}</th>
+            <th>{{ trans('language.notes') }}</th>
+            <th>{{ trans('language.date') }}</th>
         </tr>
         @foreach($notes as $key => $note)
             <tr>

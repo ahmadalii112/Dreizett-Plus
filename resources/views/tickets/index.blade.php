@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('Ticket') }}
+        {{ trans_choice('language.tickets.tickets', 1) }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
-            ['url' => route('tickets.index'), 'label' => __('Ticket')],
+            ['url' => route('tickets.index'), 'label' => trans_choice('language.tickets.tickets', 1)],
         ]"/>
     </x-slot>
 
@@ -16,14 +16,14 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Ticket') }}
+                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ trans_choice('language.tickets.tickets', 1) }}
                                 </h1>
 
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('tickets.create') }}"
                                         class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                     {{ __('Add Ticket') }}
+                                     {{ trans('language.actions.add', ['action' => trans_choice('language.tickets.tickets', 2)])  }}
                                 </a>
                             </div>
                         </div>
@@ -35,16 +35,16 @@
                                         <tr>
                                             <th scope="col"
                                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                                                {{ __('Name') }}
+                                                {{ trans('language.name') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Location') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.tickets.location') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Ticket Type') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.tickets.ticket_type') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('Ticket Status') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.tickets.ticket_status') }}
                                             </th>
 
 
@@ -99,7 +99,7 @@
                                                                     :form-action="route('tickets.destroy', $ticket->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="'Delete Ticket'"
+                                                                    :modal-title="trans('language.actions.delete', ['action' => trans_choice('language.tickets.tickets', 2)])"
                                                                     :modal-text="$ticket->name"
                                                                     :submit-text="trans('language.actions.delete', ['action' => null])"
                                                                     :cancel-text="trans('language.actions.cancel', ['name' => null])"

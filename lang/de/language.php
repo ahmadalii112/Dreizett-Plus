@@ -16,6 +16,8 @@ return [
     'address' => 'Adresse',
     'status' => 'Status',
     'no_record' => 'Kein Eintrag gefunden',
+    'notes' => 'Anmerkungen',
+    'date' => 'Datum',
     'users' => [
         'users' => 'Benutzer|Benutzer',
         'information' => 'Eine Liste aller Benutzer in Ihrem Konto, einschließlich Name, Mobiltelefon, E-Mail-Adresse und Rolle.',
@@ -105,5 +107,24 @@ return [
     ],
     'authorized_representative' => 'Bevollmächtigter Vertreter',
     'authorized_representative_information' => 'Bitte füllen Sie die Angaben zum Bevollmächtigten aus.',
+    'tickets' => [
+        'tickets' => 'Tickets|Fahrkarte',
+        'tickets_information' => 'Bitte füllen Sie die Mieterdaten aus.',
+        'location' => 'Standort',
+        'message' => 'Nachricht',
+        'ticket_type' => 'Art des Tickets',
+        'dimensions' => 'Maße',
+        'why_needed' => 'Warum wird es benötigt?',
+        'solution_suggestion' => 'Lösungsvorschlag zur Verbesserung',
+        'trade' => 'Handel',
+        'problem_location' => 'Wo genau liegt das Problem? (Problemort)',
+        'tried_to_solve' => 'Haben Sie bereits versucht, das Problem selbst zu lösen?',
+        'proposed_solution' => 'Welche Lösung schlagen Sie vor?',
+        'expense_reason' => 'Wozu dienten diese Ausgaben? (Grund)',
+        'notes' => 'Benutzerhinweis',
+        'ticket_status' => 'Fahrkarte Status',
+        'ticket_notes' => 'Ticketnotizen',
+
+    ],
 
 ];

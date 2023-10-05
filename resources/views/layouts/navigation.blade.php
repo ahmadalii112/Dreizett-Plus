@@ -34,7 +34,7 @@
                     </x-nav-link>
                     @endhasanyrole
                     <x-nav-link :href="route('tickets.index')" :active="request()->routeIs('tickets.*')">
-                        {{ __('Tickets') }}
+                        {{  trans_choice('language.tickets.tickets', 1) }}
                     </x-nav-link>
                 </div>
             </div>

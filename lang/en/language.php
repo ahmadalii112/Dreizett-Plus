@@ -16,6 +16,8 @@ return [
     'address' => 'Address',
     'status' => 'Status',
     'no_record' => 'No Record Found',
+    'notes' => 'Notes',
+    'date' => 'Date',
     'users' => [
         'users' => 'Users|User',
         'information' => 'A list of all the users in your account including their name, mobile, email and role.',
@@ -105,5 +107,23 @@ return [
     ],
     'authorized_representative' => 'Authorized Representative',
     'authorized_representative_information' => 'Please fill out the authorized representative information.',
+    'tickets' => [
+        'tickets' => 'Tickets|Ticket',
+        'tickets_information' => 'Please fill out the tenant information.',
+        'location' => 'Location',
+        'message' => 'Message',
+        'ticket_type' => 'Ticket Type',
+        'dimensions' => 'Dimensions',
+        'why_needed' => 'Why is it needed?',
+        'solution_suggestion' => 'Solution Suggestion for Improvement',
+        'trade' => 'Trade',
+        'problem_location' => 'Where exactly is the problem? (Problem Location)',
+        'tried_to_solve' => 'Have you already tried to solve the problem yourself?',
+        'proposed_solution' => 'What solution do you suggest? ',
+        'expense_reason' => 'What was this expense for? (Reason)',
+        'notes' => 'User Note',
+        'ticket_status' => 'Ticket Status',
+        'ticket_notes' => 'Ticket Notes',
+    ],
 
 ];
