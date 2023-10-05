@@ -91,10 +91,10 @@
                                                                     :form-action="route('residential-communities.destroy', $residentialCommunity->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="'Delete Residential Community'"
+                                                                    :modal-title="trans('language.actions.delete', ['action' => trans_choice('language.residential_community.communities|community', 2)])"
                                                                     :modal-text="$residentialCommunity->name"
-                                                                    :submit-text="'Delete'"
-                                                                    :cancel-text="'Cancel'"
+                                                                    :submit-text="trans('language.actions.delete', ['action' => null])"
+                                                                    :cancel-text="trans('language.actions.cancel', ['name' => null])"
                                                                 />
                                                             </div>
                                                         </div>

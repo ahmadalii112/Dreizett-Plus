@@ -53,13 +53,20 @@ return [
         'delete_account' => 'Konto löschen',
         'delete_account_message' => 'Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie Ihr Konto löschen, laden Sie bitte alle Daten oder Informationen herunter, die Sie behalten möchten.',
     ],
-
     'residential_community' => [
         'communities|community' => 'Gemeinschaften|Gemeinschaft',
         'name' => 'Name',
         'care_allowance' => 'Pflegegeld',
         'household_allowance' => 'Haushaltszulage',
         'deduction_amount' => 'Abzugsbetrag',
+    ],
+    'shared_apartments' => [
+        'apartments|apartment' => 'Wohngemeinschaften|Gemeinsame Wohnung',
+        'name' => 'Name',
+    ],
+    'rooms' => [
+        'rooms|room' => 'Räume|Room',
+        'name' => 'Name',
     ],
 
 ];

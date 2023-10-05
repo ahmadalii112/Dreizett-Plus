@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('Shared Apartments') }}
+        {{ trans_choice("language.shared_apartments.apartments|apartment", 1) }}
     </x-slot>
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => 'Home'],
-            ['url' => route('shared-apartments.index'), 'label' => __('Shared Apartments')],
+            ['url' => route('shared-apartments.index'), 'label' => trans_choice('language.shared_apartments.apartments|apartment', 1)],
         ]"/>
     </x-slot>
 
@@ -16,14 +16,14 @@
                     <div class="px-4 sm:px-6 lg:px-8">
                         <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
-                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Shared Apartments') }}
+                                <h1 class="text-base font-semibold leading-6 text-gray-900">{{ trans_choice("language.shared_apartments.apartments|apartment", 1) }}
                                 </h1>
 
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('shared-apartments.create')}}"
                                    class="block rounded-md {{ $residentialCommunity ? 'bg-gray-300 ' : 'bg-indigo-600' }} px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    {{ __('Add Shared Apartments') }}
+                                    {{ trans("language.actions.add", ['action' => trans_choice("language.shared_apartments.apartments|apartment", 2)]) }}
                                 </a>
                             </div>
                         </div>
@@ -38,11 +38,11 @@
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Community') }}
+                                                {{ trans_choice("language.residential_community.communities|community", 2) }}
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                {{ __('Rooms') }}
+                                                {{ trans_choice("language.rooms.rooms|room", 1) }}
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.actions.actions') }}
@@ -84,10 +84,10 @@
                                                                     :form-action="route('shared-apartments.destroy', $sharedApartment->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="'Delete Shared Apartments'"
+                                                                    :modal-title="trans('language.actions.delete', ['action' => trans_choice('language.shared_apartments.apartments|apartment', 2)])"
                                                                     :modal-text="$sharedApartment?->name"
-                                                                    :submit-text="'Delete'"
-                                                                    :cancel-text="'Cancel'"
+                                                                    :submit-text="trans('language.actions.delete', ['action' => null])"
+                                                                    :cancel-text="trans('language.actions.cancel', ['name' => null])"
                                                                 />
                                                             </div>
                                                         </div>

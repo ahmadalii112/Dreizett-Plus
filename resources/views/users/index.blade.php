@@ -22,7 +22,7 @@
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('users.create') }}"
                                    class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    {{ trans('language.actions.add', ['action' => 'User']) }}
+                                    {{ trans('language.actions.add', ['action' =>  trans_choice('language.users.users|user', 2)]) }}
                                 </a>
                             </div>
                         </div>
@@ -101,10 +101,10 @@
                                                                     :form-action="route('users.destroy', $user->id)"
                                                                     :form-method="'POST'"
                                                                     :form-method-type="'DELETE'"
-                                                                    :modal-title="trans('language.actions.delete', ['action' => 'User'])"
+                                                                    :modal-title="trans('language.actions.delete', ['action' => trans_choice('language.users.users|user', 2)])"
                                                                     :modal-text="$user->full_name"
-                                                                    :submit-text="'Delete'"
-                                                                    :cancel-text="'Cancel'"
+                                                                    :submit-text="trans('language.actions.delete', ['action' => null])"
+                                                                    :cancel-text="trans('language.actions.cancel', ['name' => null])"
                                                                 />
                                                             </div>
                                                             @role(\App\Enums\RoleTypeEnum::ADMINISTRATION->value)

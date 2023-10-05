@@ -112,8 +112,8 @@
                                                                     :form-method-type="'DELETE'"
                                                                     :modal-title="'Delete Room'"
                                                                     :modal-text="'Room Number: '.$room?->room_number"
-                                                                    :submit-text="'Delete'"
-                                                                    :cancel-text="'Cancel'"
+                                                                    :submit-text="trans('language.actions.delete', ['action' => null])"
+                                                                    :cancel-text="trans('language.actions.cancel', ['name' => null])"
                                                                 />
                                                             </div>
                                                         </div>

@@ -60,5 +60,13 @@ return [
         'household_allowance' => 'Household Allowance',
         'deduction_amount' => 'Deduction Amount',
     ],
+    'shared_apartments' => [
+        'apartments|apartment' => 'Shared Apartments|Shared Apartment',
+        'name' => 'Name',
+    ],
+    'rooms' => [
+        'rooms|room' => 'Rooms|Room',
+        'name' => 'Name',
+    ],
 
 ];

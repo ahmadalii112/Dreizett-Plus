@@ -101,8 +101,8 @@
                                                                     :form-method-type="'DELETE'"
                                                                     :modal-title="'Delete Ticket'"
                                                                     :modal-text="$ticket->name"
-                                                                    :submit-text="'Delete'"
-                                                                    :cancel-text="'Cancel'"
+                                                                    :submit-text="trans('language.actions.delete', ['action' => null])"
+                                                                    :cancel-text="trans('language.actions.cancel', ['name' => null])"
                                                                 />
                                                             </div>
                                                         </div>

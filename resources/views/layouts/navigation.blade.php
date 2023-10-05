@@ -24,10 +24,10 @@
                         {{ trans_choice("language.residential_community.communities|community", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('shared-apartments.index')" :active="request()->routeIs('shared-apartments.*')">
-                        {{ __('Shared Apartments') }}
+                        {{ trans_choice("language.shared_apartments.apartments|apartment", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.*')">
-                        {{ __('Rooms') }}
+                        {{ trans_choice("language.rooms.rooms|room", 1) }}
                     </x-nav-link>
                     <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')">
                         {{ __('Tenants') }}

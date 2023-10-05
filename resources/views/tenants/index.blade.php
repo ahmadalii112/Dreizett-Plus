@@ -115,8 +115,8 @@
                                                                     :form-method-type="'DELETE'"
                                                                     :modal-title="'Delete Tenant'"
                                                                     :modal-text="$tenant->full_name"
-                                                                    :submit-text="'Delete'"
-                                                                    :cancel-text="'Cancel'"
+                                                                    :submit-text="trans('language.actions.delete', ['action' => null])"
+                                                                    :cancel-text="trans('language.actions.cancel', ['name' => null])"
                                                                 />
                                                             </div>
                                                         </div>
