@@ -36,7 +36,7 @@ class TenantService extends BaseService
         }
     }
 
-    public function generateContractPDF($tenant)
+    public function generateContractPDF($tenant): void
     {
         $pdf = PDF::loadView('tenants.contract-pdf', ['tenant' => $tenant]);
         $contractPdfPath = 'contracts/'.$tenant->id.'_contract.pdf';

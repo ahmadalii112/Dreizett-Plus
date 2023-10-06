@@ -124,7 +124,14 @@ return [
         'notes' => 'Benutzerhinweis',
         'ticket_status' => 'Fahrkarte Status',
         'ticket_notes' => 'Ticketnotizen',
-
+    ],
+    'notifications' => [
+        'add' => ':Name erfolgreich erstellt',
+        'update' => ':Name Erfolgreich geupdated',
+        'delete' => ':Name Erfolgreich gelöscht',
+        'danger' => 'Sie können diese Aktion nicht ausführen',
+        'not_available' => 'Es sind keine :name verfügbar.',
+        'create' => 'Klicken Sie hier, um zu erstellen',
     ],
 
 ];

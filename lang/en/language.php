@@ -125,5 +125,13 @@ return [
         'ticket_status' => 'Ticket Status',
         'ticket_notes' => 'Ticket Notes',
     ],
+    'notifications' => [
+        'add' => ':Name created successfully',
+        'update' => ':Name updated successfully',
+        'delete' => ':Name deleted successfully',
+        'danger' => 'You cannot do this action',
+        'not_available' => 'No :name are available.',
+        'create' => 'Click here to create',
+    ],
 
 ];

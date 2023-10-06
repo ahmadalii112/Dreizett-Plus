@@ -46,7 +46,9 @@ class TicketController extends Controller
     {
         $this->ticketService->create(data: $request->validated() + ['user_id' => auth()->id()]);
 
-        return redirect()->route('tickets.index')->with('notificationType', 'success')->with('notificationMessage', 'Ticket Created Successfully');
+        return redirect()->route('tickets.index')
+            ->with('notificationType', 'success')
+            ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.tickets.tickets', 2)]));
     }
 
     /**
@@ -78,7 +80,9 @@ class TicketController extends Controller
     {
         $this->ticketService->update(where: ['id' => $ticket->id], data: $request->validated());
 
-        return redirect()->route('tickets.index')->with('notificationType', 'info')->with('notificationMessage', 'Ticket Updated Successfully');
+        return redirect()->route('tickets.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.tickets.tickets', 2)]));
     }
 
     /**
@@ -88,6 +92,8 @@ class TicketController extends Controller
     {
         $this->ticketService->delete($ticket->id);
 
-        return redirect()->route('tickets.index')->with('notificationType', 'info')->with('notificationMessage', 'Ticket Deleted Successfully');
+        return redirect()->route('tickets.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.delete', ['Name' => trans_choice('language.tickets.tickets', 2)]));
     }
 }

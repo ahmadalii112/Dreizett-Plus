@@ -51,7 +51,9 @@ class TenantController extends Controller
 
         return $rooms->isNotEmpty()
             ? view('tenants.create-edit-form', compact('rooms'))
-            : redirect()->route('tenants.index')->with('notificationType', 'warning')->with('notificationMessage', 'No rooms are available.');
+            : redirect()->route('tenants.index')
+                ->with('notificationType', 'warning')
+                ->with('notificationMessage', trans('language.notifications.not_available', ['name' => trans_choice('language.rooms.rooms', 1)]));
     }
 
     /**
@@ -67,7 +69,9 @@ class TenantController extends Controller
         );
         $this->tenantService->generateContractPDF($tenant);
 
-        return redirect()->route('tenants.show', $tenant->id)->with('notificationType', 'success')->with('notificationMessage', 'Tenant Created Successfully');
+        return redirect()->route('tenants.index')
+            ->with('notificationType', 'success')
+            ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.tenants.tenants', 2)]));
     }
 
     /**
@@ -102,7 +106,9 @@ class TenantController extends Controller
             data: reset($authorizedRepresentative)
         );
 
-        return redirect()->route('tenants.index')->with('notificationType', 'info')->with('notificationMessage', 'Tenant Updated Successfully');
+        return redirect()->route('tenants.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.tenants.tenants', 2)]));
     }
 
     /**
@@ -112,6 +118,8 @@ class TenantController extends Controller
     {
         $this->tenantService->delete($tenant->id);
 
-        return redirect()->route('tenants.index')->with('notificationType', 'info')->with('notificationMessage', 'Tenant Deleted Successfully');
+        return redirect()->route('tenants.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.delete', ['Name' => trans_choice('language.tenants.tenants', 2)]));
     }
 }

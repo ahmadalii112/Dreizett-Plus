@@ -53,7 +53,9 @@ class UserController extends Controller
             roleName: $request->get('role'),
         );
 
-        return redirect()->route('users.index')->with('notificationType', 'success')->with('notificationMessage', 'User Created Successfully');
+        return redirect()->route('users.index')
+            ->with('notificationType', 'success')
+            ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.users.users', 2)]));
     }
 
     /**
@@ -85,7 +87,7 @@ class UserController extends Controller
             roleName: $request->input('role')
         );
 
-        return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', 'User Updated Successfully');
+        return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.users.users', 2)]));
     }
 
     /**
@@ -94,11 +96,11 @@ class UserController extends Controller
     public function destroy(User $user): RedirectResponse
     {
         if ($this->userService->checkAdministration($user->id)) {
-            return redirect()->route('users.index')->with('notificationType', 'danger')->with('notificationMessage', 'You cannot delete this user');
+            return redirect()->route('users.index')->with('notificationType', 'danger')->with('notificationMessage', trans('language.notifications.danger'));
         }
         $this->userService->delete($user->id);
 
-        return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', 'User Deleted Successfully');
+        return redirect()->route('users.index')->with('notificationType', 'info')->with('notificationMessage', trans('language.notifications.delete', ['Name' => trans_choice('language.users.users', 2)]));
 
     }
 }

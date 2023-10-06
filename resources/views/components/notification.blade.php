@@ -58,8 +58,7 @@
                               {{ route('shared-apartments.create') }}
                             @elseif(request()->routeIs('shared-apartments.index'))
                               {{ route('residential-communities.create') }}
-                           @endif" class="font-medium text-yellow-700 underline hover:text-yellow-600">{{__('Click here to
-                                create')}}</a>
+                           @endif" class="font-medium text-yellow-700 underline hover:text-yellow-600">{{ trans('language.notifications.create') }}</a>
                             </template>
                         </div>
                         <div class="ml-4 flex flex-shrink-0">

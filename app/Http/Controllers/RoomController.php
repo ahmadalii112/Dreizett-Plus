@@ -35,7 +35,9 @@ class RoomController extends Controller
 
         return $sharedApartments->isNotEmpty()
             ? view('rooms.create-edit-form', compact('sharedApartments'))
-            : redirect()->route('rooms.index')->with('notificationType', 'warning')->with('notificationMessage', 'No apartments are available.');
+            : redirect()->route('rooms.index')
+                ->with('notificationType', 'warning')
+                ->with('notificationMessage', trans('language.notifications.not_available', ['name' => trans_choice('language.shared_apartments.apartments|apartment', 1)]));
 
     }
 
@@ -43,7 +45,9 @@ class RoomController extends Controller
     {
         $this->roomService->create(data: $request->validated());
 
-        return redirect()->route('rooms.index')->with('notificationType', 'success')->with('notificationMessage', 'Room Created Successfully');
+        return redirect()->route('rooms.index')
+            ->with('notificationType', 'success')
+            ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.rooms.rooms', 2)]));
     }
 
     public function show(Room $room): View
@@ -64,13 +68,17 @@ class RoomController extends Controller
     {
         $this->roomService->update(where: ['id' => $room->id], data: $request->validated());
 
-        return redirect()->route('rooms.index')->with('notificationType', 'info')->with('notificationMessage', 'Room Updated Successfully');
+        return redirect()->route('rooms.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.rooms.rooms', 2)]));
     }
 
     public function destroy(Room $room): RedirectResponse
     {
         $this->roomService->delete($room->id);
 
-        return redirect()->route('rooms.index')->with('notificationType', 'info')->with('notificationMessage', 'Room Deleted Successfully');
+        return redirect()->route('rooms.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.delete', ['Name' => trans_choice('language.rooms.rooms', 2)]));
     }
 }

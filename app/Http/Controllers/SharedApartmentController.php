@@ -35,7 +35,9 @@ class SharedApartmentController extends Controller
 
         return $residentialCommunities->isNotEmpty()
             ? view('shared-apartments.create-edit-form', compact('residentialCommunities'))
-            : redirect()->route('shared-apartments.index')->with('notificationType', 'warning')->with('notificationMessage', 'No communities are available.');
+            : redirect()->route('shared-apartments.index')
+                ->with('notificationType', 'warning')
+                ->with('notificationMessage', trans('language.notifications.not_available', ['name' => trans_choice('language.residential_community.community', 1)]));
 
     }
 
@@ -43,7 +45,9 @@ class SharedApartmentController extends Controller
     {
         $this->sharedApartmentService->create(data: $request->validated());
 
-        return redirect()->route('shared-apartments.index')->with('notificationType', 'success')->with('notificationMessage', 'Apartment Created Successfully');
+        return redirect()->route('shared-apartments.index')
+            ->with('notificationType', 'success')
+            ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.shared_apartments.apartments|apartment', 2)]));
     }
 
     public function show($id)
@@ -62,13 +66,17 @@ class SharedApartmentController extends Controller
     {
         $this->sharedApartmentService->update(where: ['id' => $sharedApartment->id], data: $request->validated());
 
-        return redirect()->route('shared-apartments.index')->with('notificationType', 'info')->with('notificationMessage', 'Apartment Updated Successfully');
+        return redirect()->route('shared-apartments.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.shared_apartments.apartments|apartment', 2)]));
     }
 
     public function destroy(SharedApartment $sharedApartment)
     {
         $this->sharedApartmentService->delete($sharedApartment->id);
 
-        return redirect()->route('shared-apartments.index')->with('notificationType', 'info')->with('notificationMessage', 'Apartment Deleted Successfully');
+        return redirect()->route('shared-apartments.index')
+            ->with('notificationType', 'info')
+            ->with('notificationMessage', trans('language.notifications.delete', ['Name' => trans_choice('language.shared_apartments.apartments|apartment', 2)]));
     }
 }
