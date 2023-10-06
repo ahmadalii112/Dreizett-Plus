@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.location') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->location ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ trans('enums.location_type.'.$ticket?->location?->value)  ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.message')  }}</dt>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.ticket_type')  }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->ticket_type ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{  trans('enums.ticket_type.'. $ticket?->ticket_type?->value) ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.dimensions')  }}</dt>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.trade')   }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->trade ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{  trans('enums.trade_type.'.$ticket?->trade->value)  ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.problem_location')   }}</dt>
@@ -83,7 +83,7 @@
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.ticket_status')   }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">
                                         <span
-                                            class="inline-flex items-center rounded-md bg-{{ $ticket->ticket_status_color }}-50 px-2 py-1 text-xs font-medium text-{{ $ticket->ticket_status_color }}-600 ring-1 ring-inset ring-{{ $ticket->ticket_status_color }}-500/10/20">{{ $ticket?->ticket_status ?? 'N/A' }} </span>
+                                            class="inline-flex items-center rounded-md bg-{{ $ticket->ticket_status_color }}-50 px-2 py-1 text-xs font-medium text-{{ $ticket->ticket_status_color }}-600 ring-1 ring-inset ring-{{ $ticket->ticket_status_color }}-500/10/20">{{  trans("enums.ticket_statuses.{$ticket?->ticket_status->value}") ?? 'N/A' }} </span>
                                     </dd>
                                 </div>
                             </dl>

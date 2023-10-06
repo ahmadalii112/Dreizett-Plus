@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\LocationTypeEnum;
 use App\Enums\TicketStatusEnum;
 use App\Enums\TicketTypeEnum;
+use App\Enums\TradeTypeEnum;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -36,6 +37,7 @@ class Ticket extends Model
         'ticket_type' => TicketTypeEnum::class,
         'location' => LocationTypeEnum::class,
         'ticket_status' => TicketStatusEnum::class,
+        'trade' => TradeTypeEnum::class,
     ];
 
     public function user(): BelongsTo

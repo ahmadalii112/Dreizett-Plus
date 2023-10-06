@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket PDF</title>
     <style>
+        .header {
+            text-align: center;
+        }
+        .header img {
+            max-width: 150px;
+        }
         body {
             font-family: Arial, sans-serif;
         }
         .ticket-info {
+            margin-top: 20px;
             margin-bottom: 20px;
         }
         .ticket-info h2 {
@@ -38,6 +45,9 @@
     </style>
 </head>
 <body>
+<div class="header">
+    <img src="{{ public_path('images/logo.png') }}" alt="Logo">
+</div>
 <div class="ticket-info">
     <h2>Ticketinformation</h2>
     <p><strong>Location:</strong> {{ $ticket->location }}</p>
@@ -56,6 +66,10 @@
         <tr>
             <th>Warum benötigt</th>
             <td>{{ $ticket->why_needed }}</td>
+        </tr>
+        <tr>
+            <th>{{ trans('language.tickets.message')  }}</th>
+            <td>{{ $ticket->message }}</td>
         </tr>
         <tr>
             <th>Lösungsvorschlag</th>

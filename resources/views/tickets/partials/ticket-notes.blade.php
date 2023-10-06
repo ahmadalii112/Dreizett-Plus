@@ -31,7 +31,7 @@
                         <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.ticket_status') }}</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">
                                         <span
-                                            class="inline-flex items-center rounded-md bg-{{ $note->status_color }}-50 px-2 py-1 text-xs font-medium text-{{ $note->status_color }}-600 ring-1 ring-inset ring-{{ $note->status_color }}-500/10/20">{{ $note?->status ?? 'N/A' }} </span>
+                                            class="inline-flex items-center rounded-md bg-{{ $note->status_color }}-50 px-2 py-1 text-xs font-medium text-{{ $note->status_color }}-600 ring-1 ring-inset ring-{{ $note->status_color }}-500/10/20">{{ trans("enums.ticket_statuses.{$note?->status->value}")  ?? 'N/A' }} </span>
                         </dd>
                     </div>
 

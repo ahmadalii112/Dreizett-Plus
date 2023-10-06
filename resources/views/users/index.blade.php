@@ -57,7 +57,7 @@
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $user?->mobile_number ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <span
-                                                        class="inline-flex items-center rounded-md bg-{{ $user->role_color }}-50 px-2 py-1 text-xs font-medium text-{{ $user->role_color }}-600 ring-1 ring-inset ring-{{ $user->role_color }}-500/10/20">{{ $user?->getRoleNames()?->first() ?? 'N/A' }} </span>
+                                                        class="inline-flex items-center rounded-md bg-{{ $user->role_color }}-50 px-2 py-1 text-xs font-medium text-{{ $user->role_color }}-600 ring-1 ring-inset ring-{{ $user->role_color }}-500/10/20">{{trans("enums.roles.{$user?->getRoleNames()?->first()}")  ?? 'N/A' }} </span>
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <x-action-dropdown label="Options">

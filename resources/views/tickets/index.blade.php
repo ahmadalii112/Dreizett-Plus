@@ -61,7 +61,8 @@
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $ticket?->location }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $ticket?->ticket_type }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    <span class="inline-flex items-center rounded-md bg-{{ $ticket->ticket_status_color }}-50 px-2 py-1 text-xs font-medium text-{{ $ticket->ticket_status_color }}-600 ring-1 ring-inset ring-{{ $ticket->ticket_status_color }}-500/10/20">{{ $ticket?->ticket_status }} </span>
+                                                    <span class="inline-flex items-center rounded-md bg-{{ $ticket->ticket_status_color }}-50 px-2 py-1 text-xs font-medium text-{{ $ticket->ticket_status_color }}-600 ring-1 ring-inset ring-{{ $ticket->ticket_status_color }}-500/10/20">
+                                                       {{ trans("enums.ticket_statuses.{$ticket?->ticket_status->value}") }} </span>
                                                 </td>
 
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">

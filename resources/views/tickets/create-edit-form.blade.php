@@ -36,11 +36,11 @@
                                         <option>{{ trans('language.actions.select', ['name' =>  trans('language.tickets.location') ]) }}</option>
                                         @foreach(\App\Enums\LocationTypeEnum::cases() as $location)
                                             <option value="{{$location->value}}"
-                                                    @if ((old('location') == $location->value) || (isset($ticket) && $ticket->location == $location->value && $errors->isEmpty()))
+                                                    @if ((old('location') == $location->value) || (isset($ticket) && $ticket->location->value == $location->value && $errors->isEmpty()))
                                                         selected="selected"
                                                 @endif
                                             >
-                                                {{$location->value}}
+                                                {{  trans('enums.location_type.'.$location?->value) }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -56,11 +56,11 @@
                                         <option>{{  trans('language.actions.select', ['name' =>  trans('language.tickets.ticket_type') ]) }}</option>
                                         @foreach(\App\Enums\TicketTypeEnum::cases() as $ticket_type)
                                             <option value="{{$ticket_type->value}}"
-                                                    @if ((old('ticket_type') == $ticket_type->value) || (isset($ticket) && $ticket->ticket_type == $ticket_type->value && $errors->isEmpty()))
+                                                    @if ((old('ticket_type') == $ticket_type->value) || (isset($ticket) && $ticket->ticket_type->value == $ticket_type->value && $errors->isEmpty()))
                                                         selected="selected"
                                                 @endif
                                             >
-                                                {{$ticket_type->value}}
+                                                {{  trans('enums.ticket_type.'.$ticket_type?->value) }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -116,11 +116,11 @@
                                         <option>{{ trans('language.actions.select', ['name' => trans('language.tickets.trade') ]) }} </option>
                                         @foreach(\App\Enums\TradeTypeEnum::cases() as $trade)
                                             <option value="{{$trade->value}}"
-                                                    @if ((old('trade') == $trade->value) || (isset($ticket) && $ticket->trade == $trade->value && $errors->isEmpty()))
+                                                    @if ((old('trade') == $trade->value) || (isset($ticket) && $ticket->trade->value == $trade->value && $errors->isEmpty()))
                                                         selected="selected"
                                                 @endif
                                             >
-                                                {{$trade->value}}
+                                                {{ trans('enums.trade_type.'.$trade->value) }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -131,7 +131,7 @@
                             </div>
                             <!-- Problem Location (mandatory for 'Report a Technical Malfunction') -->
                             <div class="sm:col-span-3">
-                                <label for="problem_location" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.problem_location') }} (Technical Malfunction)</label>
+                                <label for="problem_location" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tickets.problem_location') }} (Technical Malfunction)</label>
                                 <div class="mt-2">
                                     <textarea id="problem_location" name="problem_location" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("problem_location", isset($ticket) ? $ticket->problem_location :  "") }}</textarea>
                                 </div>
@@ -151,7 +151,7 @@
                             </div>
                             <!-- Proposed Solution (mandatory for 'Report a Technical Malfunction') -->
                             <div class="sm:col-span-3">
-                                <label for="proposed_solution" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.proposed_solution') }} (Technical Malfunction)</label>
+                                <label for="proposed_solution" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tickets.proposed_solution') }} (Technical Malfunction)</label>
                                 <div class="mt-2">
                                     <textarea id="proposed_solution" name="proposed_solution" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("proposed_solution", isset($ticket) ? $ticket->proposed_solution :  "") }}</textarea>
                                 </div>
@@ -161,7 +161,7 @@
                             </div>
                             <!-- Expense Reason (required for 'Reimbursement of Expenses') -->
                             <div class="sm:col-span-3">
-                                <label for="expense_reason" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.expense_reason') }}</label>
+                                <label for="expense_reason" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tickets.expense_reason') }}</label>
                                 <div class="mt-2">
                                     <textarea id="expense_reason" name="expense_reason" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("expense_reason", isset($ticket) ? $ticket->expense_reason :  "") }}</textarea>
                                 </div>
@@ -171,7 +171,7 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="notes" class="block text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.notes')  }}</label>
+                                <label for="notes" class="block text-sm font-medium leading-6 text-gray-900 required">{{  trans('language.tickets.notes')  }}</label>
                                 <div class="mt-2">
                                     <textarea id="notes" name="notes" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old("notes", isset($ticket) ? $ticket->notes :  "") }}</textarea>
                                 </div>
