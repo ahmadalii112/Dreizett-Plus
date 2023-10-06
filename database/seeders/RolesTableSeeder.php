@@ -13,17 +13,17 @@ class RolesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create the Administration role
-        Role::create(['name' => RoleTypeEnum::ADMINISTRATION->value]);
-
-        // Create the Caregiver role
-        Role::create(['name' => RoleTypeEnum::CAREGIVER->value]);
-
-        // Create the Management role
-        Role::create(['name' => RoleTypeEnum::MANAGEMENT->value]);
-
-        // Create the Technician role
-        Role::create(['name' => RoleTypeEnum::TECHNICIAN->value]);
-
+        $rolesToInsertOrUpdate = [
+            // Create the Administration role
+            ['name' => RoleTypeEnum::ADMINISTRATION->value, 'guard_name' => 'web'],
+            // Create the Caregiver role
+            ['name' => RoleTypeEnum::CAREGIVER->value, 'guard_name' => 'web'],
+            // Create the Management role
+            ['name' => RoleTypeEnum::MANAGEMENT->value, 'guard_name' => 'web'],
+            // Create the Technician role
+            ['name' => RoleTypeEnum::TECHNICIAN->value, 'guard_name' => 'web'],
+        ];
+        // Perform the upsert operation
+        Role::upsert($rolesToInsertOrUpdate, ['name']);
     }
 }
