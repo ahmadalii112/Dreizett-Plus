@@ -3,6 +3,7 @@
 namespace App\Http\Service;
 
 use App\Http\Repositories\BaseRepository;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -49,9 +50,9 @@ class BaseService
      *
      * @param  array  $data data The "data" parameter is an array that contains the data needed to create a new
      * model instance. This data typically includes the values for the model's attributes.
-     * @return Model The create method is returning a Model object.
+     * @return Model|Authenticatable The create method is returning a Model object.
      */
-    public function create(array $data): Model
+    public function create(array $data): Model|Authenticatable
     {
         return $this->repository->create($data);
     }
