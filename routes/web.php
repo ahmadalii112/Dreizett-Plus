@@ -37,11 +37,9 @@ Route::view('bewerbung', 'karriere');
 Route::view('danke', 'danke');
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/change-language', LocalizationController::class)->name('change.language');
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('profile', ProfileController::class)->only('edit', 'update', 'destroy');
     // Administration and Management Role can access it
     Route::middleware(['role:'.RoleTypeEnum::ADMINISTRATION->value.'|'.RoleTypeEnum::MANAGEMENT->value])->group(function () {
         Route::resource('users', UserController::class);
@@ -55,8 +53,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('tickets', TicketController::class);
     Route::post('tickets/{ticket}/add-note', TicketNoteController::class)->name('tickets.add-note');
     Route::get('tickets/{ticket}/export-pdf', [PDFController::class, 'exportPdf'])->name('tickets.export-pdf');
-    Route::get('/change-language', LocalizationController::class)->name('change.language');
-
 });
 
 require __DIR__.'/auth.php';
