@@ -50,15 +50,11 @@
     </tr>
     <tr>
         <td> {{ trans('language.name') }}</td>
-        <td>{{ $tenant?->fullName }}</td>
-    </tr>
-    <tr>
-        <td>{{ trans('language.tenants.salutation') }}</td>
-        <td>{{ $tenant?->salutation }}</td>
+        <td>{{ $tenant?->information?->fullName }}</td>
     </tr>
     <tr>
         <td>{{ trans('language.address') }}</td>
-        <td>{{ $tenant?->address }}</td>
+        <td>{{ $tenant?->information?->address }}</td>
     </tr>
     <tr>
         <td>{{ trans('language.tenants.level_of_care') }}</td>
@@ -85,6 +81,14 @@
     <table class="contract-dates">
         <tr>
             <th colspan="2">{{ trans('language.authorized_representative') }}</th>
+        </tr>
+        <tr>
+            <td> {{ trans('language.name') }}</td>
+            <td>{{ $tenant?->authorizedRepresentative?->information?->fullName }}</td>
+        </tr>
+        <tr>
+            <td>{{ trans('language.address') }}</td>
+            <td>{{ $tenant?->authorizedRepresentative?->information?->address }}</td>
         </tr>
         <tr>
             <td>{{ trans('language.phone_number') }}</td>

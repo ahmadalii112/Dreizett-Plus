@@ -62,8 +62,8 @@
                                         <tbody class="divide-y divide-gray-200">
                                         @forelse($tenants as  $key => $tenant)
                                             <tr>
-                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $tenant?->full_name }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ \Illuminate\Support\Str::limit($tenant?->address, 30) ?? 'N/A'}}</td>
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $tenant?->information?->full_name }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ \Illuminate\Support\Str::limit($tenant?->information?->address, 30) ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $tenant?->room?->room_number ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <span class="inline-flex items-center rounded-md bg-{{ ($tenant->status == 1) ? 'green' : 'red'  }}-50 px-2 py-1 text-xs font-medium text-{{ ($tenant->status == 1) ? 'green' : 'red'  }}-600 ring-1 ring-inset ring-{{ ($tenant->status == 1) ? 'green' : 'red'  }}-500/10/20">

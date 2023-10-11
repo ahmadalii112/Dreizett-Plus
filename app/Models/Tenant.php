@@ -7,18 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Tenant extends Model
 {
     protected $fillable = [
         'room_id',
-        'salutation',
-        'first_name',
-        'last_name',
-        'house_number',
-        'street',
-        'zip_code',
-        'city',
         'level_of_care',
         'contract_start_date',
         'contract_end_date',
@@ -57,18 +51,9 @@ class Tenant extends Model
         return $this->hasMany(PaymentReminder::class);
     }
 
-    protected function fullName(): Attribute
+    public function information(): MorphOne
     {
-        return Attribute::make(
-            get: fn () => $this->first_name.' '.$this->last_name,
-        );
-    }
-
-    protected function address(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->house_number.', '.$this->street.', '.$this->zip_code.', '.$this->city,
-        );
+        return $this->morphOne(Information::class, 'informationable');
     }
 
     protected function contractStart(): Attribute

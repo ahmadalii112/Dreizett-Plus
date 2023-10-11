@@ -39,32 +39,32 @@
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->room?->room_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tenants.salutation')  }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->salutation ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.first_name')  }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->salutation ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->first_name ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.last_name') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->first_name ?? 'N/A' }}</dd>
-                                </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
-                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tenants.salutation')  }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->last_name ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->last_name ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tenants.house_number')  }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->house_number ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->house_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.street') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->street ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->street ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.zip_code')  }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->zip_code ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->zip_code ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.city') }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->city ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->city ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.tenants.level_of_care') }}</dt>
@@ -91,6 +91,34 @@
                         </div>
                         <div class="mt-6 border-t border-gray-100">
                             <dl class="grid grid-cols-1 sm:grid-cols-3">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tenants.salutation')  }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->salutation ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.first_name')  }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->first_name ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.last_name') }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->last_name ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tenants.house_number')  }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->house_number ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.street') }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->street ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.zip_code')  }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->zip_code ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.city') }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->information?->city ?? 'N/A' }}</dd>
+                                </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.phone_number') }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->authorizedRepresentative?->phone_number ?? 'N/A' }}</dd>

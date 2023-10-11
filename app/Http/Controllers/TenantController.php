@@ -64,8 +64,8 @@ class TenantController extends Controller
         // Check if there's a previous tenant in the room and update their status
         $this->tenantService->updateTenantStatusForRoom($request->input('room_id'));
         $tenant = $this->tenantService->createTenantWithAuthRepresentative(
-            tenantData: $request->except('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number'),
-            authorizedRepresentative: $request->only('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number')
+            tenantData: $request->except('authorized_representative'),
+            authorizedRepresentative: $request->only('authorized_representative'),
         );
         $this->tenantService->generateContractPDF($tenant);
 
@@ -79,7 +79,7 @@ class TenantController extends Controller
      */
     public function show(Tenant $tenant): View
     {
-        $tenant->load(['room', 'authorizedRepresentative']);
+        $tenant->load(['room', 'authorizedRepresentative.information', 'information']);
 
         return view('tenants.show', compact('tenant'));
     }
@@ -99,12 +99,7 @@ class TenantController extends Controller
      */
     public function update(TenantRequest $request, Tenant $tenant): RedirectResponse
     {
-        $this->tenantService->update(where: ['id' => $tenant->id], data: $request->except('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number'));
-        $authorizedRepresentative = $request->only('authorized_representative.email', 'authorized_representative.mobile_number', 'authorized_representative.phone_number');
-        $this->authorizedRepresentativeService->updateOrCreate(
-            where: ['tenant_id' => $tenant->id],
-            data: reset($authorizedRepresentative)
-        );
+        $this->tenantService->updateTenant($tenant, $request);
 
         return redirect()->route('tenants.index')
             ->with('notificationType', 'info')
@@ -117,6 +112,7 @@ class TenantController extends Controller
     public function destroy(Tenant $tenant): RedirectResponse
     {
         $this->tenantService->delete($tenant->id);
+        $tenant->information->delete();
 
         return redirect()->route('tenants.index')
             ->with('notificationType', 'info')

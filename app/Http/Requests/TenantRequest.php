@@ -21,9 +21,17 @@ class TenantRequest extends FormRequest
             'level_of_care' => ['required', 'integer', 'max:255'],
             'contract_start_date' => ['required', 'date'],
             'contract_end_date' => ['nullable', 'date'],
+            // Authorized Representative
             'authorized_representative.phone_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:255'],
             'authorized_representative.mobile_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:255'],
             'authorized_representative.email' => ['nullable', 'email', 'max:255'],
+            'authorized_representative.salutation' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.first_name' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.last_name' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.street' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.house_number' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.zip_code' => ['nullable', 'string', 'max:255'],
+            'authorized_representative.city' => ['nullable', 'string', 'max:255'],
         ];
     }
 
