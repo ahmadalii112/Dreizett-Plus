@@ -31,7 +31,7 @@
                     </div>
                     <div class="border-b border-gray-900/10 pb-12">
                         <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                            <div class="col-span-full">
+                            <div class="sm:col-span-3">
                                 <label for="room_id" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.rooms.room_number') }}</label>
                                 <div class="mt-2">
                                     <select id="room_id" name="room_id" autocomplete="room_id" class="block @error('room_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -48,6 +48,15 @@
                                     </select>
                                 </div>
                                 @error('room_id')
+                                <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="sm:col-span-3">
+                                <label for="insurance_number" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tenants.insurance_number') }}</label>
+                                <div class="mt-2">
+                                    <input type="text" name="insurance_number" id="insurance_number"  value="{{ old('insurance_number', isset($tenant) ? $tenant?->insurance_number : '') }}" autocomplete="given-name" class="block w-full @error('insurance_number') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                                @error('insurance_number')
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>

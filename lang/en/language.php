@@ -97,6 +97,7 @@ return [
         'salutation' => 'Salutation',
         'house_number' => 'House Number',
         'level_of_care' => 'Level of Care',
+        'insurance_number' => 'Insurance Number',
         'contract_dates' => 'Contract Date',
         'contract_start_date' => 'Contract Start',
         'contract_end_date' => 'Contract End',

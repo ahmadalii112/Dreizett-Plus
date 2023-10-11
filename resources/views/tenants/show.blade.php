@@ -39,6 +39,10 @@
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->room?->room_number ?? 'N/A' }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.tenants.insurance_number') }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->insurance_number ?? 'N/A' }}</dd>
+                                </div>
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tenants.salutation')  }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $tenant?->information?->salutation ?? 'N/A' }}</dd>
                                 </div>

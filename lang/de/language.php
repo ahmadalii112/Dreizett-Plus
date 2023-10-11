@@ -95,6 +95,7 @@ return [
     'tenants' => [
         'tenants' => 'Mieterinnen|Mieterin',
         'salutation' => 'Anrede',
+        'insurance_number' => 'Versicherungsnummer',
         'house_number' => 'Hausnummer',
         'level_of_care' => 'Pflegegrad',
         'contract_dates' => 'Vertragsdatum',

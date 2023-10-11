@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TenantRequest extends FormRequest
 {
@@ -11,6 +12,7 @@ class TenantRequest extends FormRequest
         return [
             'room_id' => ['required', 'exists:rooms,id'],
             'status' => 'nullable',
+            'insurance_number' => ['required', 'string', 'max:255', Rule::unique('tenants')->ignore($this->tenant)],
             'salutation' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],

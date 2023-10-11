@@ -13,6 +13,7 @@ class Tenant extends Model
 {
     protected $fillable = [
         'room_id',
+        'insurance_number',
         'level_of_care',
         'contract_start_date',
         'contract_end_date',

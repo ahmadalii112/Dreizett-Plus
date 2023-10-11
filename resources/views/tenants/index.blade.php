@@ -42,6 +42,9 @@
                                                 {{ trans('language.name') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                                {{ trans('language.tenants.insurance_number') }}
+                                            </th>
+                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                 {{ trans('language.address') }}
                                             </th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -63,6 +66,7 @@
                                         @forelse($tenants as  $key => $tenant)
                                             <tr>
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $tenant?->information?->full_name }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $tenant?->insurance_number ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ \Illuminate\Support\Str::limit($tenant?->information?->address, 30) ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $tenant?->room?->room_number ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">

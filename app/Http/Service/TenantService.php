@@ -18,6 +18,7 @@ class TenantService extends BaseService
         $tenant = $this->create([
             'level_of_care' => $tenantData['level_of_care'] ?? null,
             'room_id' => $tenantData['room_id'] ?? null,
+            'insurance_number' => $tenantData['insurance_number'] ?? null,
             'contract_start_date' => $tenantData['contract_start_date'] ?? null,
             'contract_end_date' => $tenantData['contract_end_date'] ?? null,
             'status' => $tenantData['status'] ?? null,
@@ -43,7 +44,7 @@ class TenantService extends BaseService
         // Update tenant information
         $this->update(
             where: ['id' => $tenant->id],
-            data: ['level_of_care' => $request->level_of_care, 'room_id' => $request->room_id, 'contract_start_date' => $request->contract_start_date, 'contract_end_date' => $request->contract_end_date]
+            data: ['level_of_care' => $request->level_of_care, 'room_id' => $request->room_id, 'contract_start_date' => $request->contract_start_date, 'contract_end_date' => $request->contract_end_date,  'insurance_number' => $request->insurance_number]
         );
         $tenant->information()->updateOrCreate(['informationable_id' => $tenant->id], $request->only('first_name', 'last_name', 'salutation', 'house_number', 'street', 'zip_code', 'city'));
         // Update  tenant Authorization Representative Information
