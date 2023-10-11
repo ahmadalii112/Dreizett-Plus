@@ -14,14 +14,14 @@ class RoomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'apartment_id' => ['required', 'exists:shared_apartments,id'],
+            'community_id' => ['required', 'exists:residential_communities,id'],
             'room_number' => ['required', 'string', 'max:255'],
-            'square_meter_room' => ['required', 'numeric'],
-            'square_meter_common_area' => ['required', 'numeric'],
-            'basic_rent' => ['required', 'numeric'],
-            'additional_costs' => ['required', 'numeric'],
-            'heating_costs' => ['required', 'numeric'],
-            'electricity_costs' => ['required', 'numeric'],
+            'square_meter_room' => ['required', 'numeric', 'between:0,9999'],
+            'square_meter_common_area' => ['required', 'numeric', 'between:0,9999'],
+            'basic_rent' => ['required', 'numeric', 'between:0,9999'],
+            'additional_costs' => ['required', 'numeric', 'between:0,9999'],
+            'heating_costs' => ['required', 'numeric', 'between:0,9999'],
+            'electricity_costs' => ['required', 'numeric', 'between:0,9999'],
         ];
     }
 }

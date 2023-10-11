@@ -23,9 +23,9 @@ class ResidentialCommunityRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'care_allowance' => 'required|numeric',
-            'household_allowance' => 'required|numeric',
-            'deduction_amount' => 'required|numeric',
+            'care_allowance' => 'required|numeric|between:0,9999',
+            'household_allowance' => 'required|numeric|between:0,9999',
+            'deduction_amount' => 'required|numeric|between:0,9999',
         ];
     }
 }

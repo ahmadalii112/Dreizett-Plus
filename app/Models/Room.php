@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Room extends Model
 {
     protected $fillable = [
-        'apartment_id',
+        'community_id',
         'room_number',
         'square_meter_room',
         'square_meter_common_area',
@@ -17,11 +17,17 @@ class Room extends Model
         'additional_costs',
         'heating_costs',
         'electricity_costs',
+        'created_by',
     ];
 
-    public function apartment(): BelongsTo
+    public function residentialCommunity(): BelongsTo
     {
-        return $this->belongsTo(SharedApartment::class, 'apartment_id');
+        return $this->belongsTo(ResidentialCommunity::class, 'community_id')->withDefault(['name' => 'N/A']);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     public function tenants(): HasMany

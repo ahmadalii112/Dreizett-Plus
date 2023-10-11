@@ -22,7 +22,7 @@
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('rooms.create') }}"
-                                        class="block rounded-md {{ $sharedApartments ? 'bg-gray-300 ' : 'bg-indigo-600' }} px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        class="block rounded-md {{ $residentialCommunities ? 'bg-gray-300 ' : 'bg-indigo-600' }} px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                      {{ trans('language.actions.add', ['action' =>  trans_choice('language.rooms.rooms', 2)]) }}
                                 </a>
                             </div>
@@ -38,7 +38,7 @@
                                                 {{ trans('language.rooms.room_number')  }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans_choice('language.shared_apartments.apartments|apartment', 1)  }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans_choice('language.residential_community.community', 1)  }}
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.rooms.square_meter_room')  }}
@@ -69,7 +69,7 @@
                                         @forelse($rooms as  $keySuper => $room)
                                             <tr>
                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{ $room?->room_number }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->apartment?->name }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->residentialCommunity?->name }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->square_meter_room }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->square_meter_common_area }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $room?->basic_rent ?? 'N/A'}}</td>

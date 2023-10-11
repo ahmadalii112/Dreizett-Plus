@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:'.RoleTypeEnum::ADMINISTRATION->value.'|'.RoleTypeEnum::MANAGEMENT->value])->group(function () {
         Route::resource('users', UserController::class);
         Route::resource('residential-communities', ResidentialCommunityController::class);
-        Route::resource('shared-apartments', SharedApartmentController::class);
+        // Route::resource('shared-apartments', SharedApartmentController::class);
         Route::resource('rooms', RoomController::class);
         Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);

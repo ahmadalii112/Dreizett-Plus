@@ -33,22 +33,22 @@
                     <div class="border-b border-gray-900/10 pb-12">
                         <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-3">
-                                <label for="apartment_id" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans_choice('language.shared_apartments.apartments|apartment', 1)}}</label>
+                                <label for="community_id" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans_choice('language.residential_community.community', 1)}}</label>
                                 <div class="mt-2">
-                                    <select id="apartment_id" name="apartment_id" autocomplete="apartment_id" class="block @error('apartment_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>{{ trans('language.actions.select', ['name' => trans_choice('language.shared_apartments.apartments|apartment', 2)]) }}</option>
-                                        @foreach($sharedApartments as $apartment)
-                                            <option value="{{$apartment->id}}"
-                                                    @if ((old('apartment_id') == $apartment->id) || (isset($room) && $room->apartment_id == $apartment->id && $errors->isEmpty()))
+                                    <select id="community_id" name="community_id" autocomplete="community_id" class="block @error('community_id') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <option>{{ trans('language.actions.select', ['name' => trans_choice('language.residential_community.community', 2)]) }}</option>
+                                        @foreach($residentialCommunities as $community)
+                                            <option value="{{$community->id}}"
+                                                    @if ((old('community_id') == $community->id) || (isset($room) && $room->community_id == $community->id && $errors->isEmpty()))
                                                         selected="selected"
                                                 @endif
                                             >
-                                                {{$apartment->name}}
+                                                {{$community->name}}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @error('apartment_id')
+                                @error('community_id')
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>

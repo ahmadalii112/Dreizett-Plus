@@ -21,8 +21,8 @@
                         <div class="mt-6 border-t border-gray-100">
                             <dl class="grid grid-cols-1 sm:grid-cols-3">
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
-                                    <dt class="text-sm font-medium leading-6 text-gray-900"> {{ trans_choice('language.shared_apartments.apartments|apartment', 2)  }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->apartment?->name ?? 'N/A' }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900"> {{ trans_choice('language.residential_community.community', 2)  }}</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $room?->residentialCommunity?->name }}</dd>
                                 </div>
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900"> {{ trans('language.rooms.room_number')  }}</dt>

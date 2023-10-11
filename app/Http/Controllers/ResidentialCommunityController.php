@@ -18,7 +18,7 @@ class ResidentialCommunityController extends Controller
 
     public function index(): View
     {
-        $residentialCommunities = $this->residentialCommunityService->paginate(perPage: 10, with: ['user']);
+        $residentialCommunities = $this->residentialCommunityService->paginate(perPage: 10, with: ['user', 'rooms']);
 
         return view('residential-communities.index', compact('residentialCommunities'));
     }

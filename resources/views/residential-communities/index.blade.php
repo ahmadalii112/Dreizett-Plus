@@ -47,6 +47,9 @@
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.deduction_amount') }} (&euro;)
                                             </th>
                                             <th scope="col"
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans_choice("language.rooms.rooms", 1) }}
+                                            </th>
+                                            <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{  trans('language.users.created_by') }}
                                             </th>
 
@@ -63,6 +66,7 @@
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->care_allowance ?? 'N/A'}}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->household_allowance ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ number_format($residentialCommunity?->deduction_amount) ?? 'N/A' }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->rooms?->count() ?? 0 }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $residentialCommunity?->user->full_name ?? 'N/A' }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     <x-action-dropdown label="Options">

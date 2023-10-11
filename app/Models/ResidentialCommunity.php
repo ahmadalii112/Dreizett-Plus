@@ -28,4 +28,9 @@ class ResidentialCommunity extends Model
     {
         return $this->belongsTo(User::class, 'created_by');
     }
+
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(Room::class, 'community_id');
+    }
 }

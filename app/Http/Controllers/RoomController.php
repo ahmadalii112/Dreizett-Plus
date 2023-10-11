@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RoomRequest;
+use App\Http\Service\ResidentialCommunityService;
 use App\Http\Service\RoomService;
-use App\Http\Service\SharedApartmentService;
 use App\Models\Room;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -13,37 +13,37 @@ class RoomController extends Controller
 {
     protected RoomService $roomService;
 
-    protected SharedApartmentService $sharedApartmentService;
+    protected ResidentialCommunityService $residentialCommunityService;
 
-    public function __construct(RoomService $roomService, SharedApartmentService $sharedApartment)
+    public function __construct(RoomService $roomService, ResidentialCommunityService $residentialCommunityService)
     {
         $this->roomService = $roomService;
-        $this->sharedApartmentService = $sharedApartment;
+        $this->residentialCommunityService = $residentialCommunityService;
     }
 
     public function index(): View
     {
-        $rooms = $this->roomService->paginate(with: ['apartment']);
-        $sharedApartments = $this->sharedApartmentService->all()->isEmpty();
+        $rooms = $this->roomService->paginate(with: ['residentialCommunity']);
+        $residentialCommunities = $this->residentialCommunityService->all()->isEmpty();
 
-        return view('rooms.index', compact('rooms', 'sharedApartments'));
+        return view('rooms.index', compact('rooms', 'residentialCommunities'));
     }
 
     public function create(): View|RedirectResponse
     {
-        $sharedApartments = $this->sharedApartmentService->all();
+        $residentialCommunities = $this->residentialCommunityService->all();
 
-        return $sharedApartments->isNotEmpty()
-            ? view('rooms.create-edit-form', compact('sharedApartments'))
+        return $residentialCommunities->isNotEmpty()
+            ? view('rooms.create-edit-form', compact('residentialCommunities'))
             : redirect()->route('rooms.index')
                 ->with('notificationType', 'warning')
-                ->with('notificationMessage', trans('language.notifications.not_available', ['name' => trans_choice('language.shared_apartments.apartments|apartment', 1)]));
+                ->with('notificationMessage', trans('language.notifications.not_available', ['name' => trans_choice('language.residential_community.community', 1)]));
 
     }
 
     public function store(RoomRequest $request): RedirectResponse
     {
-        $this->roomService->create(data: $request->validated());
+        $this->roomService->create(data: $request->validated() + ['created_by' => auth()->id()]);
 
         return redirect()->route('rooms.index')
             ->with('notificationType', 'success')
@@ -52,16 +52,16 @@ class RoomController extends Controller
 
     public function show(Room $room): View
     {
-        $room->load(['apartment']);
+        $room->load(['residentialCommunity']);
 
         return view('rooms.show', compact('room'));
     }
 
     public function edit(Room $room)
     {
-        $sharedApartments = $this->sharedApartmentService->all();
+        $residentialCommunities = $this->residentialCommunityService->all();
 
-        return view('rooms.create-edit-form', compact('sharedApartments', 'room'));
+        return view('rooms.create-edit-form', compact('residentialCommunities', 'room'));
     }
 
     public function update(RoomRequest $request, Room $room): RedirectResponse
