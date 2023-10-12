@@ -81,9 +81,18 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user): RedirectResponse
     {
+        // Get the validated data from the request
+        $validatedData = $request->validated();
+
+        // Check if the 'password' input is present and not empty
+        if (! $request->filled('password')) {
+            unset($validatedData['password']);
+        }
+
+        // Update the user's data
         $updatedUser = $this->userService->updateUserWithRole(
             user: $user,
-            userData: $request->validated(),
+            userData: $validatedData,
             roleName: $request->input('role')
         );
 
