@@ -26,7 +26,10 @@
                             <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500"> {{ __('Information') }}</p>
                         </div>
                         <div class="mt-6 border-t border-gray-100">
-                            <dl class="grid grid-cols-1 sm:grid-cols-3">
+                            <dl class="grid grid-cols-1 sm:grid-cols-3"
+                                x-cloak
+                                x-data="{ ticketSelectedOption: '{{ $ticket->ticket_type }}' }"
+                            >
                                 <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.name') }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->user?->full_name ?? 'N/A' }}</dd>
@@ -47,31 +50,45 @@
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.dimensions')  }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->dimensions ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::ORDER_REQUEST->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.why_needed')  }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->why_needed ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::SUGGESTION->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{  trans('language.tickets.solution_suggestion')  }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->solution_suggestion ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::REPORT->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.trade')   }}</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{  trans('enums.trade_type.'.$ticket?->trade->value)  ?? 'N/A' }}</dd>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{  trans('enums.trade_type.'.$ticket?->trade?->value)  ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::REPORT->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.problem_location')   }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->problem_location ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::REPORT->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.tried_to_solve')   }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->tried_to_solve ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::REPORT->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.proposed_solution')   }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->proposed_solution ?? 'N/A' }}</dd>
                                 </div>
-                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
+                                <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0"
+                                     x-show="ticketSelectedOption === '{{ \App\Enums\TicketTypeEnum::REIMBURSEMENT->value }}'"
+                                >
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{   trans('language.tickets.expense_reason')   }}</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $ticket?->expense_reason ?? 'N/A' }}</dd>
                                 </div>

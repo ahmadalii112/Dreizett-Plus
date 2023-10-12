@@ -6,7 +6,7 @@
     <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3">
             <label for="authorized_representative.salutation"
-                   class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.tenants.salutation') }}</label>
+                   class="block text-sm font-medium leading-6 text-gray-900 ">{{ trans('language.tenants.salutation') }}</label>
             <div class="mt-2">
                 <input type="text" name="authorized_representative[salutation]"
                        id="authorized_representative.salutation"

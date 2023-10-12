@@ -54,10 +54,10 @@
                             <a href="
                             @if(request()->routeIs('tenants.index'))
                              {{ route('rooms.create') }}
-                           {{-- @elseif(request()->routeIs('rooms.index'))
-                              {{ route('shared-apartments.create') }}--}}
-                            @elseif(request()->routeIs('shared-apartments.index'))
+                            @elseif(request()->routeIs('rooms.index'))
                               {{ route('residential-communities.create') }}
+                           {{-- @elseif(request()->routeIs('shared-apartments.index'))
+                              {{ route('residential-communities.create') }}--}}
                            @endif" class="font-medium text-yellow-700 underline hover:text-yellow-600">{{ trans('language.notifications.create') }}</a>
                             </template>
                         </div>
