@@ -15,7 +15,8 @@ class AdministrationSeeder extends Seeder
     public function run(): void
     {
         $user = User::updateOrCreate(['email' => 'admin@admin.com'], [
-            'first_name' => 'admin',
+            'first_name' => 'Admin',
+            'username' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password')]);
         $user->assignRole(RoleTypeEnum::ADMINISTRATION->value);

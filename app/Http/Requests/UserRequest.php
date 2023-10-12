@@ -32,9 +32,11 @@ class UserRequest extends FormRequest
             'last_name' => ['sometimes', 'max:255'],
             'mobile_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:255'],
             'password' => [
-                Rule::when($this->filled('password'), ['required', Password::min(8), 'max:255']),
+                Rule::when($this->filled('password'), ['required', Password::min(8), 'max:255', 'confirmed']),
             ],
-            'email' => ['email', 'max:255', Rule::unique('users')->ignore($this->user)],
+            'email' => ['nullable', 'email', 'max:255', Rule::unique('users')->ignore($this->user)],
+            'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($this->user)],
+
         ];
     }
 }

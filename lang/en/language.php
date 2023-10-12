@@ -5,6 +5,7 @@ return [
     'dashboard' => 'Dashboard',
     'home' => 'Home',
     'name' => 'Name',
+    'username' => 'Username',
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
     'email' => 'Email',

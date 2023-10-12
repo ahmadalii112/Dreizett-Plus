@@ -27,7 +27,7 @@
                         @csrf
                     <div class="border-b border-gray-900/10 pb-12">
                         <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                            <div class="col-span-full">
+                            <div class="sm:col-span-3">
                                 <label for="role" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.roles.role') }}</label>
                                 <div class="mt-2">
                                     <select id="role" name="role" autocomplete="role-name" class="block @error('role') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -41,7 +41,9 @@
                                                             selected
                                                 @endif
                                                 @endif
-                                            >{{$role}}</option>
+                                            >
+                                                {{  trans('enums.roles.'.$role) }}
+                                            </option>
                                         @endforeach
 
                                     </select>
@@ -69,6 +71,17 @@
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="sm:col-span-3">
+                                <label for="username" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.username') }}</label>
+                                <div class="mt-2">
+                                    <input type="text" name="username" id="username"  value="{{ old('username', isset($user) ? $user?->username : '') }}"  class="block w-full @error('username') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" autocomplete="off">
+                                </div>
+                                @error('username')
+                                <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="sm:col-span-3">
                                 <label for="mobile_number" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.users.mobile_number') }}</label>
                                 <div class="mt-2">
@@ -80,7 +93,7 @@
                             </div>
 
                             <div class="sm:col-span-3">
-                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.users.email') }}</label>
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.users.email') }}</label>
                                 <div class="mt-2">
                                     <input id="email" name="email" type="email" autocomplete="email"  value="{{ old('email', isset($user) ? $user?->email : '') }}" class="block w-full @error('email') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
@@ -88,7 +101,6 @@
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
-                            @if(!isset($user))
                             <div class="sm:col-span-3">
                                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.users.password') }}</label>
                                 <div class="mt-2">
@@ -99,7 +111,16 @@
                                 <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
-                            @endif
+                            <div class="sm:col-span-3">
+                                <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-900">{{ trans('language.passwords.confirm_password') }}</label>
+                                <div class="mt-2">
+                                    <input type="password" name="password_confirmation" id="password_confirmation"  value="{{ old('password_confirmation') }}" autocomplete="password_confirmation" class="block w-full @error("password_confirmation") ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                           placeholder="{{ trans('language.passwords.confirm_password') }}">
+                                </div>
+                                @error('password_confirmation')
+                                <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="mt-6 flex items-center justify-end gap-x-6">

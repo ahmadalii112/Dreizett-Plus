@@ -14,11 +14,19 @@ class UserRoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $manager = User::updateOrCreate(['email' => 'management@dreizett.com'], ['first_name' => 'Manager', 'email' => 'management@dreizett.com', 'password' => Hash::make('password')])
-            ->assignRole(RoleTypeEnum::MANAGEMENT->value);
-        $technician = User::updateOrCreate(['email' => 'technician@dreizett.com'], ['first_name' => 'Technician', 'email' => 'technician@dreizett.com', 'password' => Hash::make('password')])
-            ->assignRole(RoleTypeEnum::TECHNICIAN->value);
-        $caregiver = User::updateOrCreate(['email' => 'caregiver@dreizett.com'], ['first_name' => 'Caregiver', 'email' => 'caregiver@dreizett.com', 'password' => Hash::make('password')])
-            ->assignRole(RoleTypeEnum::CAREGIVER->value);
+        $manager = User::updateOrCreate(
+            ['email' => 'management@dreizett.com'],
+            ['first_name' => 'Manager', 'username' => 'management', 'email' => 'management@dreizett.com', 'password' => Hash::make('password')]
+        )->assignRole(RoleTypeEnum::MANAGEMENT->value);
+
+        $technician = User::updateOrCreate(
+            ['email' => 'technician@dreizett.com'],
+            ['first_name' => 'Technician', 'username' => 'technician', 'email' => 'technician@dreizett.com', 'password' => Hash::make('password')]
+        )->assignRole(RoleTypeEnum::TECHNICIAN->value);
+
+        $caregiver = User::updateOrCreate(
+            ['email' => 'caregiver@dreizett.com'],
+            ['first_name' => 'Caregiver', 'username' => 'caregiver', 'email' => 'caregiver@dreizett.com', 'password' => Hash::make('password')]
+        )->assignRole(RoleTypeEnum::CAREGIVER->value);
     }
 }

@@ -5,6 +5,7 @@ return [
     'dashboard' => 'Armaturenbrett',
     'home' => 'Heim',
     'name' => 'Vorname',
+    'username' => 'Nutzername',
     'first_name' => 'Vorname',
     'last_name' => 'Familienname, Nachname',
     'email' => 'Email',
