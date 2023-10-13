@@ -15,7 +15,7 @@
                             <span class="sr-only">Home</span>
                         </a>
                     @endif
-                    <a href="{{ $item['url'] }}" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" @if($index === count($items) - 1) aria-current="page" @endif>{{ $item['label'] }}</a>
+                    <a href="{{ $item['url'] }}" class="ml-4 text-sm font-medium @if($index === count($items) - 1) text-indigo-500 @else text-gray-500 @endif hover:text-gray-700" @if($index === count($items) - 1) aria-current="page" @endif>{{ $item['label'] }}</a>
                 </div>
             </li>
         @endforeach

@@ -39,9 +39,9 @@
                                 class="block @error('status') ring-red-300 @enderror w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             <option >Change Status</option>
                             <option
-                                value="{{ \App\Enums\TicketStatusEnum::IN_PROGRESS->value }}" @selected(old('status', \App\Enums\TicketStatusEnum::IN_PROGRESS->value  ) == \App\Enums\TicketStatusEnum::IN_PROGRESS->value)>{{  \App\Enums\TicketStatusEnum::IN_PROGRESS->value }}</option>
+                                value="{{ \App\Enums\TicketStatusEnum::IN_PROGRESS->value }}" @selected(old('status', \App\Enums\TicketStatusEnum::IN_PROGRESS->value  ) == \App\Enums\TicketStatusEnum::IN_PROGRESS->value)>{{ trans('enums.ticket_statuses.'.\App\Enums\TicketStatusEnum::IN_PROGRESS->value)  }}</option>
                             <option
-                                value="{{  \App\Enums\TicketStatusEnum::COMPLETED->value }}" @selected(old('status',   \App\Enums\TicketStatusEnum::COMPLETED->value ) == \App\Enums\TicketStatusEnum::COMPLETED->value) >{{  \App\Enums\TicketStatusEnum::COMPLETED->value }}</option>
+                                value="{{  \App\Enums\TicketStatusEnum::COMPLETED->value }}" @selected(old('status',   \App\Enums\TicketStatusEnum::COMPLETED->value ) == \App\Enums\TicketStatusEnum::COMPLETED->value) >{{   trans('enums.ticket_statuses.'.\App\Enums\TicketStatusEnum::COMPLETED->value) }}</option>
                         </select>
                     </div>
                     @error('status')
