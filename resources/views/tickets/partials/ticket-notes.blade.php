@@ -25,8 +25,11 @@
                     </div>
                     <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.notes') }}</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">{{ $note?->note ?? 'N/A' }}</dd>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2 truncate cursor-pointer hover:cursor-handsize" title="{{ $note?->note ?? 'N/A' }}">
+                            {{ Str::limit($note?->note, 30) }}
+                        </dd>
                     </div>
+
                     <div class="border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">{{ trans('language.tickets.ticket_status') }}</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-2">
