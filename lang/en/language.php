@@ -134,6 +134,7 @@ return [
         'danger' => 'You cannot do this action',
         'not_available' => 'No :name are available.',
         'create' => 'Click here to create',
+        'reset_password' => 'Reset Password link sent successfully',
     ],
 
 ];

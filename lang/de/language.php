@@ -134,6 +134,7 @@ return [
         'danger' => 'Sie können diese Aktion nicht ausführen',
         'not_available' => 'Es sind keine :name verfügbar.',
         'create' => 'Klicken Sie hier, um zu erstellen',
+        'reset_password' => 'Link zum Zurücksetzen des Passworts erfolgreich gesendet',
     ],
 
 ];

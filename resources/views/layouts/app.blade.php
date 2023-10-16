@@ -16,7 +16,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
-{{--    <script src="https://cdn.tailwindcss.com"></script>--}}
+    @if(isset($styles))
+        {{ $styles }}
+    @endif
     <style>
         [x-cloak] {
             display: none;
@@ -58,7 +60,7 @@
                             <div class="">
                                 <x-dropdown align="right" width="48">
                                     <x-slot name="trigger">
-                                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                        <button class="inline-flex items-center px-3 py-2  border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                             <div>{{ Auth::user()->full_name }}</div>
 
                                             <div class="ml-1">
