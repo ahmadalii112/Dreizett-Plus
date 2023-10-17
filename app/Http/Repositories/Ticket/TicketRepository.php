@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Http\Repositories\Ticket;
 
+use App\Http\Repositories\BaseRepository;
 use App\Models\Ticket;
 
 class TicketRepository extends BaseRepository

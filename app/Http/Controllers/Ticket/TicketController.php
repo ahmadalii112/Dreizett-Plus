@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Ticket;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TicketRequest;
-use App\Http\Service\TicketService;
+use App\Http\Service\Ticket\TicketService;
 use App\Models\Ticket;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -21,13 +24,15 @@ class TicketController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View|JsonResponse
     {
         $user = Auth::user();
         $tickets = $this->ticketService->getTicketsByUserRole($user);
+        if ($request->ajax()) {
+            return $this->ticketService->getDatatables($tickets);
+        }
 
         return view('tickets.index', compact('tickets'));
-
     }
 
     /**

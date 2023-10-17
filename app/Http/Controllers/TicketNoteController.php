@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TicketNoteRequest;
+use App\Http\Service\Ticket\TicketService;
 use App\Http\Service\TicketNoteService;
-use App\Http\Service\TicketService;
 use App\Models\Ticket;
 use App\Notifications\TicketStatusChangedNotification;
 use Illuminate\Http\RedirectResponse;
