@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TenantRequest;
 use App\Http\Service\AuthorizedRepresentativeService;
-use App\Http\Service\RoomService;
+use App\Http\Service\Room\RoomService;
 use App\Http\Service\TenantService;
 use App\Models\Tenant;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 
 class TenantController extends Controller
 {

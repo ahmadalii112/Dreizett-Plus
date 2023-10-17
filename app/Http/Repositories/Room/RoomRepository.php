@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Http\Repositories\Room;
 
+use App\Http\Repositories\BaseRepository;
 use App\Models\Room;
 
 class RoomRepository extends BaseRepository

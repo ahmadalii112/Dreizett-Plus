@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Service;
+namespace App\Http\Service\ResidentialCommunity;
 
-use App\Http\Repositories\ResidentialCommunityRepository;
+use App\Http\Repositories\ResidentialCommunity\ResidentialCommunityRepository;
+use App\Http\Service\BaseService;
 use Yajra\DataTables\DataTables;
 
 class ResidentialCommunityService extends BaseService

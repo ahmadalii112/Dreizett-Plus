@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Service;
+namespace App\Http\Service\Room;
 
-use App\Http\Repositories\RoomRepository;
+use App\Http\Repositories\Room\RoomRepository;
+use App\Http\Service\BaseService;
 
 class RoomService extends BaseService
 {

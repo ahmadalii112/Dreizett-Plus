@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SharedApartmentRequest;
-use App\Http\Service\ResidentialCommunityService;
+use App\Http\Service\ResidentialCommunity\ResidentialCommunityService;
 use App\Http\Service\SharedApartmentService;
 use App\Models\SharedApartment;
 use Illuminate\Http\RedirectResponse;

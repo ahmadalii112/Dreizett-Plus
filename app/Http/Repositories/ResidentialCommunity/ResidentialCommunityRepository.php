@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Http\Repositories\ResidentialCommunity;
 
+use App\Http\Repositories\BaseRepository;
 use App\Models\ResidentialCommunity;
 
 class ResidentialCommunityRepository extends BaseRepository

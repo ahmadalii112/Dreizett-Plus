@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ResidentialCommunity;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ResidentialCommunityRequest;
-use App\Http\Service\ResidentialCommunityService;
+use App\Http\Service\ResidentialCommunity\ResidentialCommunityService;
 use App\Models\ResidentialCommunity;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;

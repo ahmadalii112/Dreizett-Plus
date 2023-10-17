@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Room;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\RoomRequest;
-use App\Http\Service\ResidentialCommunityService;
-use App\Http\Service\RoomService;
+use App\Http\Service\ResidentialCommunity\ResidentialCommunityService;
+use App\Http\Service\Room\RoomService;
 use App\Models\Room;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
