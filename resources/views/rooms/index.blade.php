@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="mt-8 flow-root">
-                            <div class="-mx-4 overflow-x-auto -my-2 sm:-mx-6 lg:-mx-8 pb-12">
+                            <div class="-mx-4 -my-2 sm:-mx-6 lg:-mx-8 pb-12">
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                     <table class="table data-table min-w-full divide-y divide-gray-300">
                                         <thead>

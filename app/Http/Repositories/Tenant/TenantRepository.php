@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Http\Repositories\Tenant;
 
+use App\Http\Repositories\BaseRepository;
 use App\Models\Tenant;
 
 class TenantRepository extends BaseRepository

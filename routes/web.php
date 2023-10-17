@@ -6,7 +6,7 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentialCommunity\ResidentialCommunityController;
 use App\Http\Controllers\Room\RoomController;
-use App\Http\Controllers\TenantController;
+use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketNoteController;
 use App\Http\Controllers\UserController;

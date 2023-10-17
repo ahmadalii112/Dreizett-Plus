@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tenant;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TenantRequest;
 use App\Http\Service\AuthorizedRepresentativeService;
 use App\Http\Service\Room\RoomService;
-use App\Http\Service\TenantService;
+use App\Http\Service\Tenant\TenantService;
 use App\Models\Tenant;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;

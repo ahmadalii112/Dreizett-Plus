@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Service;
+namespace App\Http\Service\Tenant;
 
-use App\Http\Repositories\TenantRepository;
+use App\Http\Repositories\Tenant\TenantRepository;
+use App\Http\Service\BaseService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Database\Eloquent\Model;
 
