@@ -2,7 +2,6 @@
     <x-slot name="heading">
         {{ trans_choice("language.residential_community.community", 1) }}
     </x-slot>
-    @include('residential-communities.partials.residential-community-data-table')
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
@@ -23,8 +22,8 @@
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <a href="{{ route('residential-communities.create') }}"
-                                        class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                     {{ trans("language.actions.add", ['action' => trans_choice("language.residential_community.community", 2)]) }}
+                                   class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    {{ trans("language.actions.add", ['action' => trans_choice("language.residential_community.community", 2)]) }}
                                 </a>
                             </div>
                         </div>
@@ -39,13 +38,16 @@
                                                 {{ trans('language.residential_community.name') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.residential_community.care_allowance') }} (&euro;)
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.residential_community.care_allowance') }}
+                                                (&euro;)
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.household_allowance') }} (&euro;)
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.household_allowance') }}
+                                                (&euro;)
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.deduction_amount') }} (&euro;)
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">{{ trans('language.residential_community.deduction_amount') }}
+                                                (&euro;)
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans_choice("language.rooms.rooms", 1) }}
@@ -60,6 +62,8 @@
 
                                         </tr>
                                         </thead>
+                                        @include('residential-communities.partials.data-table')
+
                                     </table>
                                 </div>
                             </div>

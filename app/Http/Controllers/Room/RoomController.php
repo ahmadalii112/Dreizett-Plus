@@ -7,7 +7,9 @@ use App\Http\Requests\RoomRequest;
 use App\Http\Service\ResidentialCommunity\ResidentialCommunityService;
 use App\Http\Service\Room\RoomService;
 use App\Models\Room;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class RoomController extends Controller
@@ -22,10 +24,13 @@ class RoomController extends Controller
         $this->residentialCommunityService = $residentialCommunityService;
     }
 
-    public function index(): View
+    public function index(Request $request): View|JsonResponse
     {
-        $rooms = $this->roomService->paginate(with: ['residentialCommunity']);
+        $rooms = $this->roomService->select(with: ['residentialCommunity']);
         $residentialCommunities = $this->residentialCommunityService->all()->isEmpty();
+        if ($request->ajax()) {
+            return $this->roomService->getDatatables($rooms);
+        }
 
         return view('rooms.index', compact('rooms', 'residentialCommunities'));
     }

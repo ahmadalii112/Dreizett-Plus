@@ -16,7 +16,7 @@
             </svg>
             {{ trans('language.actions.edit', ['action' => null]) }}
         </a>
-        <div x-data="{ isModalOpen: false }" x-cloak>
+        <div x-data="{ isModalOpen: false }" x-cloak class="cursor-pointer">
             <!-- Delete User Button -->
             <a @click="isModalOpen = true"
                class="block text-gray-700 hover:bg-gray-100 group flex items-center px-4 py-2 text-sm"
@@ -46,7 +46,7 @@
             />
         </div>
         @role(\App\Enums\RoleTypeEnum::ADMINISTRATION->value)
-        <div x-data="{ isModalOpen: false }" x-cloak>
+        <div x-data="{ isModalOpen: false }" x-cloak class="cursor-pointer">
             <!-- Password Reset -->
             <a @click="isModalOpen = true"
                class="block text-gray-700 hover:bg-gray-100 group flex items-center px-4 py-2 text-sm"
