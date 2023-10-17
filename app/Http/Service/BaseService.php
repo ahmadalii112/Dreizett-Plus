@@ -4,6 +4,7 @@ namespace App\Http\Service;
 
 use App\Http\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -151,5 +152,10 @@ class BaseService
     public function role($roleName)
     {
         return $this->repository->role($roleName);
+    }
+
+    public function select(array $with = []): Builder
+    {
+        return $this->repository->select($with);
     }
 }

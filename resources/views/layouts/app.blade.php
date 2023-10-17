@@ -110,12 +110,36 @@
                     </main>
                 </div>
         </div>
-    </body>
+    </div>
+    @stack('scripts')
+</body>
     <script>
         (function(){
             $('.from-prevent-multiple-submits').on('submit', function(){
                 $('.from-prevent-multiple-submits').attr('disabled','true');
             })
         })();
+        // Design DataTables
+        $(function () {
+            var dataTablesLength = $('#DataTables_Table_0_length').addClass('float-left mb-2');
+            var dataTablesFilter = $('#DataTables_Table_0_filter').addClass('float-right mb-2');
+            var selectElement = $('[name="DataTables_Table_0_length"]')
+                .addClass('form-select form-select-sm mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6')
+                .attr('id', 'location');
+
+            var searchInput = $('#DataTables_Table_0_filter input[type="search"]')
+                .addClass('block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6')
+                .attr('placeholder', 'Search...');
+            // Style the filter label if needed
+            var filterLabel = $('#DataTables_Table_0_filter label')
+                .addClass(' text-sm font-medium leading-6 text-gray-900');
+
+            $('#search-input').on('keyup', function () {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    table.search($('#search-input').val()).draw();
+                }, 750);
+            });
+        });
     </script>
 </html>

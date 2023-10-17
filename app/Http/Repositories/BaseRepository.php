@@ -2,6 +2,7 @@
 
 namespace App\Http\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -191,5 +192,10 @@ class BaseRepository
     public function role($roleName)
     {
         return $this->model->role($roleName);
+    }
+
+    public function select(array $with = []): Builder
+    {
+        return $this->model->with($with)->select('*');
     }
 }
