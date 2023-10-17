@@ -6,6 +6,8 @@ use App\Http\Requests\ResidentialCommunityRequest;
 use App\Http\Service\ResidentialCommunityService;
 use App\Models\ResidentialCommunity;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ResidentialCommunityController extends Controller
 {
@@ -16,11 +18,14 @@ class ResidentialCommunityController extends Controller
         $this->residentialCommunityService = $residentialCommunityService;
     }
 
-    public function index(): View
+    public function index(Request $request): View|JsonResponse
     {
-        $residentialCommunities = $this->residentialCommunityService->paginate(perPage: 10, with: ['user', 'rooms']);
+        $residentialCommunities = $this->residentialCommunityService->select(with: ['user', 'rooms']);
+        if ($request->ajax()) {
+            return $this->residentialCommunityService->getDatatables($residentialCommunities);
+        }
 
-        return view('residential-communities.index', compact('residentialCommunities'));
+        return view('residential-communities.index');
     }
 
     public function create(): View
