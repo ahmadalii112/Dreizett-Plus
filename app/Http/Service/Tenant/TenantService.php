@@ -6,6 +6,8 @@ use App\Http\Repositories\Tenant\TenantRepository;
 use App\Http\Service\BaseService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Yajra\DataTables\DataTables;
 
 class TenantService extends BaseService
 {
@@ -85,5 +87,27 @@ class TenantService extends BaseService
             'zip_code' => $data['zip_code'] ?? null,
             'city' => $data['city'] ?? null,
         ];
+    }
+
+    public function getDatatables($data)
+    {
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('full_name', fn ($row) => $row?->information?->full_name ?? 'N/A')
+            ->addColumn('room_number', fn ($row) => $row?->room?->room_number ?? 'N/A')
+            ->addColumn('address',
+                fn ($row) => Str::limit($row?->information?->address, 25))
+            ->addColumn('status', function ($tenant) {
+                $status = ($tenant->status == 1) ? 'green' : 'red';
+
+                return "<span class='inline-flex items-center text-center rounded-md bg-{$status}-50 px-2 py-1 text-xs font-medium text-{$status}-600 ring-1 ring-inset ring-{$status}-500/10/20'> $tenant?->tenant_status </span>";
+            })
+            ->addColumn('contract_start', fn ($row) => $row?->contract_start ?? 'N/A')
+            ->addColumn('contract_end', fn ($row) => $row?->contract_end ?? 'N/A')
+
+            ->addColumn('action', fn ($tenant) => \view('tenants.partials.table-action', compact('tenant'))->render())
+            ->rawColumns(['action', 'status'])
+            ->make(true);
+
     }
 }

@@ -35,6 +35,17 @@ class UserController extends Controller
         }*/
     public function index(Request $request)
     {
+        //        $data = User::with('roles')->select('*');
+        //        // Use the map function to format the data
+        //        $formattedData = $data->get()->map(function ($user) {
+        //            return [
+        //                'id' => $user->id,
+        //                'name' => $user->name,
+        //                'role_name' => $user->roles->implode('name', ', '), // Assuming 'name' is the role name field
+        //                'email' => $user->email,
+        //            ];
+        //        });
+        //        dd($formattedData);
         if ($request->ajax()) {
             return $this->userService->getDatatables($this->userService->select(with: ['roles']));
         }

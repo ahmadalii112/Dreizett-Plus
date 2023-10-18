@@ -9,7 +9,9 @@ use App\Http\Service\Room\RoomService;
 use App\Http\Service\Tenant\TenantService;
 use App\Models\Tenant;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class TenantController extends Controller
 {
@@ -32,14 +34,17 @@ class TenantController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($roomId = null): View
+    public function index(Request $request, $roomId = null): View|JsonResponse
     {
         $tenants = (is_null($roomId))
-            ? $this->tenantService->paginate(with: ['room'], where: ['status' => '1'])
-            : $this->tenantService->paginate(with: ['room'], where: ['status' => '0', 'room_id' => $roomId]);
+            ? $this->tenantService->select(with: ['room', 'information'], where: ['status' => '1'])
+            : $this->tenantService->select(with: ['room', 'information'], where: ['status' => '0', 'room_id' => $roomId]);
         $rooms = $this->roomService->all()->isEmpty();
+        if ($request->ajax()) {
+            return $this->tenantService->getDatatables($tenants);
+        }
 
-        return view('tenants.index', compact('tenants', 'rooms', 'roomId'));
+        return view('tenants.index', compact('rooms', 'roomId'));
     }
 
     /**
