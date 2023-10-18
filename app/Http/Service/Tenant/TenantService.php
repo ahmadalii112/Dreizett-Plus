@@ -89,8 +89,12 @@ class TenantService extends BaseService
         ];
     }
 
-    public function getDatatables($data)
+    public function getDatatables($roomId)
     {
+        $data = (is_null($roomId))
+            ? $this->select(with: ['room', 'information'], where: ['status' => '1'])
+            : $this->select(with: ['room', 'information'], where: ['status' => '0', 'room_id' => $roomId]);
+
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('full_name', fn ($row) => $row?->information?->full_name ?? 'N/A')
@@ -106,6 +110,11 @@ class TenantService extends BaseService
             ->addColumn('contract_end', fn ($row) => $row?->contract_end ?? 'N/A')
 
             ->addColumn('action', fn ($tenant) => \view('tenants.partials.table-action', compact('tenant'))->render())
+            ->filterColumn('full_name', function ($query, $keyword) {
+                $query->withWhereHas('information', function ($subQuery) use ($keyword) {
+                    $subQuery->whereRaw("CONCAT(salutation, ' ', first_name, ' ', last_name) LIKE ?", ["%$keyword%"]);
+                });
+            })
             ->rawColumns(['action', 'status'])
             ->make(true);
 

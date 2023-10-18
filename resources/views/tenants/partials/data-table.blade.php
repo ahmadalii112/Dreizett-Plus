@@ -19,7 +19,7 @@
                 columns: [
                     {data: 'insurance_number', name: 'insurance_number'},
                     {data: 'room_number', name: 'room_id'},
-                    {data: 'full_name', name: 'full_name', orderable: false, searchable: false},
+                    {data: 'full_name', name: 'full_name', orderable: false},
                     {data: 'address', name: 'address', orderable: false, searchable: false},
                     {data: 'status', name: 'status', orderable: false, searchable: false},
                     {data: 'contract_start', name: 'contract_start_date'},

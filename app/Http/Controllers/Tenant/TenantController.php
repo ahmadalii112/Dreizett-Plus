@@ -36,15 +36,11 @@ class TenantController extends Controller
      */
     public function index(Request $request, $roomId = null): View|JsonResponse
     {
-        $tenants = (is_null($roomId))
-            ? $this->tenantService->select(with: ['room', 'information'], where: ['status' => '1'])
-            : $this->tenantService->select(with: ['room', 'information'], where: ['status' => '0', 'room_id' => $roomId]);
         $rooms = $this->roomService->all()->isEmpty();
-        if ($request->ajax()) {
-            return $this->tenantService->getDatatables($tenants);
-        }
 
-        return view('tenants.index', compact('rooms', 'roomId'));
+        return ($request->ajax())
+            ? $this->tenantService->getDatatables($roomId)
+            : view('tenants.index', compact('rooms', 'roomId'));
     }
 
     /**
