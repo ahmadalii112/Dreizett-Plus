@@ -3,13 +3,13 @@
 use App\Enums\RoleTypeEnum;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PDFController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentialCommunity\ResidentialCommunityController;
 use App\Http\Controllers\Room\RoomController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Ticket\TicketController;
 use App\Http\Controllers\TicketNoteController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Service;
+namespace App\Http\Service\User;
 
 use App\Enums\RoleTypeEnum;
-use App\Http\Repositories\UserRepository;
+use App\Http\Repositories\User\UserRepository;
+use App\Http\Service\BaseService;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;

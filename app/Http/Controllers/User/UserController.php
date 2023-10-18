@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Http\Service\RoleService;
-use App\Http\Service\UserService;
+use App\Http\Service\Role\RoleService;
+use App\Http\Service\User\UserService;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
