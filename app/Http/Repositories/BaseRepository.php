@@ -194,8 +194,10 @@ class BaseRepository
         return $this->model->role($roleName);
     }
 
-    public function select(array $with = [], array $where = [], array $orWhere = []): Builder
+    public function select(array $with = [], array $where = [], array $orWhere = [], array|string $select = []): Builder
     {
-        return $this->model->with($with)->where($where)->orWhere($orWhere)->select('*');
+        $select = (! empty($select)) ? $select : '*';
+
+        return $this->model->with($with)->where($where)->orWhere($orWhere)->select($select);
     }
 }

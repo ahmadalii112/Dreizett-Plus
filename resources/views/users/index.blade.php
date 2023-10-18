@@ -2,7 +2,6 @@
     <x-slot name="heading">
         {{ trans_choice('language.users.users', 1) }}
     </x-slot>
-    @include('users.partials.users-data-table')
     <x-slot name="header">
         <x-breadcrumb :items="[
             ['url' =>  route('dashboard'), 'label' => trans('language.home')],
@@ -54,6 +53,8 @@
                                         </tr>
                                         </thead>
                                     </table>
+                                    @include('users.partials.users-data-table')
+
                                 </div>
                             </div>
                         </div>

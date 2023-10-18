@@ -18,7 +18,7 @@
                 searchDelay: 750,
                 ajax: "{{ route('users.index') }}",
                 columns: [
-                    {data: 'full_name', name: 'first_name',},
+                    {data: 'full_name', name: 'full_name',},
                     {data: 'username', name: 'username'},
                     {data: 'email', name: 'email', orderable: true,  searchable: true,},
                     {data: 'mobile_number', name: 'mobile_number', orderable: true,  searchable: true},

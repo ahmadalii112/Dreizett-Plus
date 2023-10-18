@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Service\RoleService;
 use App\Http\Service\UserService;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -27,30 +28,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    /*    public function index(): View
-        {
-            $users = $this->userService->paginate(perPage: 10, with: ['roles']);
-
-            return view('users.index', compact('users'));
-        }*/
-    public function index(Request $request)
+    public function index(Request $request): View|JsonResponse
     {
-        //        $data = User::with('roles')->select('*');
-        //        // Use the map function to format the data
-        //        $formattedData = $data->get()->map(function ($user) {
-        //            return [
-        //                'id' => $user->id,
-        //                'name' => $user->name,
-        //                'role_name' => $user->roles->implode('name', ', '), // Assuming 'name' is the role name field
-        //                'email' => $user->email,
-        //            ];
-        //        });
-        //        dd($formattedData);
-        if ($request->ajax()) {
-            return $this->userService->getDatatables($this->userService->select(with: ['roles']));
-        }
-
-        return view('users.index');
+        return ($request->ajax())
+            ? $this->userService->getDatatables()
+            : view('users.index');
     }
 
     /**

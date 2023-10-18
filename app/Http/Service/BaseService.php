@@ -154,8 +154,10 @@ class BaseService
         return $this->repository->role($roleName);
     }
 
-    public function select(array $with = [], array $where = [], array $orWhere = []): Builder
+    public function select(array $with = [], array $where = [], array $orWhere = [], array|string $select = []): Builder
     {
-        return $this->repository->select($with, $where, $orWhere);
+        $select = (! empty($select)) ? $select : '*';
+
+        return $this->repository->select($with, $where, $orWhere, $select);
     }
 }
