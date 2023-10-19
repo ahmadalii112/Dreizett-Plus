@@ -92,18 +92,119 @@
                                     @enderror
                                 </div>
 
-
+                                {{-- LEVEL OF CARE DEDUCTION AMOUNT--}}
                                 <div class="sm:col-span-3">
-                                    <label for="deduction_amount"
-                                           class="block text-sm font-medium leading-6 text-gray-900 required"> {{ trans('language.residential_community.deduction_amount') }} (&euro;)</label>
-                                    <div class="mt-2">
-                                        <input type="number" name="deduction_amount" id="deduction_amount"
-                                               value="{{ old('deduction_amount', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount : '') }}"
-                                               autocomplete="family-name"
-                                               class="block w-full @error('deduction_amount') ring-red-300 @enderror rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                               placeholder="1">
+                                    <label for="deduction_amount_care_level_1"
+                                           class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.residential_community.deduction_amount_care_level', ['level' => 1]) }} (&euro;)</label>
+                                    <div class="relative mt-2 rounded-md shadow-sm">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <span class="text-gray-500 sm:text-sm">€</span>
+                                        </div>
+                                        <input type="number" step="0.01" name="deduction_amount_care_level_1"
+                                               id="deduction_amount_care_level_1"
+                                               value="{{ old('deduction_amount_care_level_1', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount_care_level_1 : '') }}"
+                                               autocomplete="deduction_amount_care_level_1"
+                                               class="block w-full @error('deduction_amount_care_level_1') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                               placeholder="0.00">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <span class="text-gray-500 sm:text-sm" id="deduction_amount_care_level_1">EUR</span>
+                                        </div>
                                     </div>
-                                    @error('deduction_amount')
+                                    @error('deduction_amount_care_level_1')
+                                    <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="deduction_amount_care_level_2"
+                                           class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.residential_community.deduction_amount_care_level', ['level' => 2]) }} (&euro;)</label>
+                                    <div class="relative mt-2 rounded-md shadow-sm">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <span class="text-gray-500 sm:text-sm">€</span>
+                                        </div>
+                                        <input type="number" step="0.01" name="deduction_amount_care_level_2"
+                                               id="deduction_amount_care_level_2"
+                                               value="{{ old('deduction_amount_care_level_2', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount_care_level_2 : '') }}"
+                                               autocomplete="deduction_amount_care_level_2"
+                                               class="block w-full @error('deduction_amount_care_level_2') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                               placeholder="0.00">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <span class="text-gray-500 sm:text-sm" id="deduction_amount_care_level_2">EUR</span>
+                                        </div>
+                                    </div>
+                                    @error('deduction_amount_care_level_2')
+                                    <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="deduction_amount_care_level_3"
+                                           class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.residential_community.deduction_amount_care_level', ['level' => 3]) }} (&euro;)</label>
+                                    <div class="relative mt-2 rounded-md shadow-sm">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <span class="text-gray-500 sm:text-sm">€</span>
+                                        </div>
+                                        <input type="number" step="0.01" name="deduction_amount_care_level_3"
+                                               id="deduction_amount_care_level_3"
+                                               value="{{ old('deduction_amount_care_level_3', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount_care_level_3 : '') }}"
+                                               autocomplete="deduction_amount_care_level_3"
+                                               class="block w-full @error('deduction_amount_care_level_3') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                               placeholder="0.00">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <span class="text-gray-500 sm:text-sm" id="deduction_amount_care_level_3">EUR</span>
+                                        </div>
+                                    </div>
+                                    @error('deduction_amount_care_level_3')
+                                    <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="deduction_amount_care_level_4"
+                                           class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.residential_community.deduction_amount_care_level', ['level' => 4]) }} (&euro;)</label>
+                                    <div class="relative mt-2 rounded-md shadow-sm">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <span class="text-gray-500 sm:text-sm">€</span>
+                                        </div>
+                                        <input type="number" step="0.01" name="deduction_amount_care_level_4"
+                                               id="deduction_amount_care_level_4"
+                                               value="{{ old('deduction_amount_care_level_4', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount_care_level_4 : '') }}"
+                                               autocomplete="deduction_amount_care_level_4"
+                                               class="block w-full @error('deduction_amount_care_level_4') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                               placeholder="0.00">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <span class="text-gray-500 sm:text-sm" id="deduction_amount_care_level_4">EUR</span>
+                                        </div>
+                                    </div>
+                                    @error('deduction_amount_care_level_4')
+                                    <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="deduction_amount_care_level_5"
+                                           class="block text-sm font-medium leading-6 text-gray-900 required">{{ trans('language.residential_community.deduction_amount_care_level', ['level' => 5]) }} (&euro;)</label>
+                                    <div class="relative mt-2 rounded-md shadow-sm">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <span class="text-gray-500 sm:text-sm">€</span>
+                                        </div>
+                                        <input type="number" step="0.01" name="deduction_amount_care_level_5"
+                                               id="deduction_amount_care_level_5"
+                                               value="{{ old('deduction_amount_care_level_5', isset($residentialCommunity) ? $residentialCommunity?->deduction_amount_care_level_5 : '') }}"
+                                               autocomplete="deduction_amount_care_level_5"
+                                               class="block w-full @error('deduction_amount_care_level_5') ring-red-300 @enderror  rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                               placeholder="0.00">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <span class="text-gray-500 sm:text-sm" id="deduction_amount_care_level_5">EUR</span>
+                                        </div>
+                                    </div>
+                                    @error('deduction_amount_care_level_5')
                                     <div class="text-sm text-red-600 space-y-1 mt-2">{{ $message }}</div>
                                     @enderror
                                 </div>

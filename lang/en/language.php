@@ -77,6 +77,7 @@ return [
         'care_allowance' => 'Care Allowance ',
         'household_allowance' => 'Household Allowance',
         'deduction_amount' => 'Deduction Amount',
+        'deduction_amount_care_level' => 'Deduction Amount Care Level :level',
     ],
     'shared_apartments' => [
         'apartments|apartment' => 'Shared Apartments|Shared Apartment',

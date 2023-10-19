@@ -16,13 +16,12 @@ class ResidentialCommunity extends Model
         'name',
         'care_allowance',
         'household_allowance',
-        'deduction_amount',
+        'deduction_amount_care_level_1',
+        'deduction_amount_care_level_2',
+        'deduction_amount_care_level_3',
+        'deduction_amount_care_level_4',
+        'deduction_amount_care_level_5',
     ];
-
-    public function sharedApartments(): HasMany
-    {
-        return $this->hasMany(SharedApartment::class);
-    }
 
     public function user(): BelongsTo
     {

@@ -7,7 +7,6 @@
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         var toggleLang = document.querySelector(".toggleLang");
-        var slider = document.querySelector(".slider");
 
         toggleLang.addEventListener("change", function() {
             var selectedLocale = toggleLang.checked ? 'de' : 'en';
@@ -19,6 +18,5 @@
             }
         });
 
-        slider.style.transform = toggleLang.checked ? "translate-x-6" : "translate-x-0";
     });
 </script>

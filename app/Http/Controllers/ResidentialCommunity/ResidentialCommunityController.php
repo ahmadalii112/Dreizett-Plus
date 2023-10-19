@@ -46,7 +46,9 @@ class ResidentialCommunityController extends Controller
 
     public function show(ResidentialCommunity $residentialCommunity)
     {
+        $residentialCommunity->load(['rooms']);
 
+        return view('residential-communities.show', compact('residentialCommunity'));
     }
 
     public function edit(ResidentialCommunity $residentialCommunity): View

@@ -77,6 +77,7 @@ return [
         'care_allowance' => 'Pflegegeld',
         'household_allowance' => 'Haushaltszulage',
         'deduction_amount' => 'Abzugsbetrag',
+        'deduction_amount_care_level' => 'Abzugsbetrag Pflegegrad',
     ],
     'shared_apartments' => [
         'apartments|apartment' => 'Wohngemeinschaften|Gemeinsame Wohnung',

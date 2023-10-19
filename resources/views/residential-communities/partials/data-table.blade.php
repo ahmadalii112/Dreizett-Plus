@@ -21,7 +21,6 @@
                     {data: 'name', name: 'name'},
                     {data: 'care_allowance', name: 'care_allowance'},
                     {data: 'household_allowance', name: 'household_allowance'},
-                    {data: 'deduction_amount', name: 'deduction_amount'},
                     {data: 'rooms', name: 'rooms', searchable: false},
                     {data: 'created_by', name: 'created_by', orderable: false, searchable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false},

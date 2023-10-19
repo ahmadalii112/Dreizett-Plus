@@ -23,9 +23,13 @@ class ResidentialCommunityRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'care_allowance' => 'required|numeric|between:0,9999',
-            'household_allowance' => 'required|numeric|between:0,9999',
-            'deduction_amount' => 'required|numeric|between:0,9999',
+            'care_allowance' => 'required|numeric|between:0,999999',
+            'household_allowance' => 'required|numeric|between:0,999999',
+            'deduction_amount_care_level_1' => 'required|numeric|between:0,999999',
+            'deduction_amount_care_level_2' => 'required|numeric|between:0,999999',
+            'deduction_amount_care_level_3' => 'required|numeric|between:0,999999',
+            'deduction_amount_care_level_4' => 'required|numeric|between:0,999999',
+            'deduction_amount_care_level_5' => 'required|numeric|between:0,999999',
         ];
     }
 }
