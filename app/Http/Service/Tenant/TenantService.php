@@ -69,11 +69,17 @@ class TenantService extends BaseService
 
     public function generateContractPDF($tenant): void
     {
+        // Check if the directory exists, and if not, create it
+        $directory = storage_path('app/public/contracts');
+        if (! file_exists($directory)) {
+            mkdir($directory, 0755, true);
+        }
+        $name = Str::slug($tenant?->information?->full_name, '-');
         $pdf = PDF::loadView('tenants.contract-pdf', ['tenant' => $tenant]);
-        $contractPdfPath = 'contracts/'.$tenant->id.'_contract.pdf';
+        $contractPdfPath = 'contracts/'.$name.'_contract.pdf';
         $pdf->save(storage_path('app/public/'.$contractPdfPath));
         $url = asset('storage/'.$contractPdfPath);
-        $tenant->tenantContract()->create(['contract_pdf_path' => $url]);
+        $tenant->tenantContract()->updateOrcreate(['tenant_id' => $tenant->id], ['contract_pdf_path' => $url]);
     }
 
     public function commonFields(array $data): array

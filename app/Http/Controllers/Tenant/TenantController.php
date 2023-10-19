@@ -8,6 +8,7 @@ use App\Http\Service\AuthorizedRepresentativeService;
 use App\Http\Service\Room\RoomService;
 use App\Http\Service\Tenant\TenantService;
 use App\Models\Tenant;
+use DB;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -63,16 +64,28 @@ class TenantController extends Controller
     public function store(TenantRequest $request): RedirectResponse
     {
         // Check if there's a previous tenant in the room and update their status
-        $this->tenantService->updateTenantStatusForRoom($request->input('room_id'));
-        $tenant = $this->tenantService->createTenantWithAuthRepresentative(
-            tenantData: $request->except('authorized_representative'),
-            authorizedRepresentative: $request->only('authorized_representative'),
-        );
-        $this->tenantService->generateContractPDF($tenant);
+        try {
+            DB::beginTransaction();
+            $this->tenantService->updateTenantStatusForRoom($request->input('room_id'));
+            $tenant = $this->tenantService->createTenantWithAuthRepresentative(
+                tenantData: $request->except('authorized_representative'),
+                authorizedRepresentative: $request->only('authorized_representative'),
+            );
+            $this->tenantService->generateContractPDF($tenant);
 
-        return redirect()->route('tenants.index')
-            ->with('notificationType', 'success')
-            ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.tenants.tenants', 2)]));
+            DB::commit();
+
+            return redirect()->route('tenants.index')
+                ->with('notificationType', 'success')
+                ->with('notificationMessage', trans('language.notifications.add', ['Name' => trans_choice('language.tenants.tenants', 2)]));
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            return redirect()->route('tenants.index')
+                ->with('notificationType', 'danger')
+                ->with('notificationMessage', $exception->getMessage());
+        }
+
     }
 
     /**
@@ -100,11 +113,22 @@ class TenantController extends Controller
      */
     public function update(TenantRequest $request, Tenant $tenant): RedirectResponse
     {
-        $this->tenantService->updateTenant($tenant, $request);
+        try {
+            DB::beginTransaction();
+            $this->tenantService->updateTenant($tenant, $request);
+            $this->tenantService->generateContractPDF($tenant);
+            DB::commit();
 
-        return redirect()->route('tenants.index')
-            ->with('notificationType', 'info')
-            ->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.tenants.tenants', 2)]));
+            return redirect()->route('tenants.index')
+                ->with('notificationType', 'info')
+                ->with('notificationMessage', trans('language.notifications.update', ['Name' => trans_choice('language.tenants.tenants', 2)]));
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            return redirect()->route('tenants.index')
+                ->with('notificationType', 'danger')
+                ->with('notificationMessage', $exception->getMessage());
+        }
     }
 
     /**
