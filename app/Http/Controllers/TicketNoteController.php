@@ -30,6 +30,6 @@ class TicketNoteController extends Controller
         }
         $this->ticketNoteService->create(data: $request->validated() + ['user_id' => auth()->id(), 'ticket_id' => $ticket->id]);
 
-        return redirect()->route('tickets.show', $ticket)->with('notificationType', 'success')->with('notificationMessage', 'Note added successfully.');
+        return redirect()->route('tickets.show', $ticket)->with('notificationType', 'success')->with('notificationMessage', 'Note added successfully.')->withFragment('ticket-note');
     }
 }
