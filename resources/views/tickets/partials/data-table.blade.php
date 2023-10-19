@@ -18,7 +18,7 @@
                 searchDelay: 750,
                 ajax: "{{ route('tickets.index') }}",
                 columns: [
-                    {data: 'user_id', name: 'user_id', orderable: false, searchable: false},
+                    {data: 'full_name', name: 'full_name'},
                     {data: 'location', name: 'location'},
                     {data: 'ticket_type', name: 'ticket_type'},
                     {data: 'ticket_status', name: 'ticket_status'},

@@ -39,12 +39,13 @@ class TicketService extends BaseService
     {
         return DataTables::of($data)
             ->addIndexColumn()
-            ->addColumn('user_id', fn ($row) => $row?->user->full_name ?? 'N/A')
+            ->addColumn('full_name', fn ($row) => $row?->user->full_name ?? 'N/A')
             ->addColumn('action', fn ($ticket) => \view('tickets.partials.table-action', compact('ticket'))->render())
+            ->filterColumn('full_name', function ($query, $keyword) {
+                $query->whereHas('user', function ($subQuery) use ($keyword) {
+                    $subQuery->where('first_name', 'LIKE', "%$keyword%")->orWhere('last_name', 'LIKE', "%$keyword%");
+                });
+            })
             ->make(true);
-        //user_id
-        //location
-        //ticket_type
-        //ticket_status
     }
 }

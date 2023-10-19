@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -43,5 +44,15 @@ class Room extends Model
     public function automaticInvoices(): HasMany
     {
         return $this->hasMany(AutomaticInvoice::class);
+    }
+
+    /**
+     * Get the Room Rent.
+     */
+    protected function roomRent(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->basic_rent + $this->additional_costs + $this->heating_costs + $this->electricity_costs,
+        );
     }
 }
