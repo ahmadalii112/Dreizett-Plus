@@ -5,6 +5,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ResidentialCommunity\ResidentialCommunityController;
 use App\Http\Controllers\Room\RoomController;
+use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Ticket\TicketController;
 use App\Http\Controllers\TicketNoteController;
@@ -46,6 +47,9 @@ Route::middleware('auth')->group(function () {
         Route::resource('rooms', RoomController::class);
         Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);
+        Route::controller(SettingController::class)->group(function () {
+            Route::get('settings', 'index')->name('settings.index');
+        });
     });
     // Ticket Management and Ticket Note
     Route::resource('tickets', TicketController::class);

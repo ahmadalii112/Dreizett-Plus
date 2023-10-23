@@ -3,6 +3,7 @@
 return [
     'welcome' => 'Welcome, :Full_name',
     'dashboard' => 'Dashboard',
+    'settings' => 'Settings',
     'home' => 'Home',
     'name' => 'Name',
     'username' => 'Username',

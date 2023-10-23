@@ -3,6 +3,7 @@
 return [
     'welcome' => 'Willkommen, :Full_name',
     'dashboard' => 'Armaturenbrett',
+    'settings' => 'Einstellungen',
     'home' => 'Heim',
     'name' => 'Vorname',
     'username' => 'Nutzername',
