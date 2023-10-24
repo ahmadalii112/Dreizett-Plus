@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\RoleTypeEnum;
+use App\Http\Controllers\FinApi\FinApiController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ResidentialCommunity\ResidentialCommunityController;
@@ -47,8 +48,12 @@ Route::middleware('auth')->group(function () {
         Route::resource('rooms', RoomController::class);
         Route::get('previous-tenants/{roomId}', [TenantController::class, 'index'])->name('previous-tenants');
         Route::resource('tenants', TenantController::class);
-        Route::controller(SettingController::class)->group(function () {
-            Route::get('settings', 'index')->name('settings.index');
+        Route::get('settings', SettingController::class)->name('settings.index');
+        Route::controller(FinApiController::class)->group(function () {
+            Route::post('create-bank-connection', 'createBankConnection')->name('finapi-createBankConnection');
+            Route::get('transactions/{transactionId?}', 'transaction')->name('finapi-transactions');
+            Route::get('banks/{bankId?}', 'banks')->name('finapi-banks');
+            Route::get('accounts/{accountId?}', 'accounts')->name('finapi-accounts');
         });
     });
     // Ticket Management and Ticket Note
