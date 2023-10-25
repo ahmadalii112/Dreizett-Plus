@@ -4,7 +4,9 @@ namespace App\Http\Controllers\FinApi;
 
 use App\Http\Controllers\Controller;
 use App\Http\Service\FinAPIService;
+use App\Models\Connection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FinApiController extends Controller
 {
@@ -22,40 +24,33 @@ class FinApiController extends Controller
             return redirect()->back()->with('notificationType', 'danger')->with('notificationMessage', $accessTokenResponse['error']['message']);
         }
         $token = $accessTokenResponse['access_token'];
-        $bankConnectionData = [
-            'bank' => [
-                'search' => 'DEMO0002',
-            ],
-            'bankConnectionName' => 'finAPI Test Redirect Bank',
-            'skipBalancesDownload' => false,
-            'skipPositionsDownload' => false,
-            'loadOwnerData' => false,
-            'maxDaysForDownload' => 3650,
-            'accountTypes' => [
-                'CHECKING',
-                'SAVINGS',
-                'CREDIT_CARD',
-                'SECURITY',
-                'MEMBERSHIP',
-                'LOAN',
-                'BAUSPAREN',
-            ],
-            'callbacks' => [
-                'finalised' => 'https://dev.finapi.io/callback?state=DEMO0002',
-            ],
-            'allowTestBank' => true,
-        ];
+        $bankConnectionData = $this->finApiService->getBankConnectionData();
 
         $result = $this->finApiService->createBankConnection($token, $bankConnectionData);
+        Connection::create([
+            'uuid' => Str::uuid(),
+            'external_id' => $result['id'],
+            'secret_identifier' => 'Hash',
+            'start_date' => now()->format('Y-m-d'),
+            'status' => $result['status'],
+            'type' => $result['type'],
+            'bank_connection_id' => null,
+        ]);
 
         return array_key_exists('url', $result)
             ? redirect()->to($result['url'])
             : redirect()->back()->with('notificationType', 'danger')->with('notificationMessage', "{$result['error']['code']} {$result['error']['description']}");
     }
 
+    public function webFormStatus($webFormId)
+    {
+        return $this->finApiService->getWebFormStatus($webFormId);
+
+    }
+
     public function transaction($transactionId = null)
     {
-        return $this->finApiService->getTransactions('userView', $transactionId);
+        return $this->finApiService->getTransactions($transactionId);
     }
 
     public function banks($bankId = null)
@@ -65,6 +60,7 @@ class FinApiController extends Controller
 
     public function accounts($accountId = null)
     {
-        return $this->finApiService->getAccounts($accountId);
+        return $this->finApiService->fetchAccounts();
+        //        return $this->finApiService->getAccounts($accountId);
     }
 }

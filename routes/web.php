@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
         Route::get('settings', SettingController::class)->name('settings.index');
         Route::controller(FinApiController::class)->group(function () {
             Route::post('create-bank-connection', 'createBankConnection')->name('finapi-createBankConnection');
+            Route::get('web-form-status/{webFormId}', 'webFormStatus')->name('finapi-web-form-status');
             Route::get('transactions/{transactionId?}', 'transaction')->name('finapi-transactions');
             Route::get('banks/{bankId?}', 'banks')->name('finapi-banks');
             Route::get('accounts/{accountId?}', 'accounts')->name('finapi-accounts');
