@@ -66,6 +66,7 @@ class FinAPIService
         $bankConnectionData = [
             'bank' => [
                 'search' => 'DEMO0002',
+                //                'search' => 'DEMO0001',
             ],
             'bankConnectionName' => 'finAPI Test Redirect Bank',
             'skipBalancesDownload' => false,
@@ -83,6 +84,7 @@ class FinAPIService
             ],
             'callbacks' => [
                 'finalised' => 'https://dev.finapi.io/callback?state=DEMO0002',
+                //                'finalised' => 'https://dev.finapi.io/callback?state=DEMO0001',
             ],
             'allowTestBank' => true,
         ];
@@ -90,7 +92,7 @@ class FinAPIService
         return $bankConnectionData;
     }
 
-    public function getWebFormStatus($webFormId)
+    public function getWebFormStatus(string $webFormId)
     {
         $accessTokenResponse = $this->getAccessToken(
             grantType: 'password',
@@ -204,6 +206,7 @@ class FinAPIService
         }
         $accessToken = $accessTokenResponse['access_token'];
 
+        // Get Accounts API CALL
         $url = $this->baseUrl.'/api/v2/accounts';
 
         $accountsApiParams = [];
@@ -213,7 +216,6 @@ class FinAPIService
         }
         $response = Http::withToken($accessToken)->get($url, $accountsApiParams);
 
-        /** @var array|null */
         $accounts = $response->json('accounts');
 
         if ($accounts === null) {
@@ -226,42 +228,38 @@ class FinAPIService
 
         $connectionIds = collect($accounts)->pluck('bankConnectionId')->unique();
 
+        // Get bankConnections API CALL
+
         $url = $this->baseUrl.'/api/v2/bankConnections';
 
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer '.$accessToken,
-        ])->get($url, [
+        $response = Http::withToken($accessToken)->get($url, [
             'ids' => $connectionIds->implode(','),
         ]);
 
-        /** @var array|null */
         $bankConnections = $response->json('connections');
 
         if ($bankConnections === null) {
             throw new \Exception(strval(__('Bank connections not found in the response!')));
         }
 
-        $bankIds = collect($bankConnections)->pluck('bankId')->unique();
+        $bankIds = collect($bankConnections)->pluck('bank.id')->unique();
 
         $url = $this->baseUrl.'/api/v2/banks';
 
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer '.$accessToken,
-        ])->get($url, [
+        $response = Http::withToken($accessToken)->get($url, [
             'ids' => $bankIds->implode(','),
         ]);
 
-        /** @var array|null */
         $banks = $response->json('banks');
+        //        dd(['bankConnection' => $bankConnections], ['banks' => $banks]);
 
         if ($banks === null) {
-
             throw new \Exception(strval(__('Banks not found in the response!')));
         }
         $bankConnections = collect($bankConnections)
             ->map(function ($bankConnection) use ($banks) {
                 $bankConnection['bank'] = collect($banks)
-                    ->where('id', $bankConnection['id'])
+                    ->where('id', $bankConnection['bank']['id'])
                     ->first();
 
                 return $bankConnection;
@@ -275,12 +273,14 @@ class FinAPIService
 
                 return $account;
             });
+        //        return $accounts;
 
         $accounts = $accounts->map(function ($account) {
 
             return [
-                'name' => $account['accountHolderName'],
-                'external_id' => $account['id'],
+                'account_holder_name' => $account['accountHolderName'],
+                'account_id' => $account['id'],
+                'bank_connection_Id' => $account['bankConnectionId'],
                 'bank_name' => $account['bank_connection']['name'],
                 'type' => $account['accountType'],
                 'balance' => $account['balance'],

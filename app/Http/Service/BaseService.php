@@ -59,6 +59,17 @@ class BaseService
     }
 
     /**
+     * Insert multiple records into the database using the repository model.
+     *
+     * @param  array  $data An array of associative arrays representing the data to be inserted.
+     * @return bool True if the insertion was successful; otherwise, false.
+     */
+    public function insert(array $data): bool
+    {
+        return $this->repository->insert($data);
+    }
+
+    /**
      * The function "find" retrieves a model by its ID from the repository.
      *
      * @param  int  $id id The "id" parameter is an integer that represents the unique identifier of the

@@ -3,18 +3,27 @@
 namespace App\Http\Controllers\FinApi;
 
 use App\Http\Controllers\Controller;
+use App\Http\Service\Account\AccountService;
+use App\Http\Service\Connection\ConnectionService;
 use App\Http\Service\FinAPIService;
-use App\Models\Connection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class FinApiController extends Controller
 {
     public FinAPIService $finApiService;
 
-    public function __construct(FinAPIService $finApiService)
-    {
+    public ConnectionService $connectionService;
+
+    public AccountService $accountService;
+
+    public function __construct(
+        FinAPIService $finApiService,
+        ConnectionService $connectionService,
+        AccountService $accountService
+    ) {
         $this->finApiService = $finApiService;
+        $this->connectionService = $connectionService;
+        $this->accountService = $accountService;
     }
 
     public function createBankConnection(Request $request)
@@ -27,15 +36,8 @@ class FinApiController extends Controller
         $bankConnectionData = $this->finApiService->getBankConnectionData();
 
         $result = $this->finApiService->createBankConnection($token, $bankConnectionData);
-        Connection::create([
-            'uuid' => Str::uuid(),
-            'external_id' => $result['id'],
-            'secret_identifier' => 'Hash',
-            'start_date' => now()->format('Y-m-d'),
-            'status' => $result['status'],
-            'type' => $result['type'],
-            'bank_connection_id' => null,
-        ]);
+        $this->connectionService->createConnection($result);
+        session(['webFormId' => $result['id']]);
 
         return array_key_exists('url', $result)
             ? redirect()->to($result['url'])
@@ -44,7 +46,21 @@ class FinApiController extends Controller
 
     public function webFormStatus($webFormId)
     {
-        return $this->finApiService->getWebFormStatus($webFormId);
+        $result = $this->finApiService->getWebFormStatus($webFormId);
+        if (empty($result['payload'])) {
+            return redirect()->route('settings.index')->with('notificationType', 'danger')->with('notificationMessage', 'The process is not completed yet please do it first');
+        } else {
+            $bankConnectionId = $result['payload']['bankConnectionId'];
+            $connection = $this->connectionService->updateBankConnection($webFormId, $bankConnectionId);
+            $accounts = $this->finApiService->fetchAccounts($result['payload']);
+            $this->accountService->saveAccounts($connection->id, $accounts->toArray());
+
+            session()->forget('webFormId');
+
+            //            return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Accounts Saved Successfully');
+            return $accounts;
+
+        }
 
     }
 

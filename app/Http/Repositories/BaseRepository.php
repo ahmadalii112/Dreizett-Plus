@@ -168,6 +168,17 @@ class BaseRepository
     }
 
     /**
+     * Insert multiple records into the database using the repository model.
+     *
+     * @param  array  $data An array of associative arrays representing the data to be inserted.
+     * @return bool True if the insertion was successful; otherwise, false.
+     */
+    public function insert(array $data): bool
+    {
+        return $this->model->insert($data);
+    }
+
+    /**
      * Delete a model instance by its ID.
      *
      * @param  int  $id The ID of the model instance to delete.

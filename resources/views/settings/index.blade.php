@@ -18,7 +18,7 @@
                                 {{trans('language.settings') }}
                             </h2>
                         </header>
-                            <form action="{{ route('finapi-createBankConnection') }}" method="post" class="mt-6 space-y-6">
+                            <form action="{{ route('finapi-createBankConnection') }}" method="post" class="mt-6 space-y-6" target="_blank">
                                 @csrf
                                 <div>
                                     <label class="block font-medium text-sm text-gray-700" for="username">Fin API Username</label>
@@ -33,9 +33,30 @@
                                 </div>
                             </form>
                     </section>
-
                 </div>
+
             </div>
         </div>
+        @if(session('webFormId'))
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <section>
+                        <header>
+                            <h2 class="text-lg font-medium text-gray-900">
+                                Web Form Status
+                            </h2>
+                        </header>
+                            <form action="{{ route('finapi-web-form-status', session('webFormId')) }}" method="get" class="mt-6 space-y-6" >
+                                <div class="flex items-center gap-4">
+                                    <x-primary-button>{{ __('Check Status') }}</x-primary-button>
+                                </div>
+                            </form>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+        @endif
     </div>
 </x-app-layout>
