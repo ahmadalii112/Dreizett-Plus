@@ -13,12 +13,12 @@ class AccountService extends BaseService
         $this->repository = $accountRepository;
     }
 
-    public function saveAccounts($connectionId, $accounts): void
+    public function saveAccounts($connection, $accounts): void
     {
         foreach ($accounts as $account) {
             $accountData = [
                 'uuid' => Str::uuid(),
-                'connection_id' => $connectionId,
+                'connection_id' => $connection->id,
                 'account_holder_name' => $account['account_holder_name'],
                 'account_id' => $account['account_id'],
                 'bank_name' => $account['bank_name'],

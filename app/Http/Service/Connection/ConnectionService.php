@@ -27,11 +27,15 @@ class ConnectionService extends BaseService
         ]);
     }
 
-    public function updateBankConnection($webFormId, $bankConnectionId): ?Model
+    public function updateBankConnection($webFormId, $webFomStatus): ?Model
     {
         $this->update(
             where: ['external_id' => $webFormId],
-            data: ['bank_connection_id' => $bankConnectionId]
+            data: [
+                'status' => $webFomStatus['status'],
+                'bank_connection_id' => $webFomStatus['payload']['bankConnectionId'],
+
+            ]
         );
 
         return $this->first(where: ['external_id' => $webFormId]);

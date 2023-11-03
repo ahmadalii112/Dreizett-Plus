@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Service\Account\AccountService;
 use App\Http\Service\Connection\ConnectionService;
 use App\Http\Service\FinAPIService;
+use App\Http\Service\Transaction\TransactionService;
+use App\Models\Connection;
 use Illuminate\Http\Request;
 
 class FinApiController extends Controller
@@ -16,19 +18,26 @@ class FinApiController extends Controller
 
     public AccountService $accountService;
 
+    public TransactionService $transactionService;
+
     public function __construct(
         FinAPIService $finApiService,
         ConnectionService $connectionService,
-        AccountService $accountService
+        AccountService $accountService,
+        TransactionService $transactionService
     ) {
         $this->finApiService = $finApiService;
         $this->connectionService = $connectionService;
         $this->accountService = $accountService;
+        $this->transactionService = $transactionService;
     }
 
     public function createBankConnection(Request $request)
     {
-        $accessTokenResponse = $this->finApiService->getAccessToken(grantType: 'password', username: $request->username, password: $request->password);
+        $accessTokenResponse = $this->finApiService->getAccessToken(
+            grantType: 'password',
+            username: env('FIN_API_USER', 'test'),
+            password: env('FIN_API_PASSWORD', 'test'));
         if (isset($accessTokenResponse['error'])) {
             return redirect()->back()->with('notificationType', 'danger')->with('notificationMessage', $accessTokenResponse['error']['message']);
         }
@@ -46,27 +55,30 @@ class FinApiController extends Controller
 
     public function webFormStatus($webFormId)
     {
-        $result = $this->finApiService->getWebFormStatus($webFormId);
-        if (empty($result['payload'])) {
-            return redirect()->route('settings.index')->with('notificationType', 'danger')->with('notificationMessage', 'The process is not completed yet please do it first');
-        } else {
-            $bankConnectionId = $result['payload']['bankConnectionId'];
-            $connection = $this->connectionService->updateBankConnection($webFormId, $bankConnectionId);
-            $accounts = $this->finApiService->fetchAccounts($result['payload']);
-            $this->accountService->saveAccounts($connection->id, $accounts->toArray());
+        $webFomStatus = $this->finApiService->getWebFormStatus($webFormId);
+        if (! empty($webFomStatus['payload'])) {
+            $connection = $this->connectionService->updateBankConnection($webFormId, $webFomStatus);
+            try {
+                $accounts = $this->finApiService->fetchAccounts($webFomStatus['payload']);
+            } catch (\Exception $exception) {
+                return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', $exception->getMessage());
+            }
+            $this->accountService->saveAccounts($connection, $accounts->toArray());
 
             session()->forget('webFormId');
 
-            //            return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Accounts Saved Successfully');
-            return $accounts;
+            return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Accounts Saved Successfully');
+            //            return $accounts;
 
+        } else {
+            return redirect()->route('settings.index')->with('notificationType', 'danger')->with('notificationMessage', 'The process is not completed yet please do it first');
         }
 
     }
 
-    public function transaction($transactionId = null)
+    public function transaction(Request $request, $transactionId = null)
     {
-        return $this->finApiService->getTransactions($transactionId);
+        return $this->finApiService->getTransactions(transactionId: $transactionId, params: $request->all());
     }
 
     public function banks($bankId = null)
@@ -78,5 +90,14 @@ class FinApiController extends Controller
     {
         return $this->finApiService->fetchAccounts();
         //        return $this->finApiService->getAccounts($accountId);
+    }
+
+    public function saveTransactions(Connection $connection)
+    {
+        $result = $this->finApiService->fetchAndMapTransactions($connection);
+        $data = $this->transactionService->insert($result->toArray());
+
+        return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Transaction Saved Successfully');
+
     }
 }

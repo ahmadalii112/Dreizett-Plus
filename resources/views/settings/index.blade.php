@@ -20,7 +20,7 @@
                         </header>
                             <form action="{{ route('finapi-createBankConnection') }}" method="post" class="mt-6 space-y-6" target="_blank">
                                 @csrf
-                                <div>
+                                {{--<div>
                                     <label class="block font-medium text-sm text-gray-700" for="username">Fin API Username</label>
                                     <input  id="username" name="username" type="text" value="{{ old('username') }}" autocomplete="off" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full">
                                 </div>
@@ -28,6 +28,7 @@
                                     <label class="block font-medium text-sm text-gray-700" for="password">Fin API password</label>
                                     <input  id="password" name="password" type="password" value="" autocomplete="off" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full">
                                 </div>
+                                --}}
                                 <div class="flex items-center gap-4">
                                     <x-primary-button>{{ __('submit') }}</x-primary-button>
                                 </div>

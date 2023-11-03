@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
             Route::get('transactions/{transactionId?}', 'transaction')->name('finapi-transactions');
             Route::get('banks/{bankId?}', 'banks')->name('finapi-banks');
             Route::get('accounts/{accountId?}', 'accounts')->name('finapi-accounts');
+            Route::get('fetchMapTransaction/{connection}', 'saveTransactions')->name('finapi-saveTransactions');
         });
     });
     // Ticket Management and Ticket Note

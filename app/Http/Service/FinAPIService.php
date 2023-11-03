@@ -2,6 +2,7 @@
 
 namespace App\Http\Service;
 
+use App\Models\Connection;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -148,14 +149,13 @@ class FinAPIService
             'view' => 'userView',
             'page' => $page,
             'perPage' => 500,
-            //'minBankBookingDate' => $startsAt->toDateString(),
         ]);
         try {
             $url = $this->baseUrl.'/api/v2/transactions/'.$transactionId;
             $response = Http::withToken($accessToken)->get($url, $params);
 
             return $response->successful()
-                ? $response->json()
+                ? $response->json('transactions')
                 : ['error' => $response->json()];
 
         } catch (\Exception $e) {
@@ -290,5 +290,53 @@ class FinAPIService
         });
 
         return $accounts;
+    }
+
+    public function fetchAndMapTransactions(Connection $connection)
+    {
+        $page = 1;
+
+        $isLastPage = false;
+
+        $transactions = collect([]);
+        $connectionId = $connection->id;
+
+        $accountIds = $connection->accounts()->select('account_id')->pluck('account_id')->implode(',');
+
+        while (! $isLastPage) {
+            $finApiTransactions = $this->getTransactions(null, $page, [
+                'accountIds' => $accountIds,
+            ]);
+
+            foreach ($finApiTransactions as $finApiTransaction) {
+                $account = $connection->accounts()
+                    ->where('account_id', $finApiTransaction['accountId'])
+                    ->first();
+                $data = [
+                    'connection_id' => $connection->id,
+                    'account_id' => $account?->id,
+                    'fin_api_account_id' => (int) $account?->account_id,
+                    'transaction_id' => $finApiTransaction['id'],
+                    'transaction_date' => Carbon::parse($finApiTransaction['bankBookingDate']),
+                    'payment_partner_name' => $finApiTransaction['counterpartName'] ?? 'unknown',
+                    'reference_purpose' => $finApiTransaction['purpose'],
+                    'details' => $finApiTransaction['purpose'],
+                ];
+                //                dd($data);
+                $transactions->push($data);
+            }
+
+            $page++;
+
+            $isLastPage = $this->isLastPage($finApiTransactions);
+        }
+
+        return $transactions;
+        //            ->groupBy('account_id')
+    }
+
+    private function isLastPage(array $transactions): bool
+    {
+        return ! count($transactions);
     }
 }
