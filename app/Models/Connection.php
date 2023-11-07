@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ConnectionStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -19,6 +20,7 @@ class Connection extends Model
 
     protected $casts = [
         'start_date' => 'date:Y-m-d',
+        'status' => ConnectionStatusEnum::class,
     ];
 
     public function accounts(): HasMany

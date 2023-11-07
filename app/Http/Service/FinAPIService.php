@@ -3,7 +3,9 @@
 namespace App\Http\Service;
 
 use App\Models\Connection;
+use App\Models\Tenant;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
@@ -292,7 +294,7 @@ class FinAPIService
         return $accounts;
     }
 
-    public function fetchAndMapTransactions(Connection $connection)
+    public function fetchAndMapTransactions(Connection $connection): Collection
     {
         $page = 1;
 
@@ -312,6 +314,13 @@ class FinAPIService
                 $account = $connection->accounts()
                     ->where('account_id', $finApiTransaction['accountId'])
                     ->first();
+
+                // Find the tenant based on counterpartName
+                $matchingTenant = Tenant::withWhereHas('information', function ($query) use ($finApiTransaction) {
+                    $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%'.$finApiTransaction['counterpartName'].'%']);
+                })->first();
+
+                $tenant_id = $matchingTenant ? $matchingTenant->id : null;
                 $data = [
                     'connection_id' => $connection->id,
                     'account_id' => $account?->id,
@@ -321,6 +330,7 @@ class FinAPIService
                     'payment_partner_name' => $finApiTransaction['counterpartName'] ?? 'unknown',
                     'reference_purpose' => $finApiTransaction['purpose'],
                     'details' => $finApiTransaction['purpose'],
+                    'tenant_id' => $tenant_id,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];
