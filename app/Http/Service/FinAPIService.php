@@ -321,6 +321,8 @@ class FinAPIService
                     'payment_partner_name' => $finApiTransaction['counterpartName'] ?? 'unknown',
                     'reference_purpose' => $finApiTransaction['purpose'],
                     'details' => $finApiTransaction['purpose'],
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ];
                 //                dd($data);
                 $transactions->push($data);
