@@ -4,6 +4,7 @@ return [
     'welcome' => 'Willkommen, :Full_name',
     'dashboard' => 'Armaturenbrett',
     'settings' => 'Einstellungen',
+    'transactions' => 'Transaktionen',
     'home' => 'Heim',
     'name' => 'Vorname',
     'username' => 'Nutzername',

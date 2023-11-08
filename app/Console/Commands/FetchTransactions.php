@@ -50,8 +50,8 @@ class FetchTransactions extends Command
                 foreach ($connections as $connection) {
                     $transactions = $this->finAPIService->fetchAndMapTransactions($connection);
                 }
-                $this->info('Transactions fetched and mapped for completed connections.');
-                $this->info('Inserting Transactions into the DB.');
+                $this->info('transactions fetched and mapped for completed connections.');
+                $this->info('Inserting transactions into the DB.');
                 $this->transactionService->insert($transactions->toArray());
                 $this->info('Transaction Saved SuccessFully');
             } else {

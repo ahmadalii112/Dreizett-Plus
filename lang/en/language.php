@@ -4,6 +4,7 @@ return [
     'welcome' => 'Welcome, :Full_name',
     'dashboard' => 'Dashboard',
     'settings' => 'Settings',
+    'transactions' => 'Transactions',
     'home' => 'Home',
     'name' => 'Name',
     'username' => 'Username',

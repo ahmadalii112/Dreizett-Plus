@@ -194,7 +194,7 @@ class FinAPIService
         /*
          * FinAPI structure of banks, connections, accounts and transactions
          *
-         * Banks <--1:n--> Bank connections <--1:n--> Accounts <--1:n--> Transactions
+         * Banks <--1:n--> Bank connections <--1:n--> Accounts <--1:n--> transactions
          *
          */
 

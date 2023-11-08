@@ -10,6 +10,7 @@ use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Ticket\TicketController;
 use App\Http\Controllers\TicketNoteController;
+use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -52,10 +53,11 @@ Route::middleware('auth')->group(function () {
         Route::controller(FinApiController::class)->group(function () {
             Route::post('create-bank-connection', 'createBankConnection')->name('finapi-createBankConnection');
             Route::get('web-form-status/{webFormId}', 'webFormStatus')->name('finapi-web-form-status');
-            Route::get('transactions/{transactionId?}', 'transaction')->name('finapi-transactions');
+            Route::get('finapi-transactions/{transactionId?}', 'transaction')->name('finapi-transactions');
             Route::get('banks/{bankId?}', 'banks')->name('finapi-banks');
             Route::get('accounts/{accountId?}', 'accounts')->name('finapi-accounts');
             Route::get('fetch-map-transaction/{connection}', 'saveTransactions')->name('finapi-saveTransactions');
+            Route::resource('transactions', TransactionController::class)->only(['index', 'update']);
         });
     });
     // Ticket Management and Ticket Note

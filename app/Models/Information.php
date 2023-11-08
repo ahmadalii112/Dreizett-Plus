@@ -32,6 +32,13 @@ class Information extends Model
         );
     }
 
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->first_name.' '.$this->last_name,
+        );
+    }
+
     protected function address(): Attribute
     {
         return Attribute::make(
