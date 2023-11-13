@@ -68,7 +68,6 @@ class FinApiController extends Controller
             session()->forget('webFormId');
 
             return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Accounts Saved Successfully');
-            //            return $accounts;
 
         } else {
             return redirect()->route('settings.index')->with('notificationType', 'danger')->with('notificationMessage', 'The process is not completed yet please do it first');
