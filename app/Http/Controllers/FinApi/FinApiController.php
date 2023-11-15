@@ -36,8 +36,9 @@ class FinApiController extends Controller
     {
         $accessTokenResponse = $this->finApiService->getAccessToken(
             grantType: 'password',
-            username: env('FIN_API_USER', 'test'),
-            password: env('FIN_API_PASSWORD', 'test'));
+            username: config('services.finapi.username'),
+            password: config('services.finapi.password')
+        );
         if (isset($accessTokenResponse['error'])) {
             return redirect()->back()->with('notificationType', 'danger')->with('notificationMessage', $accessTokenResponse['error']['message']);
         }

@@ -178,6 +178,11 @@ class BaseRepository
         return $this->model->insert($data);
     }
 
+    public function upsert(array $data, array $uniqueKeys, array $updateColumns)
+    {
+        return $this->model->upsert($data, $uniqueKeys, $updateColumns);
+    }
+
     /**
      * Delete a model instance by its ID.
      *

@@ -35,5 +35,7 @@ return [
         'webform_base_url' => env('FINAPI_WEBFORM_BASE_URL', 'https://webform-sandbox.finapi.io'),
         'client_id' => env('FINAPI_CLIENT_ID', 'test'),
         'client_secret' => env('FINAPI_CLIENT_SECRET', 'test'),
+        'username' => env('FIN_API_USER', 'test'),
+        'password' => env('FIN_API_PASSWORD', 'test'),
     ],
 ];

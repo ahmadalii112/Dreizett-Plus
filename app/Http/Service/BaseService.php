@@ -69,6 +69,11 @@ class BaseService
         return $this->repository->insert($data);
     }
 
+    public function upsert(array $data, array $uniqueKeys, array $updateColumns): bool
+    {
+        return $this->repository->upsert($data, $uniqueKeys, $updateColumns);
+    }
+
     /**
      * The function "find" retrieves a model by its ID from the repository.
      *
