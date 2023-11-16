@@ -72,6 +72,7 @@ return [
         'delete_account' => 'Konto löschen',
         'delete_account_message' => 'Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie Ihr Konto löschen, laden Sie bitte alle Daten oder Informationen herunter, die Sie behalten möchten.',
         'details' => ':name Einzelheiten',
+        'assign' => 'Zuordnen :action',
     ],
     'residential_community' => [
         'community' => 'Gemeinschaften|Gemeinschaft',
@@ -138,6 +139,18 @@ return [
         'not_available' => 'Es sind keine :name verfügbar.',
         'create' => 'Klicken Sie hier, um zu erstellen',
         'reset_password' => 'Link zum Zurücksetzen des Passworts erfolgreich gesendet',
+    ],
+    'finApi' => [
+        'transactions' => [
+            'payment_partner_name' => 'Name des Zahlungszwecks',
+            'reference_purpose' => 'Referenzzweck',
+            'details' => 'Einzelheiten',
+            'transaction_date' => 'Transaktionsdatum',
+        ],
+        'web-form' => [
+            'status_not_completed' => 'Der Webformularstatus ist :status. Bitte füllen Sie zunächst das Webformular aus',
+            'status_complete' => 'Die Konten und Transaktionen wurden erfolgreich gespeichert',
+        ],
     ],
 
 ];

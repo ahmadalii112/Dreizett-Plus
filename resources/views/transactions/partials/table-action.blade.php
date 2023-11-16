@@ -4,7 +4,7 @@
         <a @click="isModalOpen = true"
            class="btn btn-outline-primary btn-sm"
            role="menuitem" tabindex="-1" id="menu-item-1">
-            Assign
+            {{ trans('language.actions.assign', ['action' => null]) }}
         </a>
 
 

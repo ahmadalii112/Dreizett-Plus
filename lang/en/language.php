@@ -72,6 +72,7 @@ return [
         'delete_account' => 'Delete Account',
         'delete_account_message' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
         'details' => ':name Details',
+        'assign' => 'Assign :action',
     ],
     'residential_community' => [
         'community' => 'Residential Communities|Residential Community',
@@ -139,5 +140,16 @@ return [
         'create' => 'Click here to create',
         'reset_password' => 'Reset Password link sent successfully',
     ],
-
+    'finApi' => [
+        'transactions' => [
+            'payment_partner_name' => 'Payment Purpose Name',
+            'reference_purpose' => 'Reference Purpose',
+            'details' => 'Details',
+            'transaction_date' => 'Transaction Date',
+        ],
+        'web-form' => [
+            'status_not_completed' => 'The web form status is :status. Please first fill out the web form',
+            'status_complete' => 'The accounts and transactions saved successfully',
+        ],
+    ],
 ];

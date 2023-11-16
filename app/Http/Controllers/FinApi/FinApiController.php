@@ -63,7 +63,7 @@ class FinApiController extends Controller
             try {
                 $accounts = $this->finApiService->fetchAccounts($webFomStatus['payload']);
             } catch (\Exception $exception) {
-                return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', $exception->getMessage());
+                return redirect()->route('settings.index')->with('notificationType', 'danger')->with('notificationMessage', $exception->getMessage());
             }
             $this->accountService->saveAccounts($connection, $accounts->toArray());
 
@@ -71,10 +71,12 @@ class FinApiController extends Controller
 
             session()->forget('webFormId');
 
-            return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Accounts Saved Successfully');
+            return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', trans('language.finApi.web-form.status_complete'));
 
         } else {
-            return redirect()->route('settings.index')->with('notificationType', 'danger')->with('notificationMessage', 'The process is not completed yet please do it first');
+            return redirect()->route('settings.index')
+                ->with('notificationType', 'danger')
+                ->with('notificationMessage', trans('language.finApi.web-form.status_not_completed', ['status' => trans('enums.connection_status.'.$webFomStatus['status'])]));
         }
 
     }

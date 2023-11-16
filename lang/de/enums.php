@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ConnectionStatusEnum;
 use App\Enums\LocationTypeEnum;
 use App\Enums\RoleTypeEnum;
 use App\Enums\TicketStatusEnum;
@@ -46,4 +47,13 @@ return [
         '' => 'N / A',
     ],
 
+    'connection_status' => [
+        ConnectionStatusEnum::NOT_YET_OPENED->value => 'NOT_YET_OPENED',
+        ConnectionStatusEnum::IN_PROGRESS->value => 'IN_PROGRESS',
+        ConnectionStatusEnum::COMPLETED->value => 'COMPLETED',
+        ConnectionStatusEnum::COMPLETED_WITH_ERROR->value => 'COMPLETED_WITH_ERROR',
+        ConnectionStatusEnum::ABORTED->value => 'ABORTED',
+        ConnectionStatusEnum::EXPIRED->value => 'EXPIRED',
+        '' => 'N / A',
+    ],
 ];

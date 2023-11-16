@@ -28,19 +28,19 @@
                                         <thead>
                                         <tr>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('payment_partner_name') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.finApi.transactions.payment_partner_name') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('reference_purpose') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.finApi.transactions.reference_purpose') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('details') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.finApi.transactions.details') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('transaction_date') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans('language.finApi.transactions.transaction_date') }}
                                             </th>
                                             <th scope="col"
-                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ __('tenant') }}
+                                                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"> {{ trans_choice('language.tenants.tenants', 1) }}
                                             </th>
                                         </tr>
                                         </thead>

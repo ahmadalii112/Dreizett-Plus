@@ -32,11 +32,11 @@
                     </svg>
                 </div>
                 <div class="text-center sm:ml-4 sm:mt-0 sm:text-left">
-                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Assign Tenant</h3>
+                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">{{ trans('language.actions.assign', ['action' => trans_choice('language.tenants.tenants', 2)]) }}</h3>
                 </div>
             </div>
             <div>
-                <label for="tenant_id" class="block text-sm font-medium leading-6 text-gray-900">Tenant</label>
+                <label for="tenant_id" class="block text-sm font-medium leading-6 text-gray-900">{{ trans_choice('language.tenants.tenants', 1) }}</label>
                 <select id="tenant_id" name="tenant_id"
                         class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 >
@@ -48,7 +48,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button>
-                    Submit
+                    {{ trans('language.actions.save', ['name' => null]) }}
                 </x-primary-button>
             </div>
         </form>
