@@ -151,6 +151,8 @@ return [
             'status_not_completed' => 'Der Webformularstatus ist :status. Bitte füllen Sie zunächst das Webformular aus',
             'status_complete' => 'Die Konten und Transaktionen wurden erfolgreich gespeichert',
         ],
+        'open_form' => 'Öffnen Sie das Webformular',
+        'check_status' => 'Überprüfen Sie den Webformularstatus',
     ],
 
 ];

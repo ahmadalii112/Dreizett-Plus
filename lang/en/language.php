@@ -151,5 +151,7 @@ return [
             'status_not_completed' => 'The web form status is :status. Please first fill out the web form',
             'status_complete' => 'The accounts and transactions saved successfully',
         ],
+        'open_form' => 'Open Web Form',
+        'check_status' => 'Check Web Form Status',
     ],
 ];
