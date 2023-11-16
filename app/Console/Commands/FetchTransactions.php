@@ -5,8 +5,8 @@ namespace App\Console\Commands;
 use App\Enums\ConnectionStatusEnum;
 use App\Http\Service\FinAPIService;
 use App\Http\Service\Transaction\TransactionService;
+use App\Jobs\ProcessTransactionsJob;
 use App\Models\Connection;
-use DB;
 use Illuminate\Console\Command;
 
 class FetchTransactions extends Command
@@ -41,26 +41,16 @@ class FetchTransactions extends Command
      */
     public function handle()
     {
-        DB::beginTransaction();
-        try {
-            $connections = Connection::where('status', ConnectionStatusEnum::COMPLETED->value)->get();
-            if ($connections->isNotEmpty()) {
-                $this->info('Please Wait! we found some connections, fetching transactions');
-                $transactions = collect([]);
-                foreach ($connections as $connection) {
-                    $transactions = $this->finAPIService->fetchAndMapTransactions($connection);
-                }
-                $this->info('transactions fetched and mapped for completed connections.');
-                $this->info('Inserting transactions into the DB.');
-                $this->transactionService->insert($transactions->toArray());
-                $this->info('Transaction Saved SuccessFully');
-            } else {
-                $this->warn('No Connection found');
+
+        $connections = Connection::where('status', ConnectionStatusEnum::COMPLETED->value)->get();
+        if ($connections->isNotEmpty()) {
+            $this->info('Job is being executed Please Wait!');
+            foreach ($connections as $connection) {
+                dispatch(new ProcessTransactionsJob($connection));
             }
-            DB::commit();
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            $this->error('An error occurred: '.$exception->getMessage());
+        } else {
+            $this->warn('No Connection found');
         }
+
     }
 }

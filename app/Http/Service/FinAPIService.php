@@ -6,7 +6,6 @@ use App\Models\Connection;
 use App\Models\Tenant;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class FinAPIService
@@ -31,7 +30,6 @@ class FinAPIService
 
     public function getAccessToken($grantType = 'client_credentials', $username = null, $password = null)
     {
-        //        return Cache::remember('fin_access_token', Carbon::now()->addHours(1), function () use ($grantType, $username, $password) {
         try {
             $response = Http::asForm()->post($this->baseUrl.'/api/v2/oauth/token', [
                 'grant_type' => $grantType,
@@ -47,7 +45,6 @@ class FinAPIService
         } catch (\Exception $e) {
             return ['error' => $e->getMessage()];
         }
-//        });
     }
 
     public function createBankConnection($accessToken, $bankConnectionData)
@@ -344,7 +341,6 @@ class FinAPIService
         }
 
         return $transactions;
-        //            ->groupBy('account_id')
     }
 
     private function isLastPage(array $transactions): bool

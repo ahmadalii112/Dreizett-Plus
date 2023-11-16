@@ -7,6 +7,7 @@ use App\Http\Service\Account\AccountService;
 use App\Http\Service\Connection\ConnectionService;
 use App\Http\Service\FinAPIService;
 use App\Http\Service\Transaction\TransactionService;
+use App\Jobs\ProcessTransactionsJob;
 use App\Models\Connection;
 use Illuminate\Http\Request;
 
@@ -66,6 +67,8 @@ class FinApiController extends Controller
             }
             $this->accountService->saveAccounts($connection, $accounts->toArray());
 
+            dispatch(new ProcessTransactionsJob($connection));
+
             session()->forget('webFormId');
 
             return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Accounts Saved Successfully');
@@ -86,16 +89,14 @@ class FinApiController extends Controller
         return $this->finApiService->getBanks($bankId);
     }
 
-    public function accounts($accountId = null)
+    public function accounts()
     {
         return $this->finApiService->fetchAccounts();
-        //        return $this->finApiService->getAccounts($accountId);
     }
 
     public function saveTransactions(Connection $connection)
     {
-        $result = $this->finApiService->fetchAndMapTransactions($connection);
-        $data = $this->transactionService->insert($result->toArray());
+        dispatch(new ProcessTransactionsJob($connection));
 
         return redirect()->route('settings.index')->with('notificationType', 'success')->with('notificationMessage', 'Transaction Saved Successfully');
 
