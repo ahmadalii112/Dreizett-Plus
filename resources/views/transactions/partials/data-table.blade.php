@@ -23,8 +23,8 @@
                     {data: 'payment_partner_name', name: 'payment_partner_name'},
                     {data: 'reference_purpose', name: 'reference_purpose'},
                     {data: 'details', name: 'details'},
-                    {data: 'transaction_date', name: 'transaction_date', searchable: false},
-                    {data: 'tenant', name: 'tenant'},
+                    {data: 'transaction_date', name: 'transaction_date', orderable: false, searchable: false },
+                    {data: 'tenant', name: 'tenant', orderable: false, searchable: false},
                 ],
             });
         });
