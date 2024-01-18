@@ -22,7 +22,15 @@
 
         <li>
           <img class="aspect-[3/2] w-full rounded-2xl object-cover"
-               src="{{asset('images/team/dummy.webp')}}"
+               src="{{asset('images/team/marco_l.webp')}}"
+               alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Marco Landolfo</h3>
+          <p class="text-base leading-7 text-gray-600">Geschäftsführer</p>
+        </li>
+
+        <li>
+          <img class="aspect-[3/2] w-full rounded-2xl object-cover"
+               src="{{asset('images/team/david_s.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">David Sauer</h3>
           <p class="text-base leading-7 text-gray-600">Pflegeberater und strategische Planung</p>
@@ -30,7 +38,7 @@
 
         <li>
           <img class="aspect-[3/2] w-full rounded-2xl object-cover"
-               src="{{asset('images/team/dummy.webp')}}"
+               src="{{asset('images/team/patrizia_m.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Patrizia Meschke</h3>
           <p class="text-base leading-7 text-gray-600">Pflegedienstleitung Gevelsberg</p>
@@ -38,7 +46,7 @@
 
         <li>
           <img class="aspect-[3/2] w-full rounded-2xl object-cover"
-               src="{{asset('images/team/dummy.webp')}}"
+               src="{{asset('images/team/kevin_b.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Kevin Berbuesse</h3>
           <p class="text-base leading-7 text-gray-600">stellv. Pflegedienstleitung Gevelsberg</p>
@@ -46,7 +54,7 @@
 
         <li>
           <img class="aspect-[3/2] w-full rounded-2xl object-cover"
-               src="{{asset('images/team/dummy.webp')}}"
+               src="{{asset('images/team/lisa_k.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Lisa Klaas</h3>
           <p class="text-base leading-7 text-gray-600">Pflegedienstleitung Hagen</p>
@@ -54,10 +62,26 @@
 
         <li>
           <img class="aspect-[3/2] w-full rounded-2xl object-cover"
-               src="{{asset('images/team/dummy.webp')}}"
+               src="{{asset('images/team/laura_n.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Laura Nöther</h3>
           <p class="text-base leading-7 text-gray-600">stellv. Pflegedienstleitung Hagen</p>
+        </li>
+
+        <li>
+          <img class="aspect-[3/2] w-full rounded-2xl object-cover"
+               src="{{asset('images/team/jill_l.webp')}}"
+               alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Jill Linn</h3>
+          <p class="text-base leading-7 text-gray-600">Pflegedienstleitung Ennepetal</p>
+        </li>
+
+        <li>
+          <img class="aspect-[3/2] w-full rounded-2xl object-cover"
+               src="{{asset('images/team/dummy.webp')}}"
+               alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Anne-Kathrin Brinkmann</h3>
+          <p class="text-base leading-7 text-gray-600">stellv. Pflegedienstleitung Ennepetal</p>
         </li>
 
       </ul>

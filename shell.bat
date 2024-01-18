@@ -1,0 +1,1 @@
+docker exec -it dreizettplus_web-app sh
