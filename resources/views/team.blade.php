@@ -25,7 +25,7 @@
                src="{{asset('images/team/marco_l.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Marco Landolfo</h3>
-          <p class="text-base leading-7 text-gray-600">Geschäftsführer</p>
+          <p class="text-base leading-7 text-gray-600">Geschäftsführer Ennepetal</p>
         </li>
 
         <li>
@@ -81,7 +81,7 @@
                src="{{asset('images/team/dummy.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Anne-Kathrin Brinkmann</h3>
-          <p class="text-base leading-7 text-gray-600">stellv. Pflegedienstleitung Ennepetal</p>
+          <p class="text-base leading-7 text-gray-600">Leitung Demenz-WG Ennepetal</p>
         </li>
 
       </ul>
