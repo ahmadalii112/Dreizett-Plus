@@ -78,7 +78,7 @@
 
         <li>
           <img class="aspect-[3/2] w-full rounded-2xl object-cover"
-               src="{{asset('images/team/dummy.webp')}}"
+               src="{{asset('images/team/kathi_b.webp')}}"
                alt="">
           <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Anne-Kathrin Brinkmann</h3>
           <p class="text-base leading-7 text-gray-600">Leitung Demenz-WG Ennepetal</p>
